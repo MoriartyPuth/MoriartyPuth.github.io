@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Moriarty Puth - Home</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="topbar">
+    <strong>Moriarty Puth</strong>
+    <button class="menu-btn" type="button" data-menu>Menu</button>
+  </div>
+  <div class="site">
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="assets/img/avatar.jpg" alt="Avatar" />
+        <div>
+          <h1>Moriarty Puth</h1>
+          <p>Offensive Security</p>
+        </div>
+      </div>
+      <nav class="nav">
+        <a class="active" href="index.html">Home</a>
+        <a href="categories.html">Categories</a>
+        <a href="tags.html">Tags</a>
+        <a href="about.html">About</a>
+      </nav>
+      <div class="social">
+        <a href="https://github.com/MoriartyPuth" aria-label="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2c-5.52 0-10 4.58-10 10.22 0 4.52 2.86 8.35 6.83 9.7.5.1.68-.22.68-.5 0-.24-.01-1.04-.02-1.89-2.78.62-3.37-1.22-3.37-1.22-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.55 2.36 1.1 2.94.84.09-.67.35-1.1.63-1.35-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.32.1-2.74 0 0 .84-.27 2.75 1.05a9.2 9.2 0 0 1 5 0c1.9-1.32 2.74-1.05 2.74-1.05.55 1.42.2 2.48.1 2.74.64.72 1.03 1.63 1.03 2.75 0 3.94-2.35 4.8-4.58 5.05.36.32.68.94.68 1.9 0 1.38-.02 2.5-.02 2.85 0 .28.18.61.69.5 3.97-1.35 6.82-5.18 6.82-9.7C22 6.58 17.52 2 12 2z"/>
+          </svg>
+        </a>
+        <a href="mailto:p.camboeav@gmail.com" aria-label="Email">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M3 5h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 2v.2l9 5.4 9-5.4V7H3zm18 10V9.4l-8.4 5.04a1.8 1.8 0 0 1-1.2.26 1.8 1.8 0 0 1-1.2-.26L3 9.4V17h18z"/>
+          </svg>
+        </a>
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="hero">
+        <div>
+          <h2 class="hero-title">Offensive Security • API Abuse & Access Control Research</h2>
+          <p class="meta hero-subtitle">Final-year cybersecurity student building real-world exploitation tooling and scaling discovery of access-control flaws.</p>
+          <div class="hero-badges">
+            <span class="badge">Critical gov vuln reports</span>
+            <span class="badge">Top-80 crackme.one</span>
+            <span class="badge">API security focus</span>
+          </div>
+        </div>
+        <label class="search" aria-label="Search">
+          <input type="search" placeholder="Search" />
+        </label>
+      </div>
+      <div class="search-results" data-search-results></div>
+
+      <section class="spotlight">
+        <div>
+          <p class="eyebrow">Featured Case Study</p>
+          <h3>CSS-GDIN Security Case Study</h3>
+          <p>Real-life exploitation research detailing attack flow, impact, and remediation guidance for high-impact access control failures.</p>
+          <div class="meta">
+            <span class="badge">Real-world exploit</span>
+            <span class="badge">Access control</span>
+            <span class="badge">Government systems</span>
+          </div>
+          <div class="spotlight-actions">
+            <a class="button" href="https://github.com/MoriartyPuth-Labs/CSS-GDIN-Security-Case-Study" target="_blank" rel="noopener">Read case study</a>
+            <a class="button secondary" href="https://github.com/MoriartyPuth-Labs/CSS-GDIN-Security-Case-Study" target="_blank" rel="noopener">View repository</a>
+          </div>
+        </div>
+        <div class="spotlight-stats">
+          <div class="stat">
+            <strong>Impact</strong>
+            <p>Broken access control exposed sensitive data paths in production systems.</p>
+          </div>
+          <div class="stat">
+            <strong>Outcome</strong>
+            <p>Responsible disclosure with remediation insights and hardening guidance.</p>
+          </div>
+          <div class="stat">
+            <strong>Focus</strong>
+            <p>API authorization logic, privilege boundaries, and abuse chains.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="impact-grid">
+        <div class="impact-card">
+          <h4>Real-World Impact</h4>
+          <p>Critical vulnerability reporting across government systems and sensitive assets.</p>
+        </div>
+        <div class="impact-card">
+          <h4>Offensive Tooling</h4>
+          <p>Internal pentest suite for recon, vulnerability analysis, and post-exploitation workflows.</p>
+        </div>
+        <div class="impact-card">
+          <h4>Reverse Engineering</h4>
+          <p>Top-80 crackme.one contributor documenting low-level analysis and techniques.</p>
+        </div>
+      </section>
+
+      <div class="section-header">
+        <h3>Pinned Repositories</h3>
+        <p class="meta">From <a href="https://github.com/MoriartyPuth" target="_blank" rel="noopener">GitHub @MoriartyPuth</a></p>
+      </div>
+      <section class="cards">
+        <article class="card">
+          <h3><a href="https://github.com/MoriartyPuth/AURA" target="_blank" rel="noopener">AURA</a></h3>
+          <p>Internal testing suite for infrastructure auditing that chains reconnaissance with automated exploit-path discovery, powered by a modular Python engine.</p>
+          <div class="meta">
+            <span class="badge">Pinned</span>
+            <span class="pill">Internal</span>
+            <span class="pill">Tooling</span>
+            <span class="pill">Python</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3><a href="https://github.com/MoriartyPuth/Sila-Entropy" target="_blank" rel="noopener">Sila-Entropy</a></h3>
+          <p>Internal testing engine for password auditing, featuring localized linguistic analysis and real-time vulnerability mapping.</p>
+          <div class="meta">
+            <span class="badge">Pinned</span>
+            <span class="pill">Internal</span>
+            <span class="pill">Research</span>
+            <span class="pill">Python</span>
+          </div>
+        </article>
+      </section>
+
+      <div class="section-header">
+        <h3>Bubble Security Suite</h3>
+        <p class="meta">Three tools for recon, parameter discovery, and post-exploitation workflows.</p>
+      </div>
+      <div class="panel">
+        <div class="suite-map">
+          <div class="suite-node">
+            <div class="suite-dot">1</div>
+            <h5>Bubble Scanner</h5>
+            <p>Recon and endpoint discovery.</p>
+          </div>
+          <div class="suite-node">
+            <div class="suite-dot">2</div>
+            <h5>Bubble Pop</h5>
+            <p>Hidden parameter discovery and abuse testing.</p>
+          </div>
+          <div class="suite-node">
+            <div class="suite-dot">3</div>
+            <h5>Bubble Siphon</h5>
+            <p>Post-exploitation validation and data scavenging.</p>
+          </div>
+        </div>
+      </div>
+      <section class="cards">
+        <article class="card">
+          <h3><a href="https://github.com/MoriartyPuth/bubble-scanner" target="_blank" rel="noopener">bubble-scanner</a></h3>
+          <p>Event-driven API reconnaissance that automates endpoint discovery, secret scavenging, and initial exposure mapping.</p>
+          <div class="meta">
+            <span class="pill">Recon</span>
+            <span class="pill">Shell</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3><a href="https://github.com/MoriartyPuth/bubble-pop" target="_blank" rel="noopener">bubble-pop</a></h3>
+          <p>Fast parameter discovery and JWT integrity testing for scaling IDOR probes with color-coded feedback loops.</p>
+          <div class="meta">
+            <span class="pill">Discovery</span>
+            <span class="pill">Shell</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3><a href="https://github.com/MoriartyPuth/bubble-siphon" target="_blank" rel="noopener">bubble-siphon</a></h3>
+          <p>Post-exploitation framework for tactical data scavenging and privilege escalation auditing in hardened Linux environments.</p>
+          <div class="meta">
+            <span class="pill">Post-Exploitation</span>
+            <span class="pill">Shell</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="split-grid">
+        <div class="panel">
+          <h4>Offensive Capabilities</h4>
+          <ul class="listing">
+            <li>API abuse and access-control research</li>
+            <li>Automated recon and exploitation chains</li>
+            <li>Logic flaw discovery beyond scanners</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h4>Defensive Focus</h4>
+          <ul class="listing">
+            <li>Detection engineering and response guidance</li>
+            <li>Threat intelligence and abuse patterning</li>
+            <li>Hardening guidance for exposed APIs</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section-grid">
+        <div class="panel">
+          <h4>Core Skills</h4>
+          <div class="tag-list">
+            <span class="tag">AI Security</span>
+            <span class="tag">Threat Intelligence</span>
+            <span class="tag">Intrusion Detection</span>
+            <span class="tag">Blue Team</span>
+            <span class="tag">Reconnaissance</span>
+            <span class="tag">Exploitation</span>
+            <span class="tag">Reverse Engineering</span>
+            <span class="tag">Malware Analysis</span>
+          </div>
+        </div>
+        <div class="panel">
+          <h4>Tooling Stack</h4>
+          <div class="tag-list">
+            <span class="tag">Python</span>
+            <span class="tag">Bash</span>
+            <span class="tag">Linux</span>
+            <span class="tag">MITRE ATT&CK</span>
+            <span class="tag">OSINT</span>
+            <span class="tag">SIEM</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="notice">Open to red-team roles and security research collaborations.</div>
+
+      <div class="footer">
+        <p>© 2026 Moriarty Puth. Some rights reserved.</p>
+        <p>Powered by Jekyll with Chirpy theme.</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/js/search-index.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
