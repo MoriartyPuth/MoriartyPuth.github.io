@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -23,8 +23,6 @@
       <nav class="nav">
         <a class="active" href="index.html">Home</a>
         <a href="categories.html">Categories</a>
-        <a href="tags.html">Tags</a>
-        <a href="about.html">About</a>
       </nav>
       <div class="social">
         <a href="https://github.com/MoriartyPuth" aria-label="GitHub">
@@ -39,15 +37,14 @@
         </a>
       </div>
     </aside>
-
     <main class="content">
       <div class="hero">
         <div>
-          <h2 class="hero-title">Offensive Security • API Abuse & Access Control Research</h2>
+          <h2 class="hero-title">Offensive Security & Security Researcher</h2>
           <p class="meta hero-subtitle">Final-year cybersecurity student building real-world exploitation tooling and scaling discovery of access-control flaws.</p>
           <div class="hero-badges">
             <span class="badge">Critical gov vuln reports</span>
-            <span class="badge">Top-80 crackme.one</span>
+            <span class="badge">Top-80 crackmes.one</span>
             <span class="badge">API security focus</span>
           </div>
         </div>
@@ -56,186 +53,477 @@
         </label>
       </div>
       <div class="search-results" data-search-results></div>
-
       <section class="spotlight">
         <div>
-          <p class="eyebrow">Featured Case Study</p>
-          <h3>CSS-GDIN Security Case Study</h3>
-          <p>Real-life exploitation research detailing attack flow, impact, and remediation guidance for high-impact access control failures.</p>
-          <div class="meta">
-            <span class="badge">Real-world exploit</span>
-            <span class="badge">Access control</span>
-            <span class="badge">Government systems</span>
-          </div>
-          <div class="spotlight-actions">
-            <a class="button" href="https://github.com/MoriartyPuth-Labs/CSS-GDIN-Security-Case-Study" target="_blank" rel="noopener">Read case study</a>
-            <a class="button secondary" href="https://github.com/MoriartyPuth-Labs/CSS-GDIN-Security-Case-Study" target="_blank" rel="noopener">View repository</a>
+          <p class="eyebrow">Featured Case Studies</p>
+          <div class="featured-grid">
+            <div class="featured-item">
+              <h3>EES Security Case Study</h3>
+              <p>Security assessment of a government-integrated ANPR and parking management system. Demonstrates successful responsible disclosure with full system lockdown within 24 hours.</p>
+              <div class="meta">
+                <span class="badge">Critical (9.8/10)</span>
+                <span class="badge">BAC / IDOR</span>
+                <span class="badge">Government systems</span>
+              </div>
+              <div class="spotlight-actions">
+                <a class="button" href="https://github.com/MoriartyPuth-Labs/EES-Security-Case-Study" target="_blank" rel="noopener">Read case study</a>
+                <a class="button secondary" href="https://github.com/MoriartyPuth-Labs/EES-Security-Case-Study" target="_blank" rel="noopener">View repository</a>
+              </div>
+            </div>
+            <div class="featured-item">
+              <h3>CSS-GDIN Security Case Study</h3>
+              <p>Real-life exploitation research detailing attack flow, impact, and remediation guidance for high-impact access control failures.</p>
+              <div class="meta">
+                <span class="badge">Real-world exploit</span>
+                <span class="badge">Access control</span>
+                <span class="badge">Government systems</span>
+              </div>
+              <div class="spotlight-actions">
+                <a class="button" href="https://github.com/MoriartyPuth-Labs/CSS-GDIN-Security-Case-Study" target="_blank" rel="noopener">Read case study</a>
+                <a class="button secondary" href="https://github.com/MoriartyPuth-Labs/CSS-GDIN-Security-Case-Study" target="_blank" rel="noopener">View repository</a>
+              </div>
+            </div>
           </div>
         </div>
         <div class="spotlight-stats">
           <div class="stat">
             <strong>Impact</strong>
-            <p>Broken access control exposed sensitive data paths in production systems.</p>
+            <p>Critical vulnerabilities in government systems responsibly disclosed and remediated.</p>
           </div>
           <div class="stat">
             <strong>Outcome</strong>
-            <p>Responsible disclosure with remediation insights and hardening guidance.</p>
+            <p>Full system lockdown and hardening within 24 hours of disclosure.</p>
           </div>
           <div class="stat">
             <strong>Focus</strong>
-            <p>API authorization logic, privilege boundaries, and abuse chains.</p>
+            <p>API security, BAC/IDOR exploitation, and actuator hardening.</p>
           </div>
         </div>
       </section>
-
-      <section class="impact-grid">
-        <div class="impact-card">
-          <h4>Real-World Impact</h4>
-          <p>Critical vulnerability reporting across government systems and sensitive assets.</p>
+      <section class="stats-row">
+        <div class="stat-item">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Case Studies</div>
         </div>
-        <div class="impact-card">
-          <h4>Offensive Tooling</h4>
-          <p>Internal pentest suite for recon, vulnerability analysis, and post-exploitation workflows.</p>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number">7</div>
+          <div class="stat-label">Labs & Writeups</div>
         </div>
-        <div class="impact-card">
-          <h4>Reverse Engineering</h4>
-          <p>Top-80 crackme.one contributor documenting low-level analysis and techniques.</p>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number">5</div>
+          <div class="stat-label">Tools Published</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Gov Vulns Reported</div>
         </div>
       </section>
-
-      <div class="section-header">
-        <h3>Pinned Repositories</h3>
-        <p class="meta">From <a href="https://github.com/MoriartyPuth" target="_blank" rel="noopener">GitHub @MoriartyPuth</a></p>
-      </div>
-      <section class="cards">
-        <article class="card">
-          <h3><a href="https://github.com/MoriartyPuth/AURA" target="_blank" rel="noopener">AURA</a></h3>
+      <section class="pinned-section">
+        <div class="section-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+            <line x1="12" y1="22.08" x2="12" y2="12"/>
+          </svg>
+        </div>
+        <div class="section-title">
+          <h3>Pinned Repositories</h3>
+          <p>Featured tools from <a href="https://github.com/MoriartyPuth" target="_blank" rel="noopener">GitHub @MoriartyPuth</a></p>
+        </div>
+      </section>
+      <section class="pinned-grid">
+        <div class="repo-card">
+          <div class="repo-header">
+            <div class="repo-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                <polyline points="2 17 12 22 22 17"/>
+                <polyline points="2 12 12 17 22 12"/>
+              </svg>
+            </div>
+            <span class="repo-lang">Python</span>
+          </div>
+          <h4>AURA</h4>
           <p>Internal testing suite for infrastructure auditing that chains reconnaissance with automated exploit-path discovery, powered by a modular Python engine.</p>
-          <div class="meta">
-            <span class="badge">Pinned</span>
-            <span class="pill">Internal</span>
-            <span class="pill">Tooling</span>
-            <span class="pill">Python</span>
+          <div class="repo-tags">
+            <span>Internal</span>
+            <span>Tooling</span>
           </div>
-        </article>
-        <article class="card">
-          <h3><a href="https://github.com/MoriartyPuth/Sila-Entropy" target="_blank" rel="noopener">Sila-Entropy</a></h3>
+          <a class="repo-link" href="https://github.com/MoriartyPuth/AURA" target="_blank" rel="noopener">View </a>
+        </div>
+        <div class="repo-card">
+          <div class="repo-header">
+            <div class="repo-icon entropy">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2a10 10 0 1 0 10 10"/>
+                <path d="M12 2v10l6.5-6.5"/>
+              </svg>
+            </div>
+            <span class="repo-lang">Python</span>
+          </div>
+          <h4>Sila-Entropy</h4>
           <p>Internal testing engine for password auditing, featuring localized linguistic analysis and real-time vulnerability mapping.</p>
-          <div class="meta">
-            <span class="badge">Pinned</span>
-            <span class="pill">Internal</span>
-            <span class="pill">Research</span>
-            <span class="pill">Python</span>
+          <div class="repo-tags">
+            <span>Internal</span>
+            <span>Research</span>
           </div>
-        </article>
-      </section>
-
-      <div class="section-header">
-        <h3>Bubble Security Suite</h3>
-        <p class="meta">Three tools for recon, parameter discovery, and post-exploitation workflows.</p>
-      </div>
-      <div class="panel">
-        <div class="suite-map">
-          <div class="suite-node">
-            <div class="suite-dot">1</div>
-            <h5>Bubble Scanner</h5>
-            <p>Recon and endpoint discovery.</p>
-          </div>
-          <div class="suite-node">
-            <div class="suite-dot">2</div>
-            <h5>Bubble Pop</h5>
-            <p>Hidden parameter discovery and abuse testing.</p>
-          </div>
-          <div class="suite-node">
-            <div class="suite-dot">3</div>
-            <h5>Bubble Siphon</h5>
-            <p>Post-exploitation validation and data scavenging.</p>
-          </div>
-        </div>
-      </div>
-      <section class="cards">
-        <article class="card">
-          <h3><a href="https://github.com/MoriartyPuth/bubble-scanner" target="_blank" rel="noopener">bubble-scanner</a></h3>
-          <p>Event-driven API reconnaissance that automates endpoint discovery, secret scavenging, and initial exposure mapping.</p>
-          <div class="meta">
-            <span class="pill">Recon</span>
-            <span class="pill">Shell</span>
-          </div>
-        </article>
-        <article class="card">
-          <h3><a href="https://github.com/MoriartyPuth/bubble-pop" target="_blank" rel="noopener">bubble-pop</a></h3>
-          <p>Fast parameter discovery and JWT integrity testing for scaling IDOR probes with color-coded feedback loops.</p>
-          <div class="meta">
-            <span class="pill">Discovery</span>
-            <span class="pill">Shell</span>
-          </div>
-        </article>
-        <article class="card">
-          <h3><a href="https://github.com/MoriartyPuth/bubble-siphon" target="_blank" rel="noopener">bubble-siphon</a></h3>
-          <p>Post-exploitation framework for tactical data scavenging and privilege escalation auditing in hardened Linux environments.</p>
-          <div class="meta">
-            <span class="pill">Post-Exploitation</span>
-            <span class="pill">Shell</span>
-          </div>
-        </article>
-      </section>
-
-      <section class="split-grid">
-        <div class="panel">
-          <h4>Offensive Capabilities</h4>
-          <ul class="listing">
-            <li>API abuse and access-control research</li>
-            <li>Automated recon and exploitation chains</li>
-            <li>Logic flaw discovery beyond scanners</li>
-          </ul>
-        </div>
-        <div class="panel">
-          <h4>Defensive Focus</h4>
-          <ul class="listing">
-            <li>Detection engineering and response guidance</li>
-            <li>Threat intelligence and abuse patterning</li>
-            <li>Hardening guidance for exposed APIs</li>
-          </ul>
+          <a class="repo-link" href="https://github.com/MoriartyPuth/Sila-Entropy" target="_blank" rel="noopener">View </a>
         </div>
       </section>
-
-      <section class="section-grid">
-        <div class="panel">
+      <section class="bubble-suite">
+        <div class="suite-header">
+          <div class="suite-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="4" fill="currentColor" opacity="0.3"/>
+              <line x1="12" y1="2" x2="12" y2="6"/>
+              <line x1="12" y1="18" x2="12" y2="22"/>
+              <line x1="2" y1="12" x2="6" y2="12"/>
+              <line x1="18" y1="12" x2="22" y2="12"/>
+            </svg>
+          </div>
+          <div class="suite-title">
+            <h3>Bubble Security Suite</h3>
+            <p>Three-phase offensive toolkit for API security research</p>
+          </div>
+        </div>
+        <div class="suite-flow">
+          <div class="tool-card">
+            <div class="tool-header">
+              <div class="tool-icon scanner">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"/>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                  <line x1="11" y1="8" x2="11" y2="14"/>
+                  <line x1="8" y1="11" x2="14" y2="11"/>
+                </svg>
+              </div>
+              <span class="tool-phase">Phase 1</span>
+            </div>
+            <h4>bubble-scanner</h4>
+            <p>Recon and endpoint discovery. Maps APIs, identifies exposed paths, and locates secrets.</p>
+            <div class="tool-tags">
+              <span>Recon</span>
+              <span>Shell</span>
+            </div>
+            <a class="tool-link" href="https://github.com/MoriartyPuth/bubble-scanner" target="_blank" rel="noopener">View </a>
+          </div>
+          <div class="flow-connector">
+            <div class="flow-line"></div>
+            <div class="flow-arrow">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="tool-card">
+            <div class="tool-header">
+              <div class="tool-icon pop">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                </svg>
+              </div>
+              <span class="tool-phase">Phase 2</span>
+            </div>
+            <h4>bubble-pop</h4>
+            <p>Hidden parameter discovery and IDOR testing. Probes for vulnerabilities with visual feedback.</p>
+            <div class="tool-tags">
+              <span>Discovery</span>
+              <span>Shell</span>
+            </div>
+            <a class="tool-link" href="https://github.com/MoriartyPuth/bubble-pop" target="_blank" rel="noopener">View </a>
+          </div>
+          <div class="flow-connector">
+            <div class="flow-line"></div>
+            <div class="flow-arrow">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="tool-card">
+            <div class="tool-header">
+              <div class="tool-icon siphon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                </svg>
+              </div>
+              <span class="tool-phase">Phase 3</span>
+            </div>
+            <h4>bubble-siphon</h4>
+            <p>Post-exploitation validation and data scavenging in hardened Linux environments.</p>
+            <div class="tool-tags">
+              <span>Post-Exploitation</span>
+              <span>Shell</span>
+            </div>
+            <a class="tool-link" href="https://github.com/MoriartyPuth/bubble-siphon" target="_blank" rel="noopener">View </a>
+          </div>
+        </div>
+        <div class="suite-footer">
+          <span class="phase-tag">Recon -></span> <span class="flow-arrow-small"></span> <span class="phase-tag">Discover -></span> <span class="flow-arrow-small"></span> <span class="phase-tag">Extract</span>
+        </div>
+      </section>
+      <section class="featured-categories">
+        <div class="section-header-simple">
+          <h3>Explore by Category</h3>
+        </div>
+        <div class="category-grid">
+          <a href="category-labs.html" class="category-card">
+            <div class="cat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <path d="M16 10a4 4 0 0 1-8 0"/>
+              </svg>
+            </div>
+            <div class="cat-info">
+              <h4>Labs Walkthrough</h4>
+              <p>7 labs</p>
+            </div>
+            <span class="cat-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </a>
+          <a href="category-reverse-engineering.html" class="category-card">
+            <div class="cat-icon blue">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              </svg>
+            </div>
+            <div class="cat-info">
+              <h4>Reverse Engineering</h4>
+              <p>Writeups & analysis</p>
+            </div>
+            <span class="cat-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </a>
+          <a href="category-blue-team.html" class="category-card">
+            <div class="cat-icon red">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div class="cat-info">
+              <h4>Blue Team Projects</h4>
+              <p>Detection & defense</p>
+            </div>
+            <span class="cat-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </a>
+          <a href="category-ml-ai.html" class="category-card">
+            <div class="cat-icon purple">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2a10 10 0 1 0 10 10H12V2z"/>
+                <path d="M12 2a7 7 0 0 1 7 7h-7V2z"/>
+              </svg>
+            </div>
+            <div class="cat-info">
+              <h4>ML & AI Projects</h4>
+              <p>Machine learning security</p>
+            </div>
+            <span class="cat-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </a>
+        </div>
+      </section>
+      <section class="recent-activity">
+        <div class="section-header-simple">
+          <h3>Recent Activity</h3>
+          <a href="categories.html" class="view-all">View all <span>></span></a>
+        </div>
+        <div class="activity-list">
+          <div class="activity-item">
+            <div class="activity-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </div>
+            <div class="activity-content">
+              <a href="https://github.com/MoriartyPuth-Labs/Linux-Data-Analysis-Lab" target="_blank" rel="noopener">Linux-Data-Analysis-Lab</a>
+              <span class="activity-meta">Labs Walkthrough - Linux</span>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+            </div>
+            <div class="activity-content">
+              <a href="https://github.com/MoriartyPuth-Labs/Full-Chain-SQLi-Case-Study" target="_blank" rel="noopener">Full-Chain-SQLi-Case-Study</a>
+              <span class="activity-meta">Labs Walkthrough - SQL Injection</span>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+              </svg>
+            </div>
+            <div class="activity-content">
+              <a href="https://github.com/MoriartyPuth-Labs/MSFVenom-and-Trojan-Lab" target="_blank" rel="noopener">MSFVenom-and-Trojan-Lab</a>
+              <span class="activity-meta">Labs Walkthrough - Malware</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="skills-section">
+        <div class="skills-header">
+          <div class="skills-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 20V10"/>
+              <path d="M18 20V4"/>
+              <path d="M6 20v-4"/>
+            </svg>
+          </div>
           <h4>Core Skills</h4>
-          <div class="tag-list">
-            <span class="tag">AI Security</span>
-            <span class="tag">Threat Intelligence</span>
-            <span class="tag">Intrusion Detection</span>
-            <span class="tag">Blue Team</span>
-            <span class="tag">Reconnaissance</span>
-            <span class="tag">Exploitation</span>
-            <span class="tag">Reverse Engineering</span>
-            <span class="tag">Malware Analysis</span>
-          </div>
         </div>
-        <div class="panel">
-          <h4>Tooling Stack</h4>
-          <div class="tag-list">
-            <span class="tag">Python</span>
-            <span class="tag">Bash</span>
-            <span class="tag">Linux</span>
-            <span class="tag">MITRE ATT&CK</span>
-            <span class="tag">OSINT</span>
-            <span class="tag">SIEM</span>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <div class="skill-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2a10 10 0 1 0 10 10H12V2z"/>
+                <path d="M12 2a7 7 0 0 1 7 7h-7V2z"/>
+              </svg>
+            </div>
+            <span>AI Security</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 12h4l3-9 4 18 3-9h6"/>
+              </svg>
+            </div>
+            <span>Threat Intel</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <span>Intrusion Detection</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 8v4l3 3"/>
+              </svg>
+            </div>
+            <span>Blue Team</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </div>
+            <span>Reconnaissance</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <span>Exploitation</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              </svg>
+            </div>
+            <span>Reverse Eng.</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+            </div>
+            <span>Malware Analysis</span>
           </div>
         </div>
       </section>
-
-      <div class="notice">Open to red-team roles and security research collaborations.</div>
-
-      <div class="footer">
-        <p>© 2026 Moriarty Puth. Some rights reserved.</p>
-        <p>Powered by Jekyll with Chirpy theme.</p>
-      </div>
+      <section class="tooling-section">
+        <div class="skills-header">
+          <div class="skills-icon tooling">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
+          <h4>Tooling Stack</h4>
+        </div>
+        <div class="tooling-grid">
+          <div class="tool-item">
+            <span class="tool-name">Python</span>
+            <div class="tool-bar"><div class="tool-fill python"></div></div>
+          </div>
+          <div class="tool-item">
+            <span class="tool-name">Bash</span>
+            <div class="tool-bar"><div class="tool-fill bash"></div></div>
+          </div>
+          <div class="tool-item">
+            <span class="tool-name">Linux</span>
+            <div class="tool-bar"><div class="tool-fill linux"></div></div>
+          </div>
+          <div class="tool-item">
+            <span class="tool-name">MITRE ATT&CK</span>
+            <div class="tool-bar"><div class="tool-fill mitre"></div></div>
+          </div>
+          <div class="tool-item">
+            <span class="tool-name">OSINT</span>
+            <div class="tool-bar"><div class="tool-fill osint"></div></div>
+          </div>
+          <div class="tool-item">
+            <span class="tool-name">SIEM</span>
+            <div class="tool-bar"><div class="tool-fill siem"></div></div>
+          </div>
+        </div>
+      </section>
+      <section class="certs-section">
+        <div class="certs-header">
+          <div class="certs-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="8" r="6"/>
+              <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+            </svg>
+          </div>
+          <h4>Certifications</h4>
+        </div>
+        <div class="certs-grid">
+          <a href="https://www.coursera.org/account/accomplishments/records/UTXCK9XRPVCR" target="_blank" rel="noopener" class="cert-item">
+            <span class="cert-badge" style="background: rgba(34, 197, 94, 0.15); color: #22c55e;">Completed</span>
+            <span class="cert-name">Ethical Hacking Essentials (EHE)</span>
+          </a>
+          <a href="https://www.coursera.org/account/accomplishments/records/LI0DN7QNQ4DK" target="_blank" rel="noopener" class="cert-item">
+            <span class="cert-badge" style="background: rgba(34, 197, 94, 0.15); color: #22c55e;">Completed</span>
+            <span class="cert-name">Network Defense Essentials (NDE)</span>
+          </a>
+          <a href="https://www.coursera.org/account/accomplishments/records/TPU5FV3A8GYH" target="_blank" rel="noopener" class="cert-item">
+            <span class="cert-badge" style="background: rgba(34, 197, 94, 0.15); color: #22c55e;">Completed</span>
+            <span class="cert-name">Digital Forensics Essentials (DFE)</span>
+          </a>
+          <a href="https://www.coursera.org/account/accomplishments/specialization/O9CR1A5CW0YQ" target="_blank" rel="noopener" class="cert-item">
+            <span class="cert-badge" style="background: rgba(168, 85, 247, 0.15); color: #a855f7;">Specialization</span>
+            <span class="cert-name">Cybersecurity Attack and Defense Fundamentals</span>
+          </a>
+          </div>
+        </div>
+      </section>
     </main>
   </div>
-
-  <script src="assets/js/search-index.js"></script>
+  <script src="assets/js/terminal-bg.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

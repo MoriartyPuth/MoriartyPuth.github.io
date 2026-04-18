@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -23,8 +23,8 @@
       <nav class="nav">
         <a href="index.html">Home</a>
         <a class="active" href="categories.html">Categories</a>
-        <a href="tags.html">Tags</a>
-        <a href="about.html">About</a>
+
+
       </nav>
       <div class="social">
         <a href="https://github.com/MoriartyPuth" aria-label="GitHub">
@@ -41,18 +41,101 @@
     </aside>
 
     <main class="content">
-      <div class="content-page">
-        <h2>Categories</h2>
-        <ul class="listing">
-          <li><strong><a href="category-ml-ai.html">Machine Learning and AI Projects</a></strong></li>
-          <li><strong><a href="category-blue-team.html">Blue Team Projects</a></strong></li>
-          <li><strong><a href="category-labs.html">Labs Walkthrough</a></strong></li>
-          <li><strong><a href="category-reverse-engineering.html">Reverse Engineering writeup</a></strong></li>
-        </ul>
+      <div class="page-header">
+        <div class="page-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"/>
+            <rect x="14" y="3" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/>
+          </svg>
+        </div>
+        <div>
+          <h1>Categories</h1>
+          <p class="page-subtitle">Explore research, labs, and projects by topic</p>
+        </div>
+      </div>
+
+      <div class="cat-full-grid">
+        <a href="category-labs.html" class="cat-full-card">
+          <div class="cat-full-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <path d="M16 10a4 4 0 0 1-8 0"/>
+            </svg>
+          </div>
+          <div class="cat-full-info">
+            <h3>Labs Walkthrough</h3>
+            <p>Hands-on labs, CTF challenges, and step-by-step exploitation walkthroughs.</p>
+            <span class="cat-count">7 projects</span>
+          </div>
+          <div class="cat-full-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </div>
+        </a>
+
+        <a href="category-reverse-engineering.html" class="cat-full-card">
+          <div class="cat-full-icon blue">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
+          <div class="cat-full-info">
+            <h3>Reverse Engineering</h3>
+            <p>Malware analysis, binary exploitation, and low-level code research.</p>
+            <span class="cat-count">Writeups & analysis</span>
+          </div>
+          <div class="cat-full-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </div>
+        </a>
+
+        <a href="category-blue-team.html" class="cat-full-card">
+          <div class="cat-full-icon red">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <div class="cat-full-info">
+            <h3>Blue Team Projects</h3>
+            <p>Detection engineering, SIEM rules, incident response, and defense tooling.</p>
+            <span class="cat-count">Detection & defense</span>
+          </div>
+          <div class="cat-full-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </div>
+        </a>
+
+        <a href="category-ml-ai.html" class="cat-full-card">
+          <div class="cat-full-icon purple">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2a10 10 0 1 0 10 10H12V2z"/>
+              <path d="M12 2a7 7 0 0 1 7 7h-7V2z"/>
+            </svg>
+          </div>
+          <div class="cat-full-info">
+            <h3>Machine Learning & AI</h3>
+            <p>AI security research, adversarial ML, and intelligent automation tools.</p>
+            <span class="cat-count">ML & AI security</span>
+          </div>
+          <div class="cat-full-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </div>
+        </a>
       </div>
     </main>
   </div>
 
+  <script src="assets/js/terminal-bg.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

@@ -23,18 +23,18 @@
       <nav class="nav">
         <a href="index.html">Home</a>
         <a class="active" href="categories.html">Categories</a>
-        <a href="tags.html">Tags</a>
-        <a href="about.html">About</a>
+
+
       </nav>
       <div class="social">
         <a href="https://github.com/MoriartyPuth" aria-label="GitHub">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12 2c-5.52 0-10 4.58-10 10.22 0 4.52 2.86 8.35 6.83 9.7.5.1.68-.22.68-.5 0-.24-.01-1.04-.02-1.89-2.78.62-3.37-1.22-3.37-1.22-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.55 2.36 1.1 2.94.84.09-.67.35-1.1.63-1.35-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.32.1-2.74 0 0 .84-.27 2.75 1.05a9.2 9.2 0 0 1 5 0c1.9-1.32 2.74-1.05 2.74-1.05.55 1.42.2 2.48.1 2.74.64.72 1.03 1.63 1.03 2.75 0 3.94-2.35 4.8-4.58 5.05.36.32.68.94.68 1.9 0 1.38-.02 2.5-.02 2.85 0 .28.18.61.69.5 3.97-1.35 6.82-5.18 6.82-9.7C22 6.58 17.52 2 12 2z"/>
+            <path d="M12 2c-5.52 0-10 4.58-10 10.22 0 4.52 2.86 8.35 6.83 9.7.5.1.68-.22.68-.5 0-.24-.01-1.04-.02-1.89-2.78.62-3.37-1.22-3.37-1.22-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.55 2.36 1.1 2.94.84.09-.67.35-1.1.63-1.35-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.32.1-2.74 0 0 .84-.27 2.75 1.05a9.2 9.2 0 0 1 5 0c1.9-1.32 2.74-1.05 2.74-1.05.55 1.42.2 2.48.1 2.74.64.72 1.03 1.63 1.03 2.75 0 3.94-2.35 4.8-4.58 5.05.36.32.68.94.68 1.9 0 1.38-.02 2.5-.02 2.85 0 .28.18.61.69.5 3.97-1.35 6.82-5.18 6.82-9.7C22 6.58 17.52 2 12 2z"/>>
           </svg>
         </a>
         <a href="mailto:p.camboeav@gmail.com" aria-label="Email">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M3 5h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 2v.2l9 5.4 9-5.4V7H3zm18 10V9.4l-8.4 5.04a1.8 1.8 0 0 1-1.2.26 1.8 1.8 0 0 1-1.2-.26L3 9.4V17h18z"/>
+            <path d="M3 5h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 2v.2l9 5.4 9-5.4V7H3zm18 10V9.4l-8.4 5.04a1.8 1.8 0 0 1-1.2.26 1.8 1.8 0 0 1-1.2-.26L3 9.4V17h18z"/>>
           </svg>
         </a>
       </div>
@@ -42,57 +42,134 @@
 
     <main class="content">
       <div class="content-page">
-        <h2>Labs Walkthrough</h2>
-        <p>Hands-on labs and case studies from <a href="https://github.com/MoriartyPuth-Labs" target="_blank" rel="noopener">GitHub @MoriartyPuth-Labs</a>.</p>
+        <div class="cat-hero">
+          <div class="cat-hero-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>>
+              <line x1="3" y1="6" x2="21" y2="6"/>>
+              <path d="M16 10a4 4 0 0 1-8 0"/>>
+            </svg>
+          </div>
+          <div class="cat-hero-text">
+            <h1>Labs Walkthrough</h1>
+            <p>Hands-on labs and exploitation case studies from <a href="https://github.com/MoriartyPuth-Labs" target="_blank" rel="noopener">@MoriartyPuth-Labs</a></p>
+          </div>
+        </div>
 
-        <section class="cards">
-          <article class="card">
+        <section class="labs-grid">
+          <article class="lab-card">
+            <div class="lab-header">
+              <div class="lab-icon linux">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>>
+                </svg>
+              </div>
+              <span class="lab-tag">Linux</span>
+            </div>
             <h3><a href="https://github.com/MoriartyPuth-Labs/Linux-Data-Analysis-Lab" target="_blank" rel="noopener">Linux-Data-Analysis-Lab</a></h3>
-            <p>GitHub repository.</p>
-            <div class="meta">
-              <span>Linux</span>
+            <p>Data analysis and forensics on Linux systems.</p>
+            <div class="lab-footer">
+              <a href="https://github.com/MoriartyPuth-Labs/Linux-Data-Analysis-Lab" target="_blank" rel="noopener" class="lab-link">View Repository <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
             </div>
           </article>
-          <article class="card">
-            <h3><a href="https://github.com/MoriartyPuth-Labs/Server-Exploitation-Post-Exploitation-Lab" target="_blank" rel="noopener">Server-Exploitation-Post-Exploitation-Lab</a></h3>
-            <p>GitHub repository.</p>
-            <div class="meta">
-              <span>Exploitation</span>
+
+          <article class="lab-card">
+            <div class="lab-header">
+              <div class="lab-icon exploit">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"/>>
+                  <path d="M2 17l10 5 10-5"/>>
+                  <path d="M2 12l10 5 10-5"/>>
+                </svg>
+              </div>
+              <span class="lab-tag">Exploitation</span>
+            </div>
+            <h3><a href="https://github.com/MoriartyPuth-Labs/Server-Exploitation-Post-Exploitation-Lab" target="_blank" rel="noopener">Server-Exploitation-Lab</a></h3>
+            <p>Server exploitation and post-exploitation techniques.</p>
+            <div class="lab-footer">
+              <a href="https://github.com/MoriartyPuth-Labs/Server-Exploitation-Post-Exploitation-Lab" target="_blank" rel="noopener" class="lab-link">View Repository <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
             </div>
           </article>
-          <article class="card">
+
+          <article class="lab-card">
+            <div class="lab-header">
+              <div class="lab-icon malware">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>>
+                </svg>
+              </div>
+              <span class="lab-tag">Malware</span>
+            </div>
             <h3><a href="https://github.com/MoriartyPuth-Labs/MSFVenom-and-Trojan-Lab" target="_blank" rel="noopener">MSFVenom-and-Trojan-Lab</a></h3>
-            <p>GitHub repository.</p>
-            <div class="meta">
-              <span>Malware</span>
+            <p>Payload generation and trojan analysis with MSFVenom.</p>
+            <div class="lab-footer">
+              <a href="https://github.com/MoriartyPuth-Labs/MSFVenom-and-Trojan-Lab" target="_blank" rel="noopener" class="lab-link">View Repository <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
             </div>
           </article>
-          <article class="card">
+
+          <article class="lab-card">
+            <div class="lab-header">
+              <div class="lab-icon sqli">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>>
+                </svg>
+              </div>
+              <span class="lab-tag">SQL Injection</span>
+            </div>
             <h3><a href="https://github.com/MoriartyPuth-Labs/Full-Chain-SQLi-Case-Study" target="_blank" rel="noopener">Full-Chain-SQLi-Case-Study</a></h3>
-            <p>GitHub repository.</p>
-            <div class="meta">
-              <span>SQL Injection</span>
+            <p>Complete SQL injection exploitation chain.</p>
+            <div class="lab-footer">
+              <a href="https://github.com/MoriartyPuth-Labs/Full-Chain-SQLi-Case-Study" target="_blank" rel="noopener" class="lab-link">View Repository <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
             </div>
           </article>
-          <article class="card">
-            <h3><a href="https://github.com/MoriartyPuth-Labs/Network-Security-Reconnaissance-Lab" target="_blank" rel="noopener">Network-Security-Reconnaissance-Lab</a></h3>
-            <p>GitHub repository.</p>
-            <div class="meta">
-              <span>Reconnaissance</span>
+
+          <article class="lab-card">
+            <div class="lab-header">
+              <div class="lab-icon recon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"/>>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"/>>
+                </svg>
+              </div>
+              <span class="lab-tag">Reconnaissance</span>
+            </div>
+            <h3><a href="https://github.com/MoriartyPuth-Labs/Network-Security-Reconnaissance-Lab" target="_blank" rel="noopener">Network-Security-Lab</a></h3>
+            <p>Network reconnaissance and security testing.</p>
+            <div class="lab-footer">
+              <a href="https://github.com/MoriartyPuth-Labs/Network-Security-Reconnaissance-Lab" target="_blank" rel="noopener" class="lab-link">View Repository <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
             </div>
           </article>
-          <article class="card">
+
+          <article class="lab-card">
+            <div class="lab-header">
+              <div class="lab-icon ctf">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>>
+                </svg>
+              </div>
+              <span class="lab-tag">CTF Lab</span>
+            </div>
             <h3><a href="https://github.com/MoriartyPuth-Labs/Pickle-Rick-Lab" target="_blank" rel="noopener">Pickle-Rick-Lab</a></h3>
-            <p>GitHub repository.</p>
-            <div class="meta">
-              <span>CTF Lab</span>
+            <p>Rick and Morty themed CTF challenge walkthrough.</p>
+            <div class="lab-footer">
+              <a href="https://github.com/MoriartyPuth-Labs/Pickle-Rick-Lab" target="_blank" rel="noopener" class="lab-link">View Repository <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
             </div>
           </article>
-          <article class="card">
+
+          <article class="lab-card">
+            <div class="lab-header">
+              <div class="lab-icon lab">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>>
+                  <path d="M12 8v4l3 3"/>>
+                </svg>
+              </div>
+              <span class="lab-tag">Lab</span>
+            </div>
             <h3><a href="https://github.com/MoriartyPuth-Labs/N7-Lab" target="_blank" rel="noopener">N7-Lab</a></h3>
-            <p>GitHub repository.</p>
-            <div class="meta">
-              <span>Lab</span>
+            <p>cybersecurity practice and challenge lab.</p>
+            <div class="lab-footer">
+              <a href="https://github.com/MoriartyPuth-Labs/N7-Lab" target="_blank" rel="noopener" class="lab-link">View Repository <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
             </div>
           </article>
         </section>
@@ -100,6 +177,7 @@
     </main>
   </div>
 
+  <script src="assets/js/terminal-bg.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
