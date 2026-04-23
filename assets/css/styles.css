@@ -380,9 +380,6 @@ a {
 
 .spotlight {
   margin-top: 24px;
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 24px;
   padding: 24px;
   border-radius: 24px;
   background: #050805;
@@ -702,9 +699,8 @@ a {
 /* Featured Case Studies Grid */
 .featured-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
-  margin-bottom: 20px;
 }
 
 .featured-item {
@@ -738,11 +734,6 @@ a {
   margin-top: 14px;
 }
 
-@media (max-width: 960px) {
-  .featured-grid {
-    grid-template-columns: 1fr;
-  }
-}
 /* Bubble Security Suite */
 .bubble-suite {
   margin-top: 32px;

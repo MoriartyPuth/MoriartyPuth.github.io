@@ -1,5 +1,11 @@
 window.SEARCH_INDEX = [
   {
+    title: "EES Security Case Study",
+    url: "https://github.com/MoriartyPuth-Labs/EES-Security-Case-Study",
+    summary: "Government-integrated ANPR and parking system case study focused on high-impact access control failures.",
+    tags: ["case study", "idor", "bac", "government systems"]
+  },
+  {
     title: "AUPP CTF Platform Security Study Case",
     url: "https://github.com/MoriartyPuth-Labs/AUPP-CTF-Platform-Security-Study-Case",
     summary: "Authorized external pentest of a university-hosted CTF platform across five testing sessions.",
