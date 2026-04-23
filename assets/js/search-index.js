@@ -1,5 +1,11 @@
 window.SEARCH_INDEX = [
   {
+    title: "AUPP CTF Platform Security Study Case",
+    url: "https://github.com/MoriartyPuth-Labs/AUPP-CTF-Platform-Security-Study-Case",
+    summary: "Authorized external pentest of a university-hosted CTF platform across five testing sessions.",
+    tags: ["case study", "ctf", "api security", "load testing"]
+  },
+  {
     title: "CSS-GDIN Security Case Study",
     url: "https://github.com/MoriartyPuth-Labs/CSS-GDIN-Security-Case-Study",
     summary: "Real-life exploitation research and remediation guidance.",
