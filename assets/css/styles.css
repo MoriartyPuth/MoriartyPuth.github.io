@@ -2720,10 +2720,10 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
   color: var(--muted);
 }
 
-/* 3-column grid */
+/* 2×2 grid */
 .writeups-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
 
@@ -2808,6 +2808,16 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
 .wr-card--green:hover {
   border-color: rgba(34, 197, 94, 0.7);
   box-shadow: 0 20px 40px rgba(0,0,0,0.3), -4px 0 20px rgba(34,197,94,0.15);
+  transform: translateY(-4px);
+}
+
+.wr-card--purple {
+  border-left: 3px solid rgba(168, 85, 247, 0.5);
+  color: #c084fc;
+}
+.wr-card--purple:hover {
+  border-color: rgba(168, 85, 247, 0.7);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3), -4px 0 20px rgba(168,85,247,0.15);
   transform: translateY(-4px);
 }
 
@@ -2952,7 +2962,7 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
   gap: 8px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .writeups-grid {
     grid-template-columns: 1fr;
   }
