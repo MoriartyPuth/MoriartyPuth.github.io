@@ -210,48 +210,81 @@
             <p class="meta">Techniques worth reading about</p>
           </div>
         </div>
-        <div class="writeups-list">
+        <div class="writeups-grid">
 
-          <a href="https://github.com/MoriartyPuth-Labs/The-Alchemist-s-Lock-Lab" target="_blank" rel="noopener" class="writeup-row">
-            <div class="writeup-tags">
-              <span class="writeup-tag writeup-tag--yellow">RE</span>
-              <span class="writeup-tag writeup-tag--muted">3.7 / 6</span>
+          <!-- Card 01: Alchemist's Lock -->
+          <a href="https://github.com/MoriartyPuth-Labs/The-Alchemist-s-Lock-Lab" target="_blank" rel="noopener" class="wr-card wr-card--yellow">
+            <div class="wr-scan"></div>
+            <span class="wr-index">01</span>
+            <div class="wr-top">
+              <span class="wr-type">Reverse Engineering</span>
+              <span class="wr-diff">3.7 / 6.0</span>
             </div>
-            <div class="writeup-body">
-              <span class="writeup-title">The Alchemist's Lock</span>
-              <span class="writeup-desc">Reversed a non-invertible hash function, then bypassed it by patching the conditional jump in IDA Pro instead of solving the math.</span>
+            <h4 class="wr-title">The Alchemist's Lock</h4>
+            <div class="wr-technique">
+              <span class="wr-technique-label">KEY TECHNIQUE</span>
+              <code class="wr-code">jz <span class="wr-code-arrow">→</span> jnz &nbsp;// skip hash validation</code>
             </div>
-            <div class="writeup-arrow">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <p class="wr-desc">Reversed a non-invertible hash, then bypassed it by patching the conditional jump in IDA Pro rather than solving the math.</p>
+            <div class="wr-footer">
+              <div class="wr-tools">
+                <span>IDA Pro</span><span>x64dbg</span><span>Scylla</span>
+              </div>
+              <div class="wr-diff-bar">
+                <div class="wr-diff-fill" style="width: 62%"></div>
+              </div>
             </div>
+            <div class="wr-cta">Read writeup <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
           </a>
 
-          <a href="https://github.com/MoriartyPuth-Labs/MalwareTech-VM1-Lab" target="_blank" rel="noopener" class="writeup-row">
-            <div class="writeup-tags">
-              <span class="writeup-tag writeup-tag--red">RE</span>
-              <span class="writeup-tag writeup-tag--muted">Medium</span>
+          <!-- Card 02: MalwareTech VM1 -->
+          <a href="https://github.com/MoriartyPuth-Labs/MalwareTech-VM1-Lab" target="_blank" rel="noopener" class="wr-card wr-card--red">
+            <div class="wr-scan"></div>
+            <span class="wr-index">02</span>
+            <div class="wr-top">
+              <span class="wr-type">Malware Analysis</span>
+              <span class="wr-diff">Medium</span>
             </div>
-            <div class="writeup-body">
-              <span class="writeup-title">MalwareTech VM1</span>
-              <span class="writeup-desc">Disassembled a custom 8-bit VM's bytecode and wrote a Python emulator to safely decrypt the payload — no binary execution required.</span>
+            <h4 class="wr-title">MalwareTech VM1</h4>
+            <div class="wr-technique">
+              <span class="wr-technique-label">KEY TECHNIQUE</span>
+              <code class="wr-code">Python emulator <span class="wr-code-arrow">→</span> safe bytecode execution</code>
             </div>
-            <div class="writeup-arrow">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <p class="wr-desc">Disassembled a custom 8-bit VM's bytecode, mapped its instruction set, and built an emulator to decrypt the payload without running the binary.</p>
+            <div class="wr-footer">
+              <div class="wr-tools">
+                <span>Python</span><span>Static analysis</span><span>XOR decrypt</span>
+              </div>
+              <div class="wr-diff-bar">
+                <div class="wr-diff-fill" style="width: 50%"></div>
+              </div>
             </div>
+            <div class="wr-cta">Read writeup <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
           </a>
 
-          <a href="https://github.com/MoriartyPuth-Labs/N7-Lab" target="_blank" rel="noopener" class="writeup-row">
-            <div class="writeup-tags">
-              <span class="writeup-tag writeup-tag--green">VulnHub</span>
-              <span class="writeup-tag writeup-tag--muted">Medium</span>
+          <!-- Card 03: N7 Lab -->
+          <a href="https://github.com/MoriartyPuth-Labs/N7-Lab" target="_blank" rel="noopener" class="wr-card wr-card--green">
+            <div class="wr-scan"></div>
+            <span class="wr-index">03</span>
+            <div class="wr-top">
+              <span class="wr-type">VulnHub</span>
+              <span class="wr-diff">Medium</span>
             </div>
-            <div class="writeup-body">
-              <span class="writeup-title">Web Machine N7</span>
-              <span class="writeup-desc">Chained a broken upload form bypass with blind SQLi, then deployed bubble_siphon for post-exploitation credential and secret extraction.</span>
+            <h4 class="wr-title">Web Machine N7</h4>
+            <div class="wr-technique">
+              <span class="wr-technique-label">KEY TECHNIQUE</span>
+              <code class="wr-code">upload bypass <span class="wr-code-arrow">+</span> SQLi <span class="wr-code-arrow">→</span> bubble_siphon</code>
             </div>
-            <div class="writeup-arrow">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <p class="wr-desc">Chained a broken form upload bypass with blind SQL injection, then deployed bubble_siphon to automate post-exploitation secret extraction.</p>
+            <div class="wr-footer">
+              <div class="wr-tools">
+                <span>sqlmap</span><span>bubble_siphon</span><span>DirBuster</span>
+              </div>
+              <div class="wr-diff-bar">
+                <div class="wr-diff-fill" style="width: 50%"></div>
+              </div>
             </div>
+            <div class="wr-cta">Read writeup <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
           </a>
 
         </div>
