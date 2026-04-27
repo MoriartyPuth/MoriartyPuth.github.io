@@ -60,10 +60,10 @@
           <div class="featured-grid">
             <div class="featured-item">
               <h3>EES Security Case Study</h3>
-              <p>Security assessment of a government-integrated ANPR and parking management system, highlighting responsible disclosure, rapid remediation, and high-impact access control failures.</p>
+              <p>Unauthenticated IDOR in Cambodia's Ministry of Interior ANPR system — predictable integer IDs exposed permit data and bureau records across the Cybercrime Unit and Police Biography Office. Spring Boot Actuator endpoints leaked heap dumps and environment variables. Responsibly disclosed and fully patched within 24 hours.</p>
               <div class="meta">
-                <span class="badge">Critical (9.8/10)</span>
-                <span class="badge">BAC / IDOR</span>
+                <span class="badge">CVSS 9.8 Critical</span>
+                <span class="badge">IDOR / BAC</span>
                 <span class="badge">Government systems</span>
               </div>
               <div class="spotlight-actions">
@@ -73,10 +73,10 @@
             </div>
             <div class="featured-item">
               <h3>CSS-GDIN Security Case Study</h3>
-              <p>Real-life exploitation research detailing attack flow, impact, and remediation guidance for high-impact access control failures.</p>
+              <p>Unauthenticated GET endpoint in Cambodia's Government Complaint Support System exposed 1,000+ citizen records including full names, phone numbers, and complaint details. Spring Boot's default-allow posture left administrative reads unrestricted. Responsibly disclosed and patched within 24 hours via method-level Spring Security.</p>
               <div class="meta">
-                <span class="badge">Real-world exploit</span>
-                <span class="badge">Access control</span>
+                <span class="badge">CVSS 7.5 High</span>
+                <span class="badge">IDOR / BAC</span>
                 <span class="badge">Government systems</span>
               </div>
               <div class="spotlight-actions">
@@ -85,7 +85,7 @@
               </div>
             </div>
             <div class="featured-item">
-              <h3>AUPP CTF Platform Security Study Case</h3>
+              <h3>AUPP CTF Platform Security Case Study</h3>
               <p>Authorized external penetration test of a university-hosted CTF platform covering application, API, session security, infrastructure, load, and DDoS resilience across five structured sessions.</p>
               <div class="meta">
                 <span class="badge">5 sessions</span>
