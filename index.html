@@ -60,11 +60,11 @@
           <div class="featured-grid">
             <div class="featured-item">
               <h3>EES Security Case Study</h3>
-              <p>Unauthenticated IDOR in Cambodia's Ministry of Interior ANPR system — predictable integer IDs exposed permit data and bureau records across the Cybercrime Unit and Police Biography Office. Spring Boot Actuator endpoints leaked heap dumps and environment variables. Responsibly disclosed and fully patched within 24 hours.</p>
+              <p>Full-stack assessment of Cambodia's Ministry of Interior ANPR system covering both the Spring Boot web API and companion Android app. API-side: unauthenticated IDOR via sequential integer IDs exposed 100+ bureau records including the Cybercrime Unit and Police Biography Office, predictable GDDTM request IDs enabled time-series enumeration, and exposed Actuator endpoints leaked heap dumps and env vars. Mobile-side: debug certificate signing, cleartext traffic (CWE-312 hardcoded secrets), and cross-surface risk where plaintext mobile traffic could passively capture permit data on the same network. Detected using custom-built Bubble-Scanner. Fully patched within 24 hours of responsible disclosure.</p>
               <div class="meta">
                 <span class="badge">CVSS 9.8 Critical</span>
-                <span class="badge">IDOR / BAC</span>
-                <span class="badge">Government systems</span>
+                <span class="badge">IDOR / Mobile</span>
+                <span class="badge">Full-Stack Assessment</span>
               </div>
               <div class="spotlight-actions">
                 <a class="button" href="https://github.com/MoriartyPuth-Labs/EES-Security-Case-Study" target="_blank" rel="noopener">Read case study</a>
