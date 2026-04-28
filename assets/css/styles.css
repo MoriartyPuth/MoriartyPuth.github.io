@@ -1785,14 +1785,15 @@ a {
 /* Labs Grid */
 .labs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  align-items: start;
 }
 
 .lab-card {
   background: var(--panel);
-  border-radius: 18px;
-  padding: 22px;
+  border-radius: 14px;
+  padding: 16px 18px;
   border: 1px solid var(--border);
   transition: all 0.3s ease;
   position: relative;
@@ -1825,15 +1826,16 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 .lab-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
   display: grid;
   place-items: center;
+  flex-shrink: 0;
 }
 
 .lab-icon.linux, .lab-icon.exploit, .lab-icon.sqli {
@@ -1918,9 +1920,10 @@ a {
 }
 
 .lab-card h3 {
-  margin: 0 0 8px 0;
-  font-size: 17px;
+  margin: 0 0 5px 0;
+  font-size: 15px;
   font-family: 'IBM Plex Mono', ui-monospace;
+  line-height: 1.3;
 }
 
 .lab-card h3 a {
@@ -1932,9 +1935,9 @@ a {
 }
 
 .lab-card p {
-  margin: 0 0 16px 0;
+  margin: 0 0 10px 0;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 12.5px;
   line-height: 1.5;
 }
 
@@ -2945,9 +2948,9 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
 /* ── Lab Card Terminal Bar ── */
 .lab-terminal-bar {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  margin-bottom: 12px;
-  padding-bottom: 9px;
+  font-size: 9.5px;
+  margin-bottom: 8px;
+  padding-bottom: 7px;
   border-bottom: 1px solid rgba(34,197,94,0.1);
   display: flex;
   align-items: center;
