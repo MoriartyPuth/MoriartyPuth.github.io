@@ -2691,3 +2691,242 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
     grid-template-columns: 1fr;
   }
 }
+
+/* =============================================
+   HACKER REDESIGN: BOOT / CURSOR / GLITCH / TILT
+   ============================================= */
+
+/* ── Boot Screen ── */
+#boot-screen {
+  position: fixed;
+  inset: 0;
+  background: #040804;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.7s ease;
+}
+#boot-screen.boot-exit { opacity: 0; pointer-events: none; }
+
+.boot-lines {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  color: #22c55e;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 380px;
+}
+
+.boot-line {
+  opacity: 0;
+  animation: boot-appear 0.15s ease forwards;
+}
+@keyframes boot-appear { to { opacity: 1; } }
+
+.boot-fill {
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: width 0.5s ease;
+  color: #4ade80;
+}
+.boot-fill.filled { width: 12ch; }
+.boot-fill::before { content: '████████████'; }
+
+.boot-ok { color: #4ade80; font-weight: 700; }
+
+.boot-granted {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #22c55e;
+  animation: boot-appear 0.2s ease forwards, boot-glow 0.9s ease 0.2s infinite alternate;
+}
+@keyframes boot-glow {
+  from { text-shadow: 0 0 10px rgba(34,197,94,0.5); }
+  to   { text-shadow: 0 0 32px rgba(34,197,94,1), 0 0 60px rgba(34,197,94,0.4); }
+}
+
+/* ── Custom Cursor ── */
+* { cursor: none !important; }
+
+.cursor-dot {
+  position: fixed;
+  top: -4px; left: -4px;
+  width: 8px; height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  box-shadow: 0 0 8px rgba(34,197,94,0.9);
+  will-change: transform;
+}
+.cursor-ring {
+  position: fixed;
+  top: -18px; left: -18px;
+  width: 36px; height: 36px;
+  border: 1.5px solid rgba(34,197,94,0.55);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9997;
+  will-change: transform;
+  transition: width 0.2s ease, height 0.2s ease, top 0.2s ease, left 0.2s ease, border-color 0.2s ease;
+}
+.cursor-ring.cursor-hover  { width: 54px; height: 54px; top: -27px; left: -27px; border-color: #22c55e; }
+.cursor-dot.cursor-hover   { background: #fff; box-shadow: 0 0 14px #22c55e; }
+
+/* ── Glitch Text ── */
+@keyframes glitch-shift {
+  0%,88%,100% { clip-path: none; transform: none; color: inherit; }
+  90% { clip-path: polygon(0 18%,100% 18%,100% 30%,0 30%); transform: translate(-3px,0); color: #f87171; }
+  92% { clip-path: polygon(0 58%,100% 58%,100% 70%,0 70%); transform: translate(3px,0);  color: #60a5fa; }
+  94% { clip-path: none; transform: translate(0); }
+  96% { clip-path: polygon(0 40%,100% 40%,100% 52%,0 52%); transform: translate(-2px,0); color: #f87171; }
+}
+.glitch { position: relative; display: inline-block; animation: glitch-shift 7s ease-in-out infinite; }
+
+/* ── Sidebar Hacker Extras ── */
+.status-online {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: 'IBM Plex Mono', monospace;
+  color: #22c55e;
+  letter-spacing: 0.1em;
+  margin-top: -8px;
+}
+.status-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  position: relative;
+  flex-shrink: 0;
+}
+.status-dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: rgba(34,197,94,0.4);
+  animation: pulse-ring 1.8s ease-out infinite;
+}
+
+.session-info {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--sidebar-muted);
+  border-top: 1px solid rgba(34,197,94,0.1);
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.session-label {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(127,143,132,0.55);
+}
+.session-timer {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+}
+
+/* ── Terminal Prompt Hero ── */
+.hero-prompt {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.hero-prompt-prefix { color: var(--accent); font-weight: 700; }
+.hero-prompt-cursor {
+  display: inline-block;
+  width: 8px; height: 14px;
+  background: var(--accent);
+  animation: cursor-blink 1s step-end infinite;
+  vertical-align: middle;
+}
+
+/* ── Breach Report Cards ── */
+.breach-card { position: relative; overflow: hidden; }
+
+.breach-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(34,197,94,0.1);
+}
+.breach-classification {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 3px;
+  background: rgba(239,68,68,0.12);
+  color: #f87171;
+  border: 1px solid rgba(239,68,68,0.3);
+}
+.breach-case {
+  font-size: 10px;
+  font-weight: 600;
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  flex: 1;
+}
+.breach-cvss {
+  font-size: 10px;
+  font-weight: 800;
+  font-family: 'IBM Plex Mono', monospace;
+  padding: 3px 8px;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+}
+.breach-cvss.cvss-critical {
+  background: rgba(239,68,68,0.15);
+  color: #f87171;
+  border: 1px solid rgba(239,68,68,0.35);
+  animation: severity-pulse 2s ease-in-out infinite;
+}
+.breach-cvss.cvss-high {
+  background: rgba(251,146,60,0.15);
+  color: #fb923c;
+  border: 1px solid rgba(251,146,60,0.35);
+}
+.breach-cvss.cvss-info {
+  background: rgba(96,165,250,0.12);
+  color: #60a5fa;
+  border: 1px solid rgba(96,165,250,0.3);
+}
+@keyframes severity-pulse {
+  0%,100% { box-shadow: none; }
+  50%      { box-shadow: 0 0 10px rgba(239,68,68,0.45); }
+}
+
+/* ── Card Glint (3D tilt shine) ── */
+.card-glint {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+}
+.featured-item, .repo-card, .wr-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.08s ease, border-color 0.2s ease;
+}

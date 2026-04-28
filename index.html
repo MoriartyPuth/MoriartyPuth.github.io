@@ -7,6 +7,14 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
+  <!-- Boot Screen -->
+  <div id="boot-screen">
+    <div class="boot-lines"></div>
+  </div>
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
   <div class="topbar">
     <strong>Moriarty Puth</strong>
     <button class="menu-btn" type="button" data-menu>Menu</button>
@@ -20,10 +28,17 @@
           <p>Offensive Security</p>
         </div>
       </div>
+      <div class="status-online">
+        <span class="status-dot"></span>ONLINE
+      </div>
       <nav class="nav">
         <a class="active" href="index.html">Home</a>
         <a href="categories.html">Categories</a>
       </nav>
+      <div class="session-info">
+        <span class="session-label">Session Active</span>
+        <span class="session-timer">00:00:00</span>
+      </div>
       <div class="social">
         <a href="https://github.com/MoriartyPuth" aria-label="GitHub">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -40,7 +55,12 @@
     <main class="content">
       <div class="hero">
         <div>
-          <h2 class="hero-title">Offensive Security & Security Researcher</h2>
+          <div class="hero-prompt">
+            <span class="hero-prompt-prefix">moriarty@sec:~$</span>
+            <span>whoami</span>
+            <span class="hero-prompt-cursor"></span>
+          </div>
+          <h2 class="hero-title glitch" data-scramble="Offensive Security & Security Researcher" data-text="Offensive Security & Security Researcher">Offensive Security & Security Researcher</h2>
           <p class="meta hero-subtitle">Final-year cybersecurity student building real-world exploitation tooling and scaling discovery of access-control flaws.</p>
           <div class="hero-badges">
             <span class="badge">Critical gov vuln reports</span>
@@ -58,8 +78,14 @@
         <div>
           <p class="eyebrow">Featured Case Studies</p>
           <div class="featured-grid">
-            <div class="featured-item">
-              <h3>EES Security Case Study</h3>
+            <div class="featured-item breach-card">
+              <div class="card-glint"></div>
+              <div class="breach-header">
+                <span class="breach-classification">Classified</span>
+                <span class="breach-case">CASE FILE #001</span>
+                <span class="breach-cvss cvss-critical">CVSS 9.8</span>
+              </div>
+              <h3 data-scramble="EES Security Case Study">EES Security Case Study</h3>
               <p>Full-stack assessment of Cambodia's Ministry of Interior ANPR system. Discovered critical IDOR exposing 100+ law enforcement bureau records, predictable request IDs enabling time-series enumeration, exposed Spring Boot Actuator, and multiple Android app vulnerabilities. Patched within 24 hours of responsible disclosure.</p>
               <div class="meta">
                 <span class="badge">Government systems</span>
@@ -71,8 +97,14 @@
                 <a class="button secondary" href="https://github.com/MoriartyPuth-Labs/EES-Security-Case-Study" target="_blank" rel="noopener">View repository</a>
               </div>
             </div>
-            <div class="featured-item">
-              <h3>CSS-GDIN Security Case Study</h3>
+            <div class="featured-item breach-card">
+              <div class="card-glint"></div>
+              <div class="breach-header">
+                <span class="breach-classification">Classified</span>
+                <span class="breach-case">CASE FILE #002</span>
+                <span class="breach-cvss cvss-high">CVSS 7.5</span>
+              </div>
+              <h3 data-scramble="CSS-GDIN Security Case Study">CSS-GDIN Security Case Study</h3>
               <p>Identified unauthenticated API endpoint in Cambodia's Government Complaint Support System leaking 1,000+ citizen records. Root cause: Spring Boot default-allow posture with no method-level access control. Responsibly disclosed and patched within 24 hours.</p>
               <div class="meta">
                 <span class="badge">CVSS 7.5 High</span>
@@ -84,8 +116,14 @@
                 <a class="button secondary" href="https://github.com/MoriartyPuth-Labs/CSS-GDIN-Security-Case-Study" target="_blank" rel="noopener">View repository</a>
               </div>
             </div>
-            <div class="featured-item">
-              <h3>AUPP CTF Platform Security Case Study</h3>
+            <div class="featured-item breach-card">
+              <div class="card-glint"></div>
+              <div class="breach-header">
+                <span class="breach-classification">Authorized</span>
+                <span class="breach-case">CASE FILE #003</span>
+                <span class="breach-cvss cvss-info">16 Findings</span>
+              </div>
+              <h3 data-scramble="AUPP CTF Platform Security Case Study">AUPP CTF Platform Security Case Study</h3>
               <p>Authorized pentest of a university-hosted CTF platform. Uncovered 16 findings across application, API, session management, infrastructure, and DDoS resilience over five structured sessions.</p>
               <div class="meta">
                 <span class="badge">5 sessions</span>
@@ -317,22 +355,22 @@
 
       <section class="stats-row">
         <div class="stat-item">
-          <div class="stat-number">3</div>
+          <div class="stat-number" data-target="3">3</div>
           <div class="stat-label">Case Studies</div>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <div class="stat-number">16</div>
+          <div class="stat-number" data-target="16">16</div>
           <div class="stat-label">Labs & Writeups</div>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <div class="stat-number">5</div>
+          <div class="stat-number" data-target="5">5</div>
           <div class="stat-label">Tools Published</div>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <div class="stat-number">2</div>
+          <div class="stat-number" data-target="2">2</div>
           <div class="stat-label">Gov Vulns Reported</div>
         </div>
       </section>
@@ -351,6 +389,7 @@
       </section>
       <section class="pinned-grid">
         <div class="repo-card">
+          <div class="card-glint"></div>
           <div class="repo-header">
             <div class="repo-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -370,6 +409,7 @@
           <a class="repo-link" href="https://github.com/MoriartyPuth/AURA" target="_blank" rel="noopener">View </a>
         </div>
         <div class="repo-card">
+          <div class="card-glint"></div>
           <div class="repo-header">
             <div class="repo-icon entropy">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
