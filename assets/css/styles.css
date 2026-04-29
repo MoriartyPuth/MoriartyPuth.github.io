@@ -887,9 +887,21 @@ a {
   }
 }
 
+/* Skills + Tooling two-column row */
+.skills-tooling-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  margin-top: 28px;
+}
+@media (max-width: 900px) {
+  .skills-tooling-row { grid-template-columns: 1fr; gap: 28px; }
+}
+
 /* Skills Section */
 .skills-section {
-  margin-top: 28px;
+  margin-top: 0;
 }
 
 .skills-header {
@@ -970,7 +982,7 @@ a {
 
 /* Tooling Section */
 .tooling-section {
-  margin-top: 24px;
+  margin-top: 0;
 }
 
 .tooling-grid {
@@ -3618,7 +3630,7 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
 .read-val   { color: #94a3b8; }
 
 /* ── Skill Radar — Nmap + MSF Terminal ── */
-.skills-radar { width: 100%; max-width: 700px; }
+.skills-radar { width: 100%; }
 .radar-svg { width: 100%; height: auto; display: block; }
 .radar-lbl {
   font-family: 'IBM Plex Mono', monospace;
