@@ -220,6 +220,185 @@
     if (nmapBuf.toLowerCase()==='nmap') { nmapBuf=''; showNmap(); }
   });
 
+  // ── Gobuster Feed ──────────────────────────────────────────────────────────
+  const gobFeed = document.getElementById('gobuster-feed');
+  if (gobFeed) {
+    const paths = [
+      { p: '/api/v1/auth',       code: 200, size: '892' },
+      { p: '/api/v1/users',      code: 403, size: '—' },
+      { p: '/.git/config',       code: 200, size: '294',   flag: true },
+      { p: '/admin',             code: 302, size: '—' },
+      { p: '/api/v1/reports',    code: 401, size: '—' },
+      { p: '/uploads',           code: 403, size: '—' },
+      { p: '/api/health',        code: 200, size: '48' },
+      { p: '/swagger.json',      code: 200, size: '18432', flag: true },
+      { p: '/api/v1/internal',   code: 200, size: '2841',  flag: true },
+    ];
+    const start = bootScreen ? 4400 : 700;
+    paths.forEach(({ p, code, size, flag }, i) => {
+      setTimeout(() => {
+        const d = document.createElement('div');
+        d.className = 'gob-line' + (flag ? ' gob-flag' : '');
+        const cc = code === 200 ? 'gob-200' : code >= 300 && code < 400 ? 'gob-3xx' : 'gob-err';
+        d.innerHTML = `<span class="gob-plus">[+]</span> <span class="gob-path">${p}</span> <span class="${cc}">${code}</span> <span class="gob-size">[${size}]</span>${flag ? ' <span class="gob-bang">◀ interesting</span>' : ''}`;
+        gobFeed.appendChild(d);
+      }, start + i * 240);
+    });
+  }
+
+  // ── John the Ripper (Sidebar Name Cracker) ─────────────────────────────────
+  const sidebarH1 = document.querySelector('.sidebar .brand h1');
+  if (sidebarH1) {
+    const real = sidebarH1.textContent;
+    const lbl = document.createElement('div');
+    lbl.className = 'jtr-label';
+    lbl.textContent = 'john --wordlist=rockyou.txt hash.txt';
+    sidebarH1.after(lbl);
+    const HEX = '0123456789abcdefABCDEF$!@#%&*?';
+    const crack = () => {
+      let tick = 0; const steps = 22;
+      const iv = setInterval(() => {
+        sidebarH1.textContent = real.split('').map((c, i) => {
+          if (c === ' ') return ' ';
+          return Math.random() < tick / steps ? c : HEX[Math.floor(Math.random() * HEX.length)];
+        }).join('');
+        if (++tick > steps) {
+          clearInterval(iv);
+          sidebarH1.textContent = real;
+          lbl.textContent = '✓ CRACKED  [00:00:03]';
+          lbl.classList.add('jtr-done');
+          setTimeout(() => lbl.remove(), 3200);
+        }
+      }, 75);
+    };
+    setTimeout(crack, bootScreen ? 4200 : 900);
+  }
+
+  // ── Nikto Scan (scroll-triggered) ─────────────────────────────────────────
+  const niktoFill = document.getElementById('nikto-fill');
+  if (niktoFill) {
+    const niktoLog = document.getElementById('nikto-log');
+    const niktoCount = document.getElementById('nikto-count');
+    const niktoFindings = document.getElementById('nikto-findings');
+    const niktoLines = [
+      '+ Server: nginx/1.24.0',
+      '+ /: Uncommon header X-Powered-By found, with contents: Express',
+      '+ /.git/config: Git config file found — source code exposed',
+      '+ /swagger.json: Swagger API docs exposed without auth',
+      '+ /api/v1/internal: Unauthenticated endpoint returns 200',
+      '+ 6577 requests: 3 item(s) reported on remote host',
+    ];
+    const nikIO = new IntersectionObserver(entries => {
+      if (!entries[0].isIntersecting) return;
+      nikIO.disconnect();
+      let cur = 0;
+      const t = setInterval(() => {
+        cur = Math.min(cur + 109, 6577);
+        niktoFill.style.width = (cur / 6577 * 100).toFixed(2) + '%';
+        if (niktoCount) niktoCount.textContent = cur.toLocaleString();
+        if (cur >= 6577) clearInterval(t);
+      }, 28);
+      let findings = 0;
+      niktoLines.forEach((line, i) => {
+        setTimeout(() => {
+          if (niktoLog) {
+            const d = document.createElement('div');
+            d.className = 'nikto-log-line' + (line.startsWith('+') ? ' nkl-found' : '');
+            d.textContent = line;
+            niktoLog.appendChild(d);
+          }
+          if (line.startsWith('+') && !line.includes('Server') && !line.includes('header') && niktoFindings) {
+            niktoFindings.textContent = ++findings;
+          }
+        }, 800 + i * 500);
+      });
+    }, { threshold: 0.2 });
+    nikIO.observe(niktoFill);
+  }
+
+  // ── Burp Suite Raw Request Overlay ────────────────────────────────────────
+  const burpData = [
+    `GET /api/v1/vehicles/1043 HTTP/1.1\nHost: ees.gov.kh\nAuthorization: Bearer eyJhbGciOiJIUzI1NiJ9...\nX-User-ID: 1042\n\n◀ Response ▶\n\nHTTP/1.1 200 OK\nContent-Type: application/json\n\n{"id":1043,"plate":"RR-4821",\n "owner":"[REDACTED]",\n "bureau":"Law Enforcement MoI"}`,
+    `GET /api/complaints?userId=1 HTTP/1.1\nHost: css-gdin.gov.kh\nCookie: JSESSIONID=3f8ab21c...\n\n◀ Response ▶\n\nHTTP/1.1 200 OK\nContent-Type: application/json\n\n{"total":1247,"page":1,\n "records":[{"id":1,"name":"[REDACTED]",\n "complaint":"...","status":"open"}]}`,
+    `POST /api/admin/users/reset HTTP/1.1\nHost: ctf.aupp.edu.kh\nContent-Type: application/json\nAuthorization: Bearer <user_token>\n\n{"userId":"*"}\n\n◀ Response ▶\n\nHTTP/1.1 200 OK\n\n{"status":"ok","affected":142}`
+  ];
+  document.querySelectorAll('.featured-item.breach-card').forEach((card, i) => {
+    if (card.querySelector('.burp-overlay')) return;
+    const ov = document.createElement('div');
+    ov.className = 'burp-overlay';
+    ov.innerHTML = `<div class="burp-topbar"><span class="burp-dots"><i class="bd-r"></i><i class="bd-y"></i><i class="bd-g"></i></span><span class="burp-title">Burp Suite — Repeater</span><button class="burp-close">✕</button></div><pre class="burp-raw">${burpData[i] || ''}</pre>`;
+    card.appendChild(ov);
+    const hint = document.createElement('div');
+    hint.className = 'burp-hint';
+    hint.innerHTML = `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> raw request`;
+    card.appendChild(hint);
+    hint.addEventListener('click', e => { e.stopPropagation(); ov.classList.add('active'); });
+    ov.querySelector('.burp-close').addEventListener('click', e => { e.stopPropagation(); ov.classList.remove('active'); });
+  });
+
+  // ── Reverse Shell Listener ─────────────────────────────────────────────────
+  if (!document.getElementById('rev-shell')) {
+    const rs = document.createElement('div');
+    rs.id = 'rev-shell';
+    rs.innerHTML = `<div class="rs-bar"><span class="rs-nc">nc -lvnp 4444</span><button class="rs-close">✕</button></div><div id="rs-body" class="rs-body"><div class="rs-line rs-dim">Listening on [0.0.0.0] port 4444</div></div>`;
+    document.body.appendChild(rs);
+    const rsBody = document.getElementById('rs-body');
+    rs.querySelector('.rs-close').addEventListener('click', () => rs.remove());
+    const add = (text, cls, delay) => setTimeout(() => {
+      const d = document.createElement('div');
+      d.className = 'rs-line' + (cls ? ' ' + cls : '');
+      d.textContent = text;
+      rsBody.appendChild(d);
+      rsBody.scrollTop = rsBody.scrollHeight;
+    }, delay);
+    add('Connection received on 10.10.14.1 52341', 'rs-conn', 3800);
+    add('id', 'rs-input', 4600);
+    add('uid=0(root) gid=0(root) groups=0(root)', 'rs-root', 5200);
+    add('moriarty@target:~# ▋', 'rs-prompt', 5900);
+  }
+
+  // ── Wireshark Packet Strip ─────────────────────────────────────────────────
+  if (!document.getElementById('ws-strip')) {
+    const pkts = [
+      '14:23:01.124  10.10.14.1 → 192.168.1.1  TCP  [SYN] :443',
+      '14:23:01.126  192.168.1.1 → 10.10.14.1  TCP  [SYN,ACK]',
+      '14:23:01.129  10.10.14.1 → 192.168.1.1  HTTP GET /api/v1/users',
+      '14:23:01.132  192.168.1.1 → 10.10.14.1  HTTP 200 OK  1247 bytes',
+      '14:23:01.890  10.10.14.1 → 192.168.1.1  HTTP GET /api/v1/vehicles/1043',
+      '14:23:01.894  192.168.1.1 → 10.10.14.1  HTTP 200 OK  892 bytes',
+      '14:23:02.101  10.10.14.1 → 192.168.1.1  HTTP POST /api/admin/reset',
+      '14:23:02.108  192.168.1.1 → 10.10.14.1  HTTP 200 OK  PWNED',
+    ];
+    const ws = document.createElement('div');
+    ws.id = 'ws-strip';
+    const inner = pkts.concat(pkts).map(p => `<span class="ws-pkt">${p}</span>`).join('');
+    ws.innerHTML = `<div class="ws-inner">${inner}</div>`;
+    document.body.appendChild(ws);
+  }
+
+  // ── Metasploit Prompt (categories page) ────────────────────────────────────
+  const msfBody = document.getElementById('msf-body');
+  if (msfBody) {
+    const lines = [
+      { t: 'msf6 > use auxiliary/recon/moriarty_portfolio', cls: 'msf-cmd', d: 500 },
+      { t: 'msf6 auxiliary(recon/moriarty_portfolio) > set RHOSTS moriarty.portfolio', cls: 'msf-cmd', d: 1300 },
+      { t: 'RHOSTS => moriarty.portfolio', cls: 'msf-val', d: 1900 },
+      { t: 'msf6 auxiliary(recon/moriarty_portfolio) > run', cls: 'msf-cmd', d: 2500 },
+      { t: '[*] Starting recon module against moriarty.portfolio...', cls: 'msf-info', d: 3200 },
+      { t: '[+] Labs Walkthrough       — 9 modules loaded', cls: 'msf-found', d: 3900 },
+      { t: '[+] Reverse Engineering    — 7 modules loaded', cls: 'msf-found', d: 4400 },
+      { t: '[+] Blue Team Projects     — active', cls: 'msf-found', d: 4900 },
+      { t: '[+] ML & AI Security       — active', cls: 'msf-found', d: 5400 },
+      { t: '[*] 4 surfaces enumerated. Scan complete.', cls: 'msf-info', d: 6100 },
+    ];
+    lines.forEach(({ t, cls, d }) => setTimeout(() => {
+      const el = document.createElement('div');
+      el.className = 'msf-line ' + cls;
+      el.textContent = t;
+      msfBody.appendChild(el);
+    }, d));
+  }
+
   // ── Mobile Menu ────────────────────────────────────────────────────────────
   const menuBtn = document.querySelector('[data-menu]');
   const sidebar  = document.querySelector('.sidebar');

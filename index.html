@@ -39,6 +39,16 @@
         <span class="session-label">Session Active</span>
         <span class="session-timer">00:00:00</span>
       </div>
+      <div class="whois-widget">
+        <div class="whois-header">$ whois moriarty.portfolio</div>
+        <div class="whois-body">
+          <div><span class="wk">Domain</span><span class="wv">moriarty.portfolio</span></div>
+          <div><span class="wk">A</span><span class="wv">127.0.0.1</span></div>
+          <div><span class="wk">MX</span><span class="wv">mail.moriarty.portfolio</span></div>
+          <div><span class="wk">NS</span><span class="wv">ns1.moriarty.portfolio</span></div>
+          <div><span class="wk">Status</span><span class="wv wv-active">ACTIVE</span></div>
+        </div>
+      </div>
       <div class="social">
         <a href="https://github.com/MoriartyPuth" aria-label="GitHub">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -74,6 +84,7 @@
             <span class="badge">Top-80 crackmes.one</span>
             <span class="badge">API security focus</span>
           </div>
+          <div id="gobuster-feed" class="gobuster-feed"></div>
         </div>
         <label class="search" aria-label="Search">
           <input type="search" placeholder="Search" />
@@ -782,6 +793,17 @@
           </a>
           </div>
         </div>
+      </section>
+      <section class="nikto-section">
+        <div class="nikto-header-row">
+          <span class="nikto-cmd">$ nikto -h moriarty.portfolio -C all</span>
+          <span class="nikto-version">Nikto v2.1.6</span>
+        </div>
+        <div class="nikto-bar-wrap">
+          <div class="nikto-progress"><div class="nikto-fill" id="nikto-fill"></div></div>
+          <div class="nikto-meta"><span id="nikto-count">0</span> / 6577 checks &nbsp;·&nbsp; <span class="nikto-findings-label"><span id="nikto-findings">0</span> findings</span></div>
+        </div>
+        <div class="nikto-log" id="nikto-log"></div>
       </section>
     </main>
   </div>
