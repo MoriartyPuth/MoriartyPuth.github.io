@@ -620,6 +620,57 @@
     }
   })();
 
+  // ── CrackMapExec Tooling Stack ───────────────────────────────────────────
+  (function() {
+    var cmeEl = document.getElementById('cme-tools');
+    if (!cmeEl) return;
+    var tools = [
+      { name: 'Python',       tag: 'offensive-tooling' },
+      { name: 'Bash',         tag: 'automation'        },
+      { name: 'Linux',        tag: 'environment'       },
+      { name: 'MITRE ATT&CK', tag: 'framework'         },
+      { name: 'OSINT',        tag: 'recon'             },
+      { name: 'SIEM',         tag: 'detection'         },
+    ];
+    var cmeIO = new IntersectionObserver(function(entries) {
+      if (!entries[0].isIntersecting) return;
+      cmeIO.disconnect();
+      runCME();
+    }, { threshold: 0.2 });
+    cmeIO.observe(cmeEl);
+
+    function addLine(html, cls, delay) {
+      setTimeout(function() {
+        var div = document.createElement('div');
+        div.className = 'cme-line' + (cls ? ' ' + cls : '');
+        div.innerHTML = html;
+        cmeEl.appendChild(div);
+      }, delay);
+    }
+
+    function runCME() {
+      var host = 'moriarty.sec';
+      var pre  = '<span class="cme-smb">SMB</span> <span class="cme-host">' + host + '</span> <span class="cme-port">445</span> <span class="cme-name">MORIARTY</span> ';
+      addLine('<span class="cme-dim">CrackMapExec 5.4.0  —  by byt3bl33d3r &amp; mpgn</span>', 'cme-header', 0);
+      addLine(pre + '<span class="cme-info">[*]</span> <span class="cme-dim">Windows 10 Pro (name:MORIARTY) (domain:sec)</span>', '', 350);
+      addLine(pre + '<span class="cme-info">[*]</span> <span class="cme-dim">scanning tooling stack...</span>', '', 650);
+      addLine('&nbsp;', '', 850);
+      tools.forEach(function(t, i) {
+        var pad = new Array(Math.max(2, 16 - t.name.length) + 1).join('.');
+        addLine(
+          pre +
+          '<span class="cme-plus">[+]</span> ' +
+          '<span class="cme-tool-name">' + t.name + '</span>' +
+          '<span class="cme-pad">' + pad + '</span>' +
+          '<span class="cme-pwned">PWNED</span>' +
+          ' <span class="cme-tag">(' + t.tag + ')</span>',
+          'cme-tool-line',
+          1000 + i * 420
+        );
+      });
+    }
+  })();
+
   // ── Mobile Burp Overlay (touch support) ───────────────────────────────────
   document.querySelectorAll('.burp-hint').forEach(hint => {
     hint.addEventListener('touchstart', e => { e.stopPropagation(); hint.closest('.featured-item').querySelector('.burp-overlay').classList.add('active'); }, { passive: true });
