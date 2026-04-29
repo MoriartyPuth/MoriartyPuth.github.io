@@ -86,6 +86,20 @@
     card.insertBefore(bar, card.firstChild);
   });
 
+  // ── Lab Card Banners ───────────────────────────────────────────────────────
+  document.querySelectorAll('.lab-card').forEach(card => {
+    if (card.querySelector('.lab-banner')) return;
+    const iconEl = card.querySelector('.lab-icon');
+    const iconClass = iconEl ? (Array.from(iconEl.classList).find(c => c !== 'lab-icon') || 'lab') : 'lab';
+    const svg = iconEl?.querySelector('svg')?.outerHTML || '';
+    const hex = () => (Math.random() * 255 | 0).toString(16).padStart(2, '0');
+    const coords = `${hex()}:${hex()}:${hex()}`;
+    const banner = document.createElement('div');
+    banner.className = `lab-banner lb-${iconClass}`;
+    banner.innerHTML = `<div class="lb-grid"></div><div class="lb-scan"></div><div class="lb-icon-wrap">${svg}</div><div class="lb-corners"><span></span><span></span><span></span><span></span></div><div class="lb-coords">${coords}</div>`;
+    card.insertBefore(banner, card.firstChild);
+  });
+
   // ── Text Scramble ──────────────────────────────────────────────────────────
   const CHARS = '!<>-_\\/[]{}=+*^?#ABCDEFabcdef0123456789@$%';
   function scramble(el) {
