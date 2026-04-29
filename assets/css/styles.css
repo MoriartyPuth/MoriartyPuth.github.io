@@ -3634,7 +3634,7 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
 .radar-svg { width: 100%; height: auto; display: block; }
 .radar-lbl {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   fill: var(--muted);
 }
 .radar-poly {
@@ -3670,8 +3670,8 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
   justify-content: center;
 }
 .nmap-line {
-  font-size: 11px;
-  line-height: 1.75;
+  font-size: 13.5px;
+  line-height: 1.85;
   white-space: nowrap;
   animation: nmapIn 0.18s ease both;
 }
@@ -3686,7 +3686,7 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
   margin-top: 10px;
   padding-top: 8px;
   border-top: 1px solid var(--border);
-  font-size: 11px;
+  font-size: 13.5px;
   color: var(--muted);
 }
 .nmap-cur {
@@ -3713,10 +3713,10 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
   overflow: hidden;
 }
 .shodan-query {
-  padding: 7px 14px;
+  padding: 8px 14px;
   background: rgba(6,182,212,0.05);
   border-bottom: 1px solid var(--border);
-  font-size: 11px;
+  font-size: 13px;
 }
 .shodan-prompt { color: #06b6d4; }
 .shodan-typing { color: #e2e8f0; }
@@ -3732,8 +3732,8 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
 }
 .shodan-result.shodan-reveal { animation: nmapIn 0.25s ease both; }
 .shodan-row {
-  font-size: 11px;
-  line-height: 1.85;
+  font-size: 13px;
+  line-height: 1.9;
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
@@ -3747,12 +3747,12 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
   color: #22c55e;
   padding: 1px 6px;
   border-radius: 3px;
-  font-size: 10px;
+  font-size: 12px;
   margin-left: 4px;
 }
 .shodan-tags { color: var(--muted); }
 .shodan-link-row { margin-top: 3px; }
-.shodan-link { color: #06b6d4; text-decoration: none; font-size: 11px; transition: opacity 0.2s; }
+.shodan-link { color: #06b6d4; text-decoration: none; font-size: 13px; transition: opacity 0.2s; }
 .shodan-link:hover { opacity: 0.75; text-decoration: underline; }
 
 /* ── CrackMapExec Tooling Stack ── */
@@ -3763,14 +3763,14 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
   font-family: 'IBM Plex Mono', monospace;
 }
 .cme-line {
-  font-size: 11.5px;
+  font-size: 13px;
   line-height: 1.9;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   animation: nmapIn 0.2s ease both;
 }
-.cme-header { color: var(--muted); margin-bottom: 4px; font-size: 11px; }
+.cme-header { color: var(--muted); margin-bottom: 4px; font-size: 12.5px; }
 .cme-smb    { color: #f97316; font-weight: 700; }
 .cme-host   { color: #94a3b8; }
 .cme-port   { color: var(--muted); }
@@ -3781,7 +3781,7 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
 .cme-tool-name { color: #f1f5f9; font-weight: 600; }
 .cme-pad    { color: var(--muted); letter-spacing: 1px; }
 .cme-pwned  { color: #f87171; font-weight: 700; }
-.cme-tag    { color: var(--muted); font-size: 10px; }
+.cme-tag    { color: var(--muted); font-size: 12px; }
 
 /* ── Interactive Terminal ── */
 #iterm {
