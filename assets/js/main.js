@@ -486,20 +486,14 @@
       return '<circle cx="' + p[0] + '" cy="' + p[1] + '" r="3.5" class="radar-dot" style="fill:rgba(34,197,94,0);stroke:var(--accent);stroke-width:1.5;transition:fill 0.4s ease"/>';
     }).join('');
     radarEl.innerHTML =
-      '<div class="nmap-terminal">' +
-        '<div class="nmap-bar">' +
-          '<span class="burp-dots"><i class="bd-r"></i><i class="bd-y"></i><i class="bd-g"></i></span>' +
-          '<span class="nmap-title">moriarty@sec:~ — nmap skill scan</span>' +
-        '</div>' +
-        '<div class="nmap-body">' +
-          '<div class="nmap-scan-col"><div id="nmap-lines"></div><div id="nmap-msf-line" class="nmap-msf-line"></div></div>' +
-          '<div class="nmap-radar-col">' +
-            '<svg id="nmap-radar-svg" viewBox="0 0 300 300" class="radar-svg">' +
-              grids + axes +
-              '<polygon id="nmap-poly" points="' + polyPts(function() { return 0; }) + '" class="radar-poly"/>' +
-              rdots + radarLabels +
-            '</svg>' +
-          '</div>' +
+      '<div class="nmap-body">' +
+        '<div class="nmap-scan-col"><div id="nmap-lines"></div><div id="nmap-msf-line" class="nmap-msf-line"></div></div>' +
+        '<div class="nmap-radar-col">' +
+          '<svg id="nmap-radar-svg" viewBox="0 0 300 300" class="radar-svg">' +
+            grids + axes +
+            '<polygon id="nmap-poly" points="' + polyPts(function() { return 0; }) + '" class="radar-poly"/>' +
+            rdots + radarLabels +
+          '</svg>' +
         '</div>' +
       '</div>';
     var polyEl  = document.getElementById('nmap-poly');
