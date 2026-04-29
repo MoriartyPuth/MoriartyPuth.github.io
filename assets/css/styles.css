@@ -3617,8 +3617,8 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
 .read-label { color: var(--accent); font-weight: 700; }
 .read-val   { color: #94a3b8; }
 
-/* ── Skill Radar ── */
-.skills-radar { width: 100%; max-width: 320px; margin: 0 auto; }
+/* ── Skill Radar — Nmap + MSF Terminal ── */
+.skills-radar { width: 100%; max-width: 700px; }
 .radar-svg { width: 100%; height: auto; display: block; }
 .radar-lbl {
   font-family: 'IBM Plex Mono', monospace;
@@ -3629,19 +3629,134 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
   fill: rgba(34,197,94,0.12);
   stroke: rgba(34,197,94,0.5);
   stroke-width: 1.5;
-  transition: points 1s cubic-bezier(0.34,1.56,0.64,1);
+  transition: points 0.8s cubic-bezier(0.34,1.2,0.64,1);
 }
 .radar-poly-animate {
   fill: rgba(34,197,94,0.18);
   stroke: #22c55e;
 }
-.radar-dot {
-  fill: rgba(34,197,94,0);
-  stroke: var(--accent);
-  stroke-width: 1.5;
-  transition: fill 0.5s ease 0.9s;
+.radar-dot { stroke: var(--accent); stroke-width: 1.5; }
+
+.nmap-terminal {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: 'IBM Plex Mono', monospace;
 }
-.radar-dot-show { fill: var(--accent); }
+.nmap-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  background: rgba(0,0,0,0.35);
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+}
+.nmap-title { flex: 1; text-align: center; font-size: 10px; }
+.nmap-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.nmap-scan-col {
+  padding: 14px 16px;
+  border-right: 1px solid var(--border);
+  min-height: 210px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.nmap-radar-col {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nmap-line {
+  font-size: 11px;
+  line-height: 1.75;
+  white-space: nowrap;
+  animation: nmapIn 0.18s ease both;
+}
+@keyframes nmapIn { from { opacity:0; transform:translateY(3px); } to { opacity:1; transform:none; } }
+.nmap-g    { color: var(--accent); }
+.nmap-d    { color: var(--muted); }
+.nmap-lbl  { color: #e2e8f0; }
+.nmap-dots { color: var(--muted); letter-spacing: 1px; }
+.nmap-pct  { color: var(--accent); font-weight: 600; }
+.nmap-open { color: #3b82f6; }
+.nmap-msf-line {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--muted);
+}
+.nmap-cur {
+  color: var(--accent);
+  animation: blink 0.8s step-end infinite;
+}
+@media (max-width: 640px) {
+  .nmap-body { grid-template-columns: 1fr; }
+  .nmap-scan-col { border-right: none; border-bottom: 1px solid var(--border); min-height: unset; }
+}
+
+/* ── Shodan Certs ── */
+.shodan-certs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+.shodan-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 3px solid #06b6d4;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.shodan-query {
+  padding: 7px 14px;
+  background: rgba(6,182,212,0.05);
+  border-bottom: 1px solid var(--border);
+  font-size: 11px;
+}
+.shodan-prompt { color: #06b6d4; }
+.shodan-typing { color: #e2e8f0; }
+.shodan-cur {
+  color: #06b6d4;
+  animation: blink 0.8s step-end infinite;
+}
+.shodan-result {
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.shodan-result.shodan-reveal { animation: nmapIn 0.25s ease both; }
+.shodan-row {
+  font-size: 11px;
+  line-height: 1.85;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.shodan-key { color: #06b6d4; min-width: 68px; flex-shrink: 0; }
+.shodan-val   { color: #cbd5e1; }
+.shodan-host  { color: #f8fafc; font-weight: 600; }
+.shodan-certname { color: #f1f5f9; }
+.shodan-open {
+  background: rgba(34,197,94,0.15);
+  color: #22c55e;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 10px;
+  margin-left: 4px;
+}
+.shodan-tags { color: var(--muted); }
+.shodan-link-row { margin-top: 3px; }
+.shodan-link { color: #06b6d4; text-decoration: none; font-size: 11px; transition: opacity 0.2s; }
+.shodan-link:hover { opacity: 0.75; text-decoration: underline; }
 
 /* ── Interactive Terminal ── */
 #iterm {

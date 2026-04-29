@@ -449,10 +449,11 @@
     setInterval(showCve, 4000);
   }
 
-  // ── Skill Radar ───────────────────────────────────────────────────────────
-  const radarEl = document.getElementById('skills-radar');
-  if (radarEl) {
-    const skills = [
+  // ── Skill Radar — Nmap + MSF Combo ───────────────────────────────────────
+  (function() {
+    var radarEl = document.getElementById('skills-radar');
+    if (!radarEl) return;
+    var skills = [
       { label: 'Exploitation', val: 0.90 },
       { label: 'Recon',        val: 0.85 },
       { label: 'Rev Eng',      val: 0.80 },
@@ -460,43 +461,170 @@
       { label: 'Blue Team',    val: 0.70 },
       { label: 'AI Security',  val: 0.75 },
     ];
-    const cx = 150, cy = 150, R = 90, N = skills.length;
-    const pt = (r, i) => {
-      const a = (i / N) * Math.PI * 2 - Math.PI / 2;
+    var cx = 150, cy = 150, R = 90, N = skills.length;
+    function pt(r, i) {
+      var a = (i / N) * Math.PI * 2 - Math.PI / 2;
       return [+(cx + r * Math.cos(a)).toFixed(2), +(cy + r * Math.sin(a)).toFixed(2)];
-    };
-    const poly = (r) => skills.map((_, i) => pt(r, i).join(',')).join(' ');
-    const grids = [0.25, 0.5, 0.75, 1].map(f =>
-      `<polygon points="${poly(R*f)}" fill="none" stroke="rgba(34,197,94,0.1)" stroke-width="1"/>`).join('');
-    const axes = skills.map((_, i) => {
-      const [x, y] = pt(R, i);
-      return `<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="rgba(34,197,94,0.15)" stroke-width="1"/>`;
+    }
+    function polyPts(fn) {
+      return skills.map(function(s, i) { return pt(fn(s, i), i).join(','); }).join(' ');
+    }
+    var grids = [0.25, 0.5, 0.75, 1].map(function(f) {
+      return '<polygon points="' + polyPts(function() { return R * f; }) + '" fill="none" stroke="rgba(34,197,94,0.1)" stroke-width="1"/>';
     }).join('');
-    const labels = skills.map((s, i) => {
-      const [x, y] = pt(R + 20, i);
-      const anchor = x < cx - 5 ? 'end' : x > cx + 5 ? 'start' : 'middle';
-      return `<text x="${x}" y="${y}" text-anchor="${anchor}" class="radar-lbl">${s.label}</text>`;
+    var axes = skills.map(function(_, i) {
+      var p = pt(R, i);
+      return '<line x1="' + cx + '" y1="' + cy + '" x2="' + p[0] + '" y2="' + p[1] + '" stroke="rgba(34,197,94,0.15)" stroke-width="1"/>';
     }).join('');
-    const valPts = poly(0); // start from center for animation
-    const targetPts = skills.map((s, i) => pt(R * s.val, i).join(',')).join(' ');
-    const dots = skills.map((s, i) => {
-      const [x, y] = pt(R * s.val, i);
-      return `<circle cx="${x}" cy="${y}" r="3.5" class="radar-dot"/>`;
+    var radarLabels = skills.map(function(s, i) {
+      var p = pt(R + 22, i);
+      var anchor = p[0] < cx - 5 ? 'end' : p[0] > cx + 5 ? 'start' : 'middle';
+      return '<text x="' + p[0] + '" y="' + p[1] + '" text-anchor="' + anchor + '" class="radar-lbl">' + s.label + '</text>';
     }).join('');
-    radarEl.innerHTML = `<svg viewBox="0 0 300 300" class="radar-svg">${grids}${axes}<polygon id="radar-poly" points="${valPts}" class="radar-poly"/>${dots}${labels}</svg>`;
-    const polyEl = radarEl.querySelector('#radar-poly');
-    const dotEls = radarEl.querySelectorAll('.radar-dot');
-    const radarIO = new IntersectionObserver(entries => {
+    var rdots = skills.map(function(s, i) {
+      var p = pt(R * s.val, i);
+      return '<circle cx="' + p[0] + '" cy="' + p[1] + '" r="3.5" class="radar-dot" style="fill:rgba(34,197,94,0);stroke:var(--accent);stroke-width:1.5;transition:fill 0.4s ease"/>';
+    }).join('');
+    radarEl.innerHTML =
+      '<div class="nmap-terminal">' +
+        '<div class="nmap-bar">' +
+          '<span class="burp-dots"><i class="bd-r"></i><i class="bd-y"></i><i class="bd-g"></i></span>' +
+          '<span class="nmap-title">moriarty@sec:~ — nmap skill scan</span>' +
+        '</div>' +
+        '<div class="nmap-body">' +
+          '<div class="nmap-scan-col"><div id="nmap-lines"></div><div id="nmap-msf-line" class="nmap-msf-line"></div></div>' +
+          '<div class="nmap-radar-col">' +
+            '<svg id="nmap-radar-svg" viewBox="0 0 300 300" class="radar-svg">' +
+              grids + axes +
+              '<polygon id="nmap-poly" points="' + polyPts(function() { return 0; }) + '" class="radar-poly"/>' +
+              rdots + radarLabels +
+            '</svg>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    var polyEl  = document.getElementById('nmap-poly');
+    var dotEls  = Array.prototype.slice.call(document.querySelectorAll('#nmap-radar-svg .radar-dot'));
+    var linesEl = document.getElementById('nmap-lines');
+    var msfEl   = document.getElementById('nmap-msf-line');
+    var radarIO = new IntersectionObserver(function(entries) {
       if (!entries[0].isIntersecting) return;
       radarIO.disconnect();
-      setTimeout(() => {
-        polyEl.setAttribute('points', targetPts);
-        polyEl.classList.add('radar-poly-animate');
-        dotEls.forEach(d => d.classList.add('radar-dot-show'));
-      }, 200);
-    }, { threshold: 0.3 });
+      setTimeout(runNmap, 300);
+    }, { threshold: 0.25 });
     radarIO.observe(radarEl);
-  }
+    function appendLine(html, cls) {
+      var div = document.createElement('div');
+      div.className = 'nmap-line' + (cls ? ' ' + cls : '');
+      div.innerHTML = html;
+      linesEl.appendChild(div);
+    }
+    function runNmap() {
+      var t = 0;
+      function after(ms, fn) { t += ms; setTimeout(fn, t); }
+      after(0,   function() { appendLine('<span class="nmap-g">$</span> nmap --script skills moriarty.sec'); });
+      after(350, function() { appendLine('<span class="nmap-d">Starting Nmap 7.94 ( https://nmap.org )</span>'); });
+      after(280, function() { appendLine('<span class="nmap-d">Initiating skill scan on moriarty.sec ...</span>'); });
+      after(300, function() { appendLine('&nbsp;'); });
+      skills.forEach(function(s, i) {
+        after(460, (function(si) {
+          return function() {
+            var pct = Math.round(skills[si].val * 100);
+            var pad = new Array(Math.max(2, 20 - skills[si].label.length) + 1).join('.');
+            appendLine(
+              '<span class="nmap-lbl">' + skills[si].label + '</span>' +
+              '<span class="nmap-dots">' + pad + '</span>' +
+              '<span class="nmap-pct"> ' + pct + '%</span>' +
+              '<span class="nmap-open">  [open]</span>',
+              'nmap-skill'
+            );
+            dotEls[si].style.fill = 'var(--accent)';
+            var pts = skills.map(function(ss, ii) {
+              return pt(ii <= si ? R * ss.val : 0, ii).join(',');
+            }).join(' ');
+            polyEl.setAttribute('points', pts);
+            if (si === 0) polyEl.classList.add('radar-poly-animate');
+          };
+        })(i));
+      });
+      after(900, function() {
+        msfEl.innerHTML =
+          '<span class="nmap-g">msf6</span> <span class="nmap-d">exploit</span>' +
+          '(<span class="nmap-pct">moriarty</span>) &gt; ' +
+          '<span id="nmap-msf-cmd"></span><span class="nmap-cur">_</span>';
+        var cmdEl = document.getElementById('nmap-msf-cmd');
+        var curEl = msfEl.querySelector('.nmap-cur');
+        var cmd = 'show capabilities';
+        var ci = 0;
+        var iv = setInterval(function() {
+          cmdEl.textContent += cmd[ci++];
+          if (ci >= cmd.length) {
+            clearInterval(iv);
+            curEl.style.display = 'none';
+            var finalPts = skills.map(function(ss, ii) { return pt(R * ss.val, ii).join(','); }).join(' ');
+            setTimeout(function() { polyEl.setAttribute('points', finalPts); polyEl.classList.add('radar-poly-animate'); }, 300);
+          }
+        }, 60);
+      });
+    }
+  })();
+
+  // ── Shodan Certs ──────────────────────────────────────────────────────────
+  (function() {
+    var shodanEl = document.getElementById('shodan-certs');
+    if (!shodanEl) return;
+    var certs = [
+      { name: 'Ethical Hacking Essentials (EHE)',              org: 'EC-Council / Coursera', port: '443/tcp', tags: 'ethical-hacking, penetration-testing', url: 'https://www.coursera.org/account/accomplishments/records/UTXCK9XRPVCR' },
+      { name: 'Network Defense Essentials (NDE)',               org: 'EC-Council / Coursera', port: '443/tcp', tags: 'network-defense, blue-team',           url: 'https://www.coursera.org/account/accomplishments/records/LI0DN7QNQ4DK' },
+      { name: 'Digital Forensics Essentials (DFE)',             org: 'EC-Council / Coursera', port: '443/tcp', tags: 'forensics, incident-response',          url: 'https://www.coursera.org/account/accomplishments/records/TPU5FV3A8GYH' },
+      { name: 'Cybersecurity Attack and Defense Fundamentals',  org: 'EC-Council / Coursera', port: '443/tcp', tags: 'attack, defense, specialization',       url: 'https://www.coursera.org/account/accomplishments/specialization/O9CR1A5CW0YQ' },
+    ];
+    var shodanIO = new IntersectionObserver(function(entries) {
+      if (!entries[0].isIntersecting) return;
+      shodanIO.disconnect();
+      runShodan();
+    }, { threshold: 0.2 });
+    shodanIO.observe(shodanEl);
+    function runShodan() {
+      var delay = 0;
+      certs.forEach(function(cert, i) {
+        delay += i === 0 ? 200 : 700;
+        setTimeout(function(c, idx) { revealCard(c, idx); }, delay, cert, i);
+      });
+    }
+    function revealCard(cert, i) {
+      var card = document.createElement('div');
+      card.className = 'shodan-card';
+      var qid = 'shq' + i, rid = 'shr' + i, cid = 'shc' + i;
+      card.innerHTML =
+        '<div class="shodan-query">' +
+          '<span class="shodan-prompt">shodan search</span> ' +
+          '<span class="shodan-typing" id="' + qid + '"></span>' +
+          '<span class="shodan-cur" id="' + cid + '">_</span>' +
+        '</div>' +
+        '<div class="shodan-result" id="' + rid + '" style="display:none">' +
+          '<div class="shodan-row"><span class="shodan-key">[SHODAN]</span><span class="shodan-val shodan-host">cert.moriarty.sec</span></div>' +
+          '<div class="shodan-row"><span class="shodan-key">org:</span><span class="shodan-val">' + cert.org + '</span></div>' +
+          '<div class="shodan-row"><span class="shodan-key">port:</span><span class="shodan-val">' + cert.port + ' &nbsp;<span class="shodan-open">open</span></span></div>' +
+          '<div class="shodan-row"><span class="shodan-key">cert:</span><span class="shodan-val shodan-certname">' + cert.name + '</span></div>' +
+          '<div class="shodan-row"><span class="shodan-key">tags:</span><span class="shodan-val shodan-tags">' + cert.tags + '</span></div>' +
+          '<div class="shodan-row shodan-link-row"><a href="' + cert.url + '" target="_blank" rel="noopener" class="shodan-link">→ View Certificate</a></div>' +
+        '</div>';
+      shodanEl.appendChild(card);
+      var typingEl = document.getElementById(qid);
+      var curEl    = document.getElementById(cid);
+      var resultEl = document.getElementById(rid);
+      var query = '"' + cert.name.slice(0, 32) + '"';
+      var ci = 0;
+      var iv = setInterval(function() {
+        typingEl.textContent += query[ci++];
+        if (ci >= query.length) {
+          clearInterval(iv);
+          curEl.style.display = 'none';
+          setTimeout(function() { resultEl.style.display = ''; resultEl.classList.add('shodan-reveal'); }, 200);
+        }
+      }, 28);
+    }
+  })();
 
   // ── Mobile Burp Overlay (touch support) ───────────────────────────────────
   document.querySelectorAll('.burp-hint').forEach(hint => {
