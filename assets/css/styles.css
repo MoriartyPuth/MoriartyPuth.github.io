@@ -3640,13 +3640,13 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
 .nmap-body {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: center;
   gap: 0;
   font-family: 'IBM Plex Mono', monospace;
 }
 .nmap-scan-col {
   padding: 4px 16px 4px 0;
   border-right: 1px solid var(--border);
-  min-height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
