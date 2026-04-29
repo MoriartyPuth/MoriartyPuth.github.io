@@ -336,7 +336,7 @@
     ov.querySelector('.burp-close').addEventListener('click', e => { e.stopPropagation(); ov.classList.remove('active'); });
   });
 
-  // ── Reverse Shell Listener ─────────────────────────────────────────────────
+  // ── Contact Terminal ──────────────────────────────────────────────────────
   if (!document.getElementById('rev-shell')) {
     const rs = document.createElement('div');
     rs.id = 'rev-shell';
@@ -344,17 +344,25 @@
     document.body.appendChild(rs);
     const rsBody = document.getElementById('rs-body');
     rs.querySelector('.rs-close').addEventListener('click', () => rs.remove());
-    const add = (text, cls, delay) => setTimeout(() => {
+    const addText = (text, cls, delay) => setTimeout(() => {
       const d = document.createElement('div');
       d.className = 'rs-line' + (cls ? ' ' + cls : '');
       d.textContent = text;
       rsBody.appendChild(d);
-      rsBody.scrollTop = rsBody.scrollHeight;
     }, delay);
-    add('Connection received on 10.10.14.1 52341', 'rs-conn', 3800);
-    add('id', 'rs-input', 4600);
-    add('uid=0(root) gid=0(root) groups=0(root)', 'rs-root', 5200);
-    add('moriarty@target:~# ▋', 'rs-prompt', 5900);
+    const addLink = (label, text, href, cls, delay) => setTimeout(() => {
+      const d = document.createElement('div');
+      d.className = 'rs-line ' + cls;
+      d.innerHTML = `<span class="rs-arrow">→</span> <span class="rs-lbl">${label}</span> <a href="${href}" target="_blank" rel="noopener" class="rs-contact-link">${text}</a>`;
+      rsBody.appendChild(d);
+    }, delay);
+    addText('Connection received on [recruiter]', 'rs-conn', 3200);
+    addText('whoami', 'rs-input', 3900);
+    addText('Moriarty Puth — Offensive Security', 'rs-root', 4500);
+    addLink('email   ', 'p.camboeav@gmail.com',                          'mailto:p.camboeav@gmail.com',                                    'rs-contact', 5100);
+    addLink('linkedin', '/in/puthcambo-eav-7249b1325',                   'https://www.linkedin.com/in/puthcambo-eav-7249b1325/',            'rs-contact', 5600);
+    addLink('github  ', '/MoriartyPuth',                                  'https://github.com/MoriartyPuth',                                'rs-contact', 6100);
+    addText('moriarty@sec:~# ▋', 'rs-prompt', 6700);
   }
 
   // ── Wireshark Packet Strip ─────────────────────────────────────────────────

@@ -3455,8 +3455,21 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
 .rs-dim    { color: #475569; }
 .rs-conn   { color: #fbbf24; }
 .rs-input  { color: #94a3b8; }
-.rs-root   { color: #f87171; font-weight: 700; }
+.rs-root   { color: #4ade80; font-weight: 700; }
 .rs-prompt { color: var(--accent); }
+.rs-contact {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.rs-arrow { color: var(--accent); font-weight: 700; }
+.rs-lbl   { color: #475569; min-width: 58px; }
+.rs-contact-link {
+  color: #e2e8f0;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.rs-contact-link:hover { color: var(--accent); text-decoration: underline; }
 
 /* ── Wireshark Strip ── */
 #ws-strip {
