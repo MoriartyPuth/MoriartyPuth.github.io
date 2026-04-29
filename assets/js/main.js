@@ -407,6 +407,171 @@
     }, d));
   }
 
+  // ── Page Transition ───────────────────────────────────────────────────────
+  const ptEl = document.createElement('div');
+  ptEl.id = 'page-transition';
+  ptEl.classList.add('pt-active');
+  document.body.appendChild(ptEl);
+  requestAnimationFrame(() => setTimeout(() => ptEl.classList.remove('pt-active'), 60));
+  document.querySelectorAll('a[href]').forEach(a => {
+    const href = a.getAttribute('href');
+    if (!href || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('#') || a.target === '_blank') return;
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      ptEl.classList.add('pt-active');
+      setTimeout(() => { window.location.href = href; }, 320);
+    });
+  });
+
+  // ── Threat Intel Feed ─────────────────────────────────────────────────────
+  const threatFeedEl = document.getElementById('threat-feed');
+  if (threatFeedEl) {
+    const cves = [
+      { id: 'CVE-2024-6387', sev: 'Critical', pkg: 'OpenSSH',       cls: 'tf-crit' },
+      { id: 'CVE-2024-3094', sev: 'Critical', pkg: 'XZ Utils',      cls: 'tf-crit' },
+      { id: 'CVE-2024-4577', sev: 'Critical', pkg: 'PHP CGI',       cls: 'tf-crit' },
+      { id: 'CVE-2024-1086', sev: 'High',     pkg: 'Linux Kernel',  cls: 'tf-high' },
+      { id: 'CVE-2024-2961', sev: 'High',     pkg: 'glibc iconv',   cls: 'tf-high' },
+      { id: 'CVE-2024-7971', sev: 'High',     pkg: 'Chrome V8',     cls: 'tf-high' },
+      { id: 'CVE-2024-0519', sev: 'Critical', pkg: 'Chrome V8',     cls: 'tf-crit' },
+      { id: 'CVE-2024-38112', sev: 'High',    pkg: 'Windows MSHTML', cls: 'tf-high' },
+    ];
+    let tfIdx = 0;
+    const showCve = () => {
+      const c = cves[tfIdx % cves.length];
+      threatFeedEl.classList.remove('tf-in');
+      void threatFeedEl.offsetWidth;
+      threatFeedEl.innerHTML = `<span class="tf-id">${c.id}</span><span class="${c.cls}">${c.sev}</span><span class="tf-pkg">${c.pkg}</span>`;
+      threatFeedEl.classList.add('tf-in');
+      tfIdx++;
+    };
+    showCve();
+    setInterval(showCve, 4000);
+  }
+
+  // ── Skill Radar ───────────────────────────────────────────────────────────
+  const radarEl = document.getElementById('skills-radar');
+  if (radarEl) {
+    const skills = [
+      { label: 'Exploitation', val: 0.90 },
+      { label: 'Recon',        val: 0.85 },
+      { label: 'Rev Eng',      val: 0.80 },
+      { label: 'Malware',      val: 0.75 },
+      { label: 'Blue Team',    val: 0.70 },
+      { label: 'AI Security',  val: 0.75 },
+    ];
+    const cx = 150, cy = 150, R = 90, N = skills.length;
+    const pt = (r, i) => {
+      const a = (i / N) * Math.PI * 2 - Math.PI / 2;
+      return [+(cx + r * Math.cos(a)).toFixed(2), +(cy + r * Math.sin(a)).toFixed(2)];
+    };
+    const poly = (r) => skills.map((_, i) => pt(r, i).join(',')).join(' ');
+    const grids = [0.25, 0.5, 0.75, 1].map(f =>
+      `<polygon points="${poly(R*f)}" fill="none" stroke="rgba(34,197,94,0.1)" stroke-width="1"/>`).join('');
+    const axes = skills.map((_, i) => {
+      const [x, y] = pt(R, i);
+      return `<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="rgba(34,197,94,0.15)" stroke-width="1"/>`;
+    }).join('');
+    const labels = skills.map((s, i) => {
+      const [x, y] = pt(R + 20, i);
+      const anchor = x < cx - 5 ? 'end' : x > cx + 5 ? 'start' : 'middle';
+      return `<text x="${x}" y="${y}" text-anchor="${anchor}" class="radar-lbl">${s.label}</text>`;
+    }).join('');
+    const valPts = poly(0); // start from center for animation
+    const targetPts = skills.map((s, i) => pt(R * s.val, i).join(',')).join(' ');
+    const dots = skills.map((s, i) => {
+      const [x, y] = pt(R * s.val, i);
+      return `<circle cx="${x}" cy="${y}" r="3.5" class="radar-dot"/>`;
+    }).join('');
+    radarEl.innerHTML = `<svg viewBox="0 0 300 300" class="radar-svg">${grids}${axes}<polygon id="radar-poly" points="${valPts}" class="radar-poly"/>${dots}${labels}</svg>`;
+    const polyEl = radarEl.querySelector('#radar-poly');
+    const dotEls = radarEl.querySelectorAll('.radar-dot');
+    const radarIO = new IntersectionObserver(entries => {
+      if (!entries[0].isIntersecting) return;
+      radarIO.disconnect();
+      setTimeout(() => {
+        polyEl.setAttribute('points', targetPts);
+        polyEl.classList.add('radar-poly-animate');
+        dotEls.forEach(d => d.classList.add('radar-dot-show'));
+      }, 200);
+    }, { threshold: 0.3 });
+    radarIO.observe(radarEl);
+  }
+
+  // ── Mobile Burp Overlay (touch support) ───────────────────────────────────
+  document.querySelectorAll('.burp-hint').forEach(hint => {
+    hint.addEventListener('touchstart', e => { e.stopPropagation(); hint.closest('.featured-item').querySelector('.burp-overlay').classList.add('active'); }, { passive: true });
+  });
+  document.querySelectorAll('.burp-close').forEach(btn => {
+    btn.addEventListener('touchstart', e => { e.stopPropagation(); btn.closest('.burp-overlay').classList.remove('active'); }, { passive: true });
+  });
+
+  // ── Interactive Terminal (toggle with ` key) ───────────────────────────────
+  function buildIterm() {
+    if (document.getElementById('iterm')) return;
+    const el = document.createElement('div');
+    el.id = 'iterm';
+    el.innerHTML = `<div class="iterm-bar"><span class="burp-dots"><i class="bd-r"></i><i class="bd-y"></i><i class="bd-g"></i></span><span class="iterm-title">moriarty@sec:~</span><button class="iterm-x">✕</button></div><div id="iterm-body" class="iterm-body"></div><div class="iterm-row"><span class="iterm-ps">moriarty@sec:~$&nbsp;</span><input id="iterm-in" class="iterm-in" type="text" autocomplete="off" spellcheck="false" /></div>`;
+    document.body.appendChild(el);
+    const body = el.querySelector('#iterm-body');
+    const input = el.querySelector('#iterm-in');
+    el.querySelector('.iterm-x').addEventListener('click', () => el.classList.remove('iterm-open'));
+    const print = (lines, cls) => {
+      (Array.isArray(lines) ? lines : [lines]).forEach(l => {
+        const d = document.createElement('div');
+        d.className = 'iterm-out' + (cls ? ' '+cls : '');
+        d.textContent = l;
+        body.appendChild(d);
+      });
+      body.scrollTop = body.scrollHeight;
+    };
+    print(['Type "help" for available commands.'], 'iterm-dim');
+    const history = []; let histIdx = -1;
+    const CMDS = {
+      help:             () => ['Commands:','  whoami          · who am I','  ls              · list filesystem','  cat <file>      · read file (try resume.txt, skills.txt, contact.txt)','  ls projects/    · list projects','  ls certs/       · list certifications','  ping <host>     · ping a host','  nmap             · port scan easter egg ;)','  clear            · clear terminal'],
+      whoami:           () => ['Moriarty Puth','Offensive Security Researcher','Final-year cybersecurity student · Cambodia','API security · Binary exploitation · AI tooling'],
+      ls:               () => ['resume.txt  skills.txt  contact.txt  projects/  certs/'],
+      'ls projects/':   () => ['EES-Security-Case-Study/','CSS-GDIN-Security-Case-Study/','AUPP-CTF-Platform-Security/','bubble-scanner/  bubble-pop/  bubble-siphon/','AURA/  Sila-Entropy/'],
+      'ls certs/':      () => ['EHE-Ethical-Hacking-Essentials.pdf','NDE-Network-Defense-Essentials.pdf','DFE-Digital-Forensics-Essentials.pdf','Cybersecurity-Attack-Defense-Specialization.pdf'],
+      'cat resume.txt': () => ['──────────────────────────────────','Name:    Moriarty Puth','Role:    Offensive Security Researcher','Focus:   API security · Reverse engineering · AI tooling','Notable: Critical IDOR in Cambodian gov systems','         Top-80 crackmes.one ranking','Status:  Open to security roles','──────────────────────────────────'],
+      'cat skills.txt': () => ['Web/API Exploitation  ▓▓▓▓▓▓▓▓▓░  90%','Reconnaissance        ▓▓▓▓▓▓▓▓░░  85%','Reverse Engineering   ▓▓▓▓▓▓▓▓░░  80%','Malware Analysis      ▓▓▓▓▓▓▓░░░  75%','Blue Team             ▓▓▓▓▓▓▓░░░  70%','AI Security           ▓▓▓▓▓▓▓░░░  75%'],
+      'cat contact.txt':() => ['email:    p.camboeav@gmail.com','linkedin: linkedin.com/in/puthcambo-eav-7249b1325','github:   github.com/MoriartyPuth'],
+      nmap:             () => { setTimeout(showNmap, 200); return ['[*] Launching nmap scan on moriarty.portfolio...']; },
+    };
+    input.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        const cmd = input.value.trim();
+        if (!cmd) return;
+        history.unshift(cmd); histIdx = -1;
+        const echo = document.createElement('div');
+        echo.className = 'iterm-out iterm-echo';
+        echo.textContent = 'moriarty@sec:~$ ' + cmd;
+        body.appendChild(echo);
+        input.value = '';
+        if (cmd.toLowerCase() === 'clear') { body.innerHTML = ''; return; }
+        const key = cmd.toLowerCase();
+        const fn = CMDS[key] || CMDS[key.split(' ').slice(0,2).join(' ')] || CMDS[key.split(' ')[0]];
+        const out = fn ? fn(cmd.split(' ').slice(1)) : [`bash: ${cmd.split(' ')[0]}: command not found`];
+        if (out) print(out);
+        body.scrollTop = body.scrollHeight;
+      } else if (e.key === 'ArrowUp')   { e.preventDefault(); if (histIdx < history.length-1) input.value = history[++histIdx]; }
+        else if (e.key === 'ArrowDown') { e.preventDefault(); histIdx > 0 ? input.value = history[--histIdx] : (histIdx=-1, input.value=''); }
+    });
+    setTimeout(() => { el.classList.add('iterm-open'); input.focus(); }, 50);
+  }
+  document.addEventListener('keydown', e => {
+    if (e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA') return;
+    if (e.key === '`') {
+      const t = document.getElementById('iterm');
+      if (t) { t.classList.toggle('iterm-open'); if (t.classList.contains('iterm-open')) t.querySelector('.iterm-in').focus(); }
+      else buildIterm();
+    }
+  });
+
+  // ── 404 path display ──────────────────────────────────────────────────────
+  const e404path = document.getElementById('e404-path');
+  if (e404path) e404path.textContent = window.location.pathname;
+
   // ── Mobile Menu ────────────────────────────────────────────────────────────
   const menuBtn = document.querySelector('[data-menu]');
   const sidebar  = document.querySelector('.sidebar');

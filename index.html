@@ -3,7 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Moriarty Puth - Home</title>
+  <title>Moriarty Puth — Offensive Security Researcher</title>
+  <meta name="description" content="Moriarty Puth — Offensive Security Researcher. API security, reverse engineering, binary exploitation, AI tooling." />
+  <meta property="og:title" content="Moriarty Puth — Offensive Security" />
+  <meta property="og:description" content="Offensive security researcher specializing in API security, reverse engineering, and binary exploitation. Critical gov vuln reports. Top-80 crackmes.one." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -38,6 +44,14 @@
       <div class="session-info">
         <span class="session-label">Session Active</span>
         <span class="session-timer">00:00:00</span>
+      </div>
+      <div class="threat-feed-wrap">
+        <div class="threat-feed-label">⚠ threat intel</div>
+        <div id="threat-feed" class="threat-feed"></div>
+      </div>
+      <div class="reading-block">
+        <span class="read-label">&gt; studying</span>
+        <span class="read-val">OSCP methodology</span>
       </div>
       <div class="whois-widget">
         <div class="whois-header">$ whois moriarty.portfolio</div>
@@ -654,79 +668,7 @@
           </div>
           <h4>Core Skills</h4>
         </div>
-        <div class="skills-grid">
-          <div class="skill-item">
-            <div class="skill-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 2a10 10 0 1 0 10 10H12V2z"/>
-                <path d="M12 2a7 7 0 0 1 7 7h-7V2z"/>
-              </svg>
-            </div>
-            <span>AI Security</span>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M2 12h4l3-9 4 18 3-9h6"/>
-              </svg>
-            </div>
-            <span>Threat Intel</span>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              </svg>
-            </div>
-            <span>Intrusion Detection</span>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M12 8v4l3 3"/>
-              </svg>
-            </div>
-            <span>Blue Team</span>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="11" cy="11" r="8"/>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-              </svg>
-            </div>
-            <span>Reconnaissance</span>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                <path d="M2 17l10 5 10-5"/>
-                <path d="M2 12l10 5 10-5"/>
-              </svg>
-            </div>
-            <span>Exploitation</span>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-              </svg>
-            </div>
-            <span>Reverse Eng.</span>
-          </div>
-          <div class="skill-item">
-            <div class="skill-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
-                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
-                <line x1="12" y1="17" x2="12.01" y2="17"/>
-              </svg>
-            </div>
-            <span>Malware Analysis</span>
-          </div>
-        </div>
+        <div id="skills-radar" class="skills-radar"></div>
       </section>
       <section class="tooling-section">
         <div class="skills-header">
