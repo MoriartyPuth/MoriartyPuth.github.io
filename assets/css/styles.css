@@ -3196,7 +3196,7 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
 }
 .nmap-close:hover { color: #f87171; background: rgba(239,68,68,0.1); }
 
-.nmap-body {
+#nmap-popup .nmap-body {
   padding: 14px;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 12px;
@@ -3207,10 +3207,10 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
   max-height: 220px;
   overflow-y: auto;
 }
-.nmap-line { line-height: 1.5; opacity: 0; animation: boot-appear 0.15s ease forwards; }
-.nmap-header { color: var(--muted); font-weight: 700; margin-top: 4px; }
-.nmap-open { color: #4ade80; }
-.nmap-done-line { color: var(--muted); margin-top: 4px; }
+#nmap-popup .nmap-line { line-height: 1.5; opacity: 0; animation: boot-appear 0.15s ease forwards; }
+#nmap-popup .nmap-header { color: var(--muted); font-weight: 700; margin-top: 4px; }
+#nmap-popup .nmap-open { color: #4ade80; }
+#nmap-popup .nmap-done-line { color: var(--muted); margin-top: 4px; }
 
 /* ── Mobile menu terminal style ── */
 @media (max-width: 960px) {
