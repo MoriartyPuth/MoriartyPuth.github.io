@@ -489,7 +489,7 @@
       '<div class="nmap-body">' +
         '<div class="nmap-scan-col"><div id="nmap-lines"></div><div id="nmap-msf-line" class="nmap-msf-line"></div></div>' +
         '<div class="nmap-radar-col">' +
-          '<svg id="nmap-radar-svg" viewBox="0 0 300 300" class="radar-svg">' +
+          '<svg id="nmap-radar-svg" viewBox="-45 -15 390 330" class="radar-svg">' +
             grids + axes +
             '<polygon id="nmap-poly" points="' + polyPts(function() { return 0; }) + '" class="radar-poly"/>' +
             rdots + radarLabels +
