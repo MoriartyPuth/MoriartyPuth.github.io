@@ -180,14 +180,9 @@
         <div class="live-grid">
           <!-- Khmer OCR -->
           <div class="live-card live-card--teal">
-            <div class="live-card-preview community-preview community-preview--teal">
-              <div class="community-preview-icon">
-                <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.5">
-                  <rect x="3" y="3" width="18" height="18" rx="2"/>
-                  <path d="M7 8h10M7 12h7M7 16h5"/>
-                  <path d="M17 15l1.5 1.5L21 14"/>
-                </svg>
-              </div>
+            <div class="live-card-preview">
+              <img src="assets/img/khmer-ocr-screenshot.png" alt="Khmer OCR App" class="live-card-img" />
+              <div class="live-card-preview-overlay"></div>
               <div class="live-badge live-badge--streamlit">
                 <span class="pulse-dot"></span>
                 Live on Streamlit
@@ -208,9 +203,9 @@
               <h3>Khmer OCR</h3>
               <p>Open source optical character recognition for Khmer script — preserving and digitizing Cambodia's written language for the modern web and document processing.</p>
               <div class="live-stats live-stats--teal">
-                <span>Khmer Script</span>
-                <span>Computer Vision</span>
-                <span>NLP</span>
+                <span>CNN + BiLSTM</span>
+                <span>Val CER: 1.93%</span>
+                <span>CTC Loss</span>
               </div>
               <div class="live-actions">
                 <a href="https://khmer-ocr.streamlit.app/" target="_blank" rel="noopener" class="live-btn live-btn--teal">Launch App →</a>
@@ -221,15 +216,9 @@
 
           <!-- Rice Disease Detector -->
           <div class="live-card live-card--amber">
-            <div class="live-card-preview community-preview community-preview--amber">
-              <div class="community-preview-icon">
-                <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.5">
-                  <path d="M12 22V12"/>
-                  <path d="M12 12C12 7 7 3 2 4c0 5 4 9 10 8z"/>
-                  <path d="M12 12C12 7 17 3 22 4c0 5-4 9-10 8z"/>
-                  <path d="M12 17c0-3 2-5 4-6"/>
-                </svg>
-              </div>
+            <div class="live-card-preview">
+              <img src="assets/img/rice-disease-screenshot.png" alt="Rice Disease Detector App" class="live-card-img" />
+              <div class="live-card-preview-overlay"></div>
               <div class="live-badge live-badge--github">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 2c-5.52 0-10 4.58-10 10.22 0 4.52 2.86 8.35 6.83 9.7.5.1.68-.22.68-.5 0-.24-.01-1.04-.02-1.89-2.78.62-3.37-1.22-3.37-1.22-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.55 2.36 1.1 2.94.84.09-.67.35-1.1.63-1.35-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.32.1-2.74 0 0 .84-.27 2.75 1.05a9.2 9.2 0 0 1 5 0c1.9-1.32 2.74-1.05 2.74-1.05.55 1.42.2 2.48.1 2.74.64.72 1.03 1.63 1.03 2.75 0 3.94-2.35 4.8-4.58 5.05.36.32.68.94.68 1.9 0 1.38-.02 2.5-.02 2.85 0 .28.18.61.69.5 3.97-1.35 6.82-5.18 6.82-9.7C22 6.58 17.52 2 12 2z"/>
@@ -250,9 +239,9 @@
               <h3>Rice Disease Detector</h3>
               <p>Machine learning model that helps Cambodian farmers detect and identify rice crop diseases early, protecting harvests and food security across the country.</p>
               <div class="live-stats live-stats--amber">
-                <span>Computer Vision</span>
-                <span>Agriculture</span>
-                <span>Deep Learning</span>
+                <span>MobileNetV3</span>
+                <span>6 Disease Classes</span>
+                <span>Grad-CAM++</span>
               </div>
               <div class="live-actions">
                 <a href="https://github.com/jerlongg/rice-disease-detector" target="_blank" rel="noopener" class="live-btn live-btn--amber">View Project →</a>

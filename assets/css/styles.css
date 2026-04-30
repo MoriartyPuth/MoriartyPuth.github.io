@@ -2337,6 +2337,11 @@ body::before {
   border-color: rgba(255,255,255,0.18);
 }
 
+/* ── Community Open Source ── */
+.community-section { margin-top: 48px; }
+.community-section .live-projects-header { margin-bottom: 20px; }
+.community-section .live-grid { gap: 24px; }
+
 /* ── Community Open Source — Teal & Amber color variants ── */
 .live-card--teal:hover { box-shadow: 0 24px 48px rgba(20,184,166,0.14), 0 0 0 1px rgba(20,184,166,0.18); }
 .live-card--amber:hover { box-shadow: 0 24px 48px rgba(245,158,11,0.14), 0 0 0 1px rgba(245,158,11,0.18); }
