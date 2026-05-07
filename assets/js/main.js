@@ -752,6 +752,58 @@
     function run() { runLab(labs[0], function() { runLab(labs[1], null); }); }
   })();
 
+  // ── Lab Card Terminal Animation ───────────────────────────────────────────
+  (function() {
+    var configs = [
+      { id: 'lab-term-1', cmd: 'ssh root@lab-controller',
+        out: [
+          { text: '> Connecting to OpenStack Epoxy...', cls: 'lt-info', delay: 380 },
+          { text: '> Nova ACTIVE · Neutron/OVN ACTIVE · 43 modules loaded', cls: 'lt-ok', delay: 860 },
+        ]
+      },
+      { id: 'lab-term-2', cmd: 'ssh root@lab-primary',
+        out: [
+          { text: '> Connecting to CentOS Stream 10...', cls: 'lt-info', delay: 380 },
+          { text: '> DNS ACTIVE · Apache ACTIVE · 18 modules loaded', cls: 'lt-ok', delay: 860 },
+        ]
+      },
+    ];
+    var UID = 0;
+    function typePrompt(el, cmd, done) {
+      var sid = 'lt-s' + (UID++), cid = 'lt-c' + UID;
+      var d = document.createElement('div');
+      d.className = 'lt-line lt-cmd';
+      d.innerHTML = '<span class="lt-ps">~/labs/$</span> <span id="' + sid + '"></span><span class="lt-cur" id="' + cid + '">_</span>';
+      el.appendChild(d);
+      var span = document.getElementById(sid), cur = document.getElementById(cid), i = 0;
+      var iv = setInterval(function() {
+        span.textContent += cmd[i++];
+        if (i >= cmd.length) { clearInterval(iv); cur.style.display = 'none'; if (done) setTimeout(done, 150); }
+      }, 36);
+    }
+    configs.forEach(function(cfg) {
+      var el = document.getElementById(cfg.id);
+      if (!el) return;
+      var io = new IntersectionObserver(function(entries) {
+        if (!entries[0].isIntersecting) return;
+        io.disconnect();
+        setTimeout(function() {
+          typePrompt(el, cfg.cmd, function() {
+            cfg.out.forEach(function(o) {
+              setTimeout(function() {
+                var d = document.createElement('div');
+                d.className = 'lt-line ' + o.cls;
+                d.textContent = o.text;
+                el.appendChild(d);
+              }, o.delay);
+            });
+          });
+        }, 300);
+      }, { threshold: 0.4 });
+      io.observe(el);
+    });
+  })();
+
   // ── Mobile Burp Overlay (touch support) ───────────────────────────────────
   document.querySelectorAll('.burp-hint').forEach(hint => {
     hint.addEventListener('touchstart', e => { e.stopPropagation(); hint.closest('.featured-item').querySelector('.burp-overlay').classList.add('active'); }, { passive: true });

@@ -4007,6 +4007,7 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
   flex-direction: column;
   gap: 10px;
   transition: border-color 0.2s, transform 0.2s;
+  overflow: hidden;
 }
 .lab-card:hover { border-color: #3b82f6; transform: translateY(-2px); }
 .lab-card-eyebrow {
@@ -4047,6 +4048,27 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
 .lab-level { font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: 4px; }
 .lab-level--expert       { background: rgba(239,68,68,0.12);  color: #f87171; border: 1px solid rgba(239,68,68,0.2); }
 .lab-level--intermediate { background: rgba(251,191,36,0.12); color: #fbbf24; border: 1px solid rgba(251,191,36,0.2); }
+/* Lab card terminal animation */
+.lab-term {
+  min-height: 82px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px;
+  line-height: 1.85;
+  padding: 10px 14px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: -20px -20px 16px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(34,197,94,0.10);
+}
+.lt-line { animation: nmapIn 0.15s ease both; }
+.lt-ps   { color: var(--accent); font-weight: 600; }
+.lt-cmd  { color: #e2e8f0; }
+.lt-info { color: var(--muted); }
+.lt-ok   { color: #4ade80; }
+.lt-cur  { color: var(--accent); animation: blink 0.8s step-end infinite; }
+
 /* ASCII rack band */
 .lab-ascii-band {
   font-family: 'IBM Plex Mono', monospace;
