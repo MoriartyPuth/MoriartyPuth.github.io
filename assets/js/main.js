@@ -671,6 +671,87 @@
     }
   })();
 
+  // ── OpenStack Cloud Console ───────────────────────────────────────────────
+  (function() {
+    var osEl = document.getElementById('openstack-console');
+    if (!osEl) return;
+    var osIO = new IntersectionObserver(function(entries) {
+      if (!entries[0].isIntersecting) return;
+      osIO.disconnect();
+      setTimeout(run, 300);
+    }, { threshold: 0.3 });
+    osIO.observe(osEl);
+    var uid = 0;
+    function addLine(html, cls) {
+      var d = document.createElement('div');
+      d.className = 'os-line' + (cls ? ' ' + cls : '');
+      d.innerHTML = html;
+      osEl.appendChild(d);
+      return d;
+    }
+    function typeCmd(cmd, done) {
+      var tid = 'os-t' + (uid++), cid = 'os-c' + uid;
+      addLine('<span class="os-prompt">$</span> <span id="' + tid + '"></span><span class="os-cur" id="' + cid + '">_</span>');
+      var span = document.getElementById(tid), cur = document.getElementById(cid), i = 0;
+      var iv = setInterval(function() {
+        span.textContent += cmd[i++];
+        if (i >= cmd.length) { clearInterval(iv); cur.style.display = 'none'; if (done) setTimeout(done, 150); }
+      }, 24);
+    }
+    function bootAnim(done) {
+      var bid = 'os-b' + (uid++);
+      addLine('<span class="os-dim">  Booting</span> <span id="' + bid + '"></span>');
+      var d = document.getElementById(bid), c = 0;
+      var iv = setInterval(function() {
+        d.textContent += '.';
+        if (++c >= 10) {
+          clearInterval(iv);
+          d.innerHTML += ' <span class="os-active">ACTIVE</span>';
+          if (done) setTimeout(done, 280);
+        }
+      }, 65);
+    }
+    var labs = [
+      { cmd: 'openstack server create --image CentOS-9 --flavor m1.xlarge lab-controller',
+        fields: [['name','lab-controller'],['flavor','m1.xlarge · 4 vCPU · 8 GB RAM'],['image','CentOS Stream 9'],['status','BUILD']],
+        repo: 'CentOS-Openstack-Epoxy', modules: '43 modules', level: 'Expert' },
+      { cmd: 'openstack server create --image CentOS-Stream-10 --flavor m1.medium lab-primary',
+        fields: [['name','lab-primary'],['flavor','m1.medium · 2 vCPU · 4 GB RAM'],['image','CentOS Stream 10'],['status','BUILD']],
+        repo: 'CentOS-Primary-Server-Lab', modules: '18 modules', level: 'Intermediate' }
+    ];
+    function runLab(lab, next) {
+      typeCmd(lab.cmd, function() {
+        lab.fields.forEach(function(f, i) {
+          setTimeout(function() {
+            var isStat = f[0] === 'status';
+            addLine(
+              '  <span class="os-bullet">▸</span> ' +
+              '<span class="os-key">' + f[0] + '</span>' +
+              '<span class="os-colon"> : </span>' +
+              (isStat
+                ? '<span class="os-build">' + f[1] + '</span>'
+                : '<span class="os-val">' + f[1] + '</span>')
+            );
+          }, 120 + i * 120);
+        });
+        setTimeout(function() {
+          bootAnim(function() {
+            addLine(
+              '<span class="os-plus">[+]</span> ' +
+              '<span class="os-repo">' + lab.repo + '</span>' +
+              '<span class="os-sep"> ─── </span>' +
+              '<span class="os-mod">' + lab.modules + '</span>' +
+              '<span class="os-sep"> ─── </span>' +
+              '<span class="os-lvl">' + lab.level + '</span>'
+            );
+            if (next) { setTimeout(function() { addLine('&nbsp;'); setTimeout(next, 180); }, 420); }
+          });
+        }, 120 + lab.fields.length * 120 + 160);
+      });
+    }
+    function run() { runLab(labs[0], function() { runLab(labs[1], null); }); }
+  })();
+
   // ── Mobile Burp Overlay (touch support) ───────────────────────────────────
   document.querySelectorAll('.burp-hint').forEach(hint => {
     hint.addEventListener('touchstart', e => { e.stopPropagation(); hint.closest('.featured-item').querySelector('.burp-overlay').classList.add('active'); }, { passive: true });

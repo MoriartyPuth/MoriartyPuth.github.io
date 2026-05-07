@@ -556,14 +556,60 @@
         </div>
       </section>
 
-      <section class="stats-row">
-        <div class="stat-item"><div class="stat-number" data-target="3">3</div><div class="stat-label">Case Studies</div></div>
-        <div class="stat-divider"></div>
-        <div class="stat-item"><div class="stat-number" data-target="16">16</div><div class="stat-label">Labs & Writeups</div></div>
-        <div class="stat-divider"></div>
-        <div class="stat-item"><div class="stat-number" data-target="5">5</div><div class="stat-label">Tools Published</div></div>
-        <div class="stat-divider"></div>
-        <div class="stat-item"><div class="stat-number" data-target="2">2</div><div class="stat-label">Gov Vulns Reported</div></div>
+      <section class="labs-section sr">
+        <div class="labs-header">
+          <div class="labs-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="8" rx="2"/>
+              <rect x="2" y="14" width="20" height="8" rx="2"/>
+              <line x1="6" y1="6" x2="6.01" y2="6"/>
+              <line x1="6" y1="18" x2="6.01" y2="18"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Lab &amp; Infrastructure</h3>
+            <p class="labs-sub">Private cloud and enterprise Linux homelab documentation</p>
+          </div>
+        </div>
+        <div id="openstack-console" class="openstack-console"></div>
+        <div class="labs-grid">
+          <a href="https://github.com/MoriartyPuth-Labs/CentOS-Openstack-Epoxy" target="_blank" rel="noopener" class="lab-card">
+            <div class="lab-card-eyebrow">
+              <span class="lab-status">● ACTIVE</span>
+              <span class="lab-modules">43 modules</span>
+            </div>
+            <div class="lab-card-title">CentOS OpenStack Epoxy</div>
+            <p class="lab-card-desc">Expert-level deployment guide for a complete OpenStack Epoxy private cloud on CentOS 9 — Keystone, Glance, Nova, Neutron with OVN, MariaDB, and full VM provisioning from scratch.</p>
+            <div class="lab-card-tags">
+              <span class="lab-tag">OpenStack</span>
+              <span class="lab-tag">CentOS 9</span>
+              <span class="lab-tag">KVM / OVN</span>
+              <span class="lab-tag">Private Cloud</span>
+            </div>
+            <div class="lab-card-footer">
+              <span class="lab-spec">4 vCPU · 8 GB RAM · 80+ GB</span>
+              <span class="lab-level lab-level--expert">Expert</span>
+            </div>
+          </a>
+          <a href="https://github.com/MoriartyPuth-Labs/CentOS-Primary-Server-Lab" target="_blank" rel="noopener" class="lab-card">
+            <div class="lab-card-eyebrow">
+              <span class="lab-status">● ACTIVE</span>
+              <span class="lab-modules">18 modules</span>
+            </div>
+            <div class="lab-card-title">CentOS Primary Server Lab</div>
+            <p class="lab-card-desc">Hands-on curriculum for building an enterprise CentOS Stream 10 server — BIND DNS, DHCP, Apache/SSL, MariaDB, Postfix, Samba, and monitoring stack inside VMware Workstation.</p>
+            <div class="lab-card-tags">
+              <span class="lab-tag">CentOS 10</span>
+              <span class="lab-tag">BIND DNS</span>
+              <span class="lab-tag">Apache / SSL</span>
+              <span class="lab-tag">VMware</span>
+            </div>
+            <div class="lab-card-footer">
+              <span class="lab-spec">2 GB RAM · 20 GB · VMware Pro</span>
+              <span class="lab-level lab-level--intermediate">Intermediate</span>
+            </div>
+          </a>
+        </div>
       </section>
 
       <section class="featured-categories">
@@ -624,48 +670,6 @@
           </a>
         </div>
       </section>
-      <section class="recent-activity">
-        <div class="section-header-simple">
-          <h3>Recent Activity</h3>
-          <a href="categories.html" class="view-all">View all <span>></span></a>
-        </div>
-        <div class="activity-list">
-          <div class="activity-item">
-            <div class="activity-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="16 18 22 12 16 6"/>
-                <polyline points="8 6 2 12 8 18"/>
-              </svg>
-            </div>
-            <div class="activity-content">
-              <a href="https://github.com/MoriartyPuth-Labs/Linux-Data-Analysis-Lab" target="_blank" rel="noopener">Linux-Data-Analysis-Lab</a>
-              <span class="activity-meta">Labs Walkthrough - Linux</span>
-            </div>
-          </div>
-          <div class="activity-item">
-            <div class="activity-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-              </svg>
-            </div>
-            <div class="activity-content">
-              <a href="https://github.com/MoriartyPuth-Labs/Full-Chain-SQLi-Case-Study" target="_blank" rel="noopener">Full-Chain-SQLi-Case-Study</a>
-              <span class="activity-meta">Labs Walkthrough - SQL Injection</span>
-            </div>
-          </div>
-          <div class="activity-item">
-            <div class="activity-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-              </svg>
-            </div>
-            <div class="activity-content">
-              <a href="https://github.com/MoriartyPuth-Labs/MSFVenom-and-Trojan-Lab" target="_blank" rel="noopener">MSFVenom-and-Trojan-Lab</a>
-              <span class="activity-meta">Labs Walkthrough - Malware</span>
-            </div>
-          </div>
-        </div>
-      </section>
       <div class="skills-tooling-row">
         <section class="skills-section">
           <div class="skills-header">
@@ -717,6 +721,52 @@
       </section>
     </main>
   </div>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-stats">
+        <div class="footer-stat-item">
+          <div class="stat-number" data-target="3">3</div>
+          <div class="stat-label">Case Studies</div>
+        </div>
+        <div class="footer-stat-divider"></div>
+        <div class="footer-stat-item">
+          <div class="stat-number" data-target="16">16</div>
+          <div class="stat-label">Labs &amp; Writeups</div>
+        </div>
+        <div class="footer-stat-divider"></div>
+        <div class="footer-stat-item">
+          <div class="stat-number" data-target="5">5</div>
+          <div class="stat-label">Tools Published</div>
+        </div>
+        <div class="footer-stat-divider"></div>
+        <div class="footer-stat-item">
+          <div class="stat-number" data-target="2">2</div>
+          <div class="stat-label">Gov Vulns Reported</div>
+        </div>
+      </div>
+      <div class="footer-activity">
+        <div class="footer-act-title">Recent Activity</div>
+        <div class="footer-act-list">
+          <a href="https://github.com/MoriartyPuth-Labs/Linux-Data-Analysis-Lab" target="_blank" rel="noopener" class="footer-act-item">
+            <span class="footer-act-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
+            <span class="footer-act-name">Linux-Data-Analysis-Lab</span>
+            <span class="footer-act-meta">Labs · Linux</span>
+          </a>
+          <a href="https://github.com/MoriartyPuth-Labs/Full-Chain-SQLi-Case-Study" target="_blank" rel="noopener" class="footer-act-item">
+            <span class="footer-act-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+            <span class="footer-act-name">Full-Chain-SQLi-Case-Study</span>
+            <span class="footer-act-meta">Labs · SQLi</span>
+          </a>
+          <a href="https://github.com/MoriartyPuth-Labs/MSFVenom-and-Trojan-Lab" target="_blank" rel="noopener" class="footer-act-item">
+            <span class="footer-act-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></span>
+            <span class="footer-act-name">MSFVenom-and-Trojan-Lab</span>
+            <span class="footer-act-meta">Labs · Malware</span>
+          </a>
+        </div>
+      </div>
+      <div class="footer-copyright">© 2025 Moriarty Puth — Security Researcher &amp; Infrastructure Engineer</div>
+    </div>
+  </footer>
   <script src="assets/js/terminal-bg.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
