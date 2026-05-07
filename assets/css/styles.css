@@ -4050,14 +4050,14 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
 .lab-level--intermediate { background: rgba(251,191,36,0.12); color: #fbbf24; border: 1px solid rgba(251,191,36,0.2); }
 /* Lab card terminal animation */
 .lab-term {
-  min-height: 82px;
+  min-height: 90px;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 12.5px;
   line-height: 1.85;
-  padding: 10px 14px 10px;
+  padding: 18px 14px 10px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
   margin: -20px -20px 16px;
   overflow: hidden;
   border-bottom: 1px solid rgba(34,197,94,0.10);
