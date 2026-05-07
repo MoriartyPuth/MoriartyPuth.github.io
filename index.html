@@ -251,95 +251,104 @@
         </div>
       </section>
 
-      <!-- Live & Deployed Projects -->
-      <section class="live-projects">
-        <div class="live-projects-header">
-          <div class="live-header-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/>
-              <line x1="2" y1="12" x2="22" y2="12"/>
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+      <!-- Lab & Infrastructure -->
+      <section class="labs-section sr">
+        <div class="labs-header">
+          <div class="labs-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="8" rx="2"/>
+              <rect x="2" y="14" width="20" height="8" rx="2"/>
+              <line x1="6" y1="6" x2="6.01" y2="6"/>
+              <line x1="6" y1="18" x2="6.01" y2="18"/>
             </svg>
           </div>
           <div>
-            <h3>Live &amp; Deployed Projects</h3>
-            <p class="meta">Tools you can interact with right now</p>
+            <h3>Lab &amp; Infrastructure</h3>
+            <p class="labs-sub">Private cloud and enterprise Linux homelab documentation</p>
           </div>
         </div>
-        <div class="live-grid">
-
-          <!-- Card 1: Byzantine-Robust-Identity-Framework -->
-          <div class="live-card live-card--purple">
-            <div class="live-card-preview">
-              <img src="assets/img/byzantine-screenshot.png" alt="Byzantine Framework Dashboard" class="live-card-img" />
-              <div class="live-card-preview-overlay"></div>
-              <div class="live-badge live-badge--streamlit">
-                <span class="pulse-dot"></span>
-                Live on Streamlit
-              </div>
-              <div class="live-icon3d live-icon3d--purple">
-                <div class="icon3d-face">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                    <circle cx="12" cy="5" r="2"/>
-                    <circle cx="5" cy="19" r="2"/>
-                    <circle cx="19" cy="19" r="2"/>
-                    <line x1="12" y1="7" x2="5" y2="17"/>
-                    <line x1="12" y1="7" x2="19" y2="17"/>
-                    <line x1="5" y1="19" x2="19" y2="19"/>
-                  </svg>
-                </div>
-              </div>
+        <div id="openstack-console" class="openstack-console"></div>
+        <div class="labs-grid">
+          <a href="https://github.com/MoriartyPuth-Labs/CentOS-Openstack-Epoxy" target="_blank" rel="noopener" class="lab-card">
+            <div class="lab-card-eyebrow">
+              <span class="lab-status">● ACTIVE</span>
+              <span class="lab-modules">43 modules</span>
             </div>
-            <div class="live-card-body">
-              <h3>Byzantine-Robust Identity Framework</h3>
-              <p>Federated learning command center with Byzantine attack defense, reputation scoring, and privacy budget tracking.</p>
-              <div class="live-stats live-stats--purple">
-                <span>98.26% Accuracy</span>
-                <span>F1: 0.9787</span>
-                <span>8 Rounds</span>
-              </div>
-              <div class="live-actions">
-                <a href="https://byzantine-robust-identity-framework.streamlit.app/" target="_blank" rel="noopener" class="live-btn live-btn--purple">Launch App →</a>
-                <a href="https://github.com/MoriartyPuth/Byzantine-Robust-Identity-Framework" target="_blank" rel="noopener" class="live-btn live-btn--ghost">Source</a>
-              </div>
+            <div class="lab-card-title">CentOS OpenStack Epoxy</div>
+            <svg class="lab-rack-svg" viewBox="0 0 280 152" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="1" width="278" height="150" rx="4" fill="rgba(15,23,42,0.85)" stroke="#1e3a5f" stroke-width="1.5"/>
+              <rect x="1" y="1" width="278" height="20" rx="4" fill="#0f1e3d"/>
+              <text x="10" y="14" font-family="IBM Plex Mono,monospace" font-size="9" fill="#60a5fa" letter-spacing="0.5">RACK-01 :: lab-controller</text>
+              <circle cx="263" cy="11" r="3" fill="#4ade80"/><circle cx="254" cy="11" r="3" fill="#fbbf24"/><circle cx="245" cy="11" r="3" fill="#3b82f6"/>
+              <rect x="8" y="27" width="264" height="26" rx="2" fill="rgba(59,130,246,0.08)" stroke="rgba(59,130,246,0.25)" stroke-width="1"/>
+              <rect x="10" y="29" width="5" height="22" rx="1" fill="#3b82f6"/><rect x="10" y="29" width="5" height="7" rx="1" fill="#60a5fa"/>
+              <text x="20" y="39" font-family="IBM Plex Mono,monospace" font-size="7.5" font-weight="600" fill="#93c5fd">CONTROLLER NODE</text>
+              <text x="20" y="50" font-family="IBM Plex Mono,monospace" font-size="7" fill="#64748b">Keystone  Glance  Nova  Neutron/OVN  Horizon</text>
+              <rect x="8" y="59" width="264" height="26" rx="2" fill="rgba(139,92,246,0.08)" stroke="rgba(139,92,246,0.25)" stroke-width="1"/>
+              <rect x="10" y="61" width="5" height="22" rx="1" fill="#8b5cf6"/><rect x="10" y="61" width="5" height="7" rx="1" fill="#a78bfa"/>
+              <text x="20" y="71" font-family="IBM Plex Mono,monospace" font-size="7.5" font-weight="600" fill="#c4b5fd">DATA LAYER</text>
+              <text x="20" y="82" font-family="IBM Plex Mono,monospace" font-size="7" fill="#64748b">MariaDB  RabbitMQ  Memcached  Apache</text>
+              <rect x="8" y="91" width="264" height="26" rx="2" fill="rgba(34,197,94,0.08)" stroke="rgba(34,197,94,0.25)" stroke-width="1"/>
+              <rect x="10" y="93" width="5" height="22" rx="1" fill="#22c55e"/><rect x="10" y="93" width="5" height="7" rx="1" fill="#4ade80"/>
+              <text x="20" y="103" font-family="IBM Plex Mono,monospace" font-size="7.5" font-weight="600" fill="#86efac">NETWORK / OVN</text>
+              <text x="20" y="114" font-family="IBM Plex Mono,monospace" font-size="7" fill="#64748b">Open vSwitch  VXLAN tunnels  Floating IPs</text>
+              <rect x="8" y="123" width="264" height="22" rx="2" fill="rgba(15,23,42,0.6)"/>
+              <circle cx="18" cy="134" r="3" fill="#4ade80"/>
+              <text x="26" y="138" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#4ade80">ACTIVE</text>
+              <line x1="62" y1="126" x2="62" y2="143" stroke="#1e3a5f" stroke-width="1"/>
+              <text x="68" y="138" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#64748b">4 vCPU · 8 GB RAM · 80+ GB · KVM/libvirt</text>
+            </svg>
+            <div class="lab-card-tags">
+              <span class="lab-tag">OpenStack</span>
+              <span class="lab-tag">CentOS 9</span>
+              <span class="lab-tag">KVM / OVN</span>
+              <span class="lab-tag">Private Cloud</span>
             </div>
-          </div>
-
-          <!-- Card 2: Cyber-kill-chain-tool -->
-          <div class="live-card live-card--blue">
-            <div class="live-card-preview">
-              <img src="assets/img/killchain-screenshot.png" alt="Cyber Kill Chain Dashboard" class="live-card-img" />
-              <div class="live-card-preview-overlay"></div>
-              <div class="live-badge live-badge--docker">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M13.983 11.078h2.119a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.186-.186h-2.119a.185.185 0 0 0-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 0 0 .186-.186V3.574a.186.186 0 0 0-.186-.185h-2.118a.185.185 0 0 0-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 0 0 .186-.186V6.29a.186.186 0 0 0-.186-.185h-2.118a.185.185 0 0 0-.185.185v1.887c0 .102.082.186.185.186m-2.93 0h2.12a.186.186 0 0 0 .184-.186V6.29a.185.185 0 0 0-.185-.185H8.1a.185.185 0 0 0-.185.185v1.887c0 .102.083.186.185.186m-2.964 0h2.119a.186.186 0 0 0 .185-.186V6.29a.185.185 0 0 0-.185-.185H5.136a.186.186 0 0 0-.186.185v1.887c0 .102.084.186.186.186m5.893 2.715h2.118a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.186-.186h-2.118a.185.185 0 0 0-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 0 0 .184-.185V9.006a.184.184 0 0 0-.185-.186h-2.119a.185.185 0 0 0-.185.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 0 0 .185-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.186.186 0 0 0-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 0 0 .184-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.186.186 0 0 0-.186.186v1.887c0 .102.083.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 0 0-.75.748 11.376 11.376 0 0 0 .692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 0 0 3.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z"/>
-                </svg>
-                Self-Hosted · Docker
-              </div>
-              <div class="live-icon3d live-icon3d--blue">
-                <div class="icon3d-face">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                    <polyline points="9 12 11 14 15 10"/>
-                  </svg>
-                </div>
-              </div>
+            <div class="lab-card-footer">
+              <span class="lab-spec">4 vCPU · 8 GB RAM · 80+ GB</span>
+              <span class="lab-level lab-level--expert">Expert</span>
             </div>
-            <div class="live-card-body">
-              <h3>Cyber Kill Chain Tool</h3>
-              <p>Real-time security dashboard with live event streaming, alert correlation, EPS trending, and full replay engine.</p>
-              <div class="live-stats live-stats--blue">
-                <span>Live Event Stream</span>
-                <span>Alert Correlation</span>
-                <span>Replay Engine</span>
-              </div>
-              <div class="live-actions">
-                <a href="https://github.com/MoriartyPuth/Cyber-kill-chain-tool#readme" target="_blank" rel="noopener" class="live-btn live-btn--blue">Docker Setup →</a>
-                <a href="https://github.com/MoriartyPuth/Cyber-kill-chain-tool" target="_blank" rel="noopener" class="live-btn live-btn--ghost">Source</a>
-              </div>
+          </a>
+          <a href="https://github.com/MoriartyPuth-Labs/CentOS-Primary-Server-Lab" target="_blank" rel="noopener" class="lab-card">
+            <div class="lab-card-eyebrow">
+              <span class="lab-status">● ACTIVE</span>
+              <span class="lab-modules">18 modules</span>
             </div>
-          </div>
-
+            <div class="lab-card-title">CentOS Primary Server Lab</div>
+            <svg class="lab-rack-svg" viewBox="0 0 280 152" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="1" width="278" height="150" rx="4" fill="rgba(15,23,42,0.85)" stroke="#1e3a5f" stroke-width="1.5"/>
+              <rect x="1" y="1" width="278" height="20" rx="4" fill="#0f1e3d"/>
+              <text x="10" y="14" font-family="IBM Plex Mono,monospace" font-size="9" fill="#60a5fa" letter-spacing="0.5">RACK-02 :: lab-primary</text>
+              <circle cx="263" cy="11" r="3" fill="#4ade80"/><circle cx="254" cy="11" r="3" fill="#fbbf24"/>
+              <rect x="8" y="27" width="264" height="26" rx="2" fill="rgba(6,182,212,0.08)" stroke="rgba(6,182,212,0.25)" stroke-width="1"/>
+              <rect x="10" y="29" width="5" height="22" rx="1" fill="#06b6d4"/><rect x="10" y="29" width="5" height="7" rx="1" fill="#22d3ee"/>
+              <text x="20" y="39" font-family="IBM Plex Mono,monospace" font-size="7.5" font-weight="600" fill="#67e8f9">NETWORK SERVICES</text>
+              <text x="20" y="50" font-family="IBM Plex Mono,monospace" font-size="7" fill="#64748b">BIND DNS  DHCP  Chrony NTP  NFS shares</text>
+              <rect x="8" y="59" width="264" height="26" rx="2" fill="rgba(249,115,22,0.08)" stroke="rgba(249,115,22,0.25)" stroke-width="1"/>
+              <rect x="10" y="61" width="5" height="22" rx="1" fill="#f97316"/><rect x="10" y="61" width="5" height="7" rx="1" fill="#fb923c"/>
+              <text x="20" y="71" font-family="IBM Plex Mono,monospace" font-size="7.5" font-weight="600" fill="#fdba74">WEB &amp; DATABASE</text>
+              <text x="20" y="82" font-family="IBM Plex Mono,monospace" font-size="7" fill="#64748b">Apache/SSL  PHP  MariaDB  phpMyAdmin</text>
+              <rect x="8" y="91" width="264" height="26" rx="2" fill="rgba(168,85,247,0.08)" stroke="rgba(168,85,247,0.25)" stroke-width="1"/>
+              <rect x="10" y="93" width="5" height="22" rx="1" fill="#a855f7"/><rect x="10" y="93" width="5" height="7" rx="1" fill="#c084fc"/>
+              <text x="20" y="103" font-family="IBM Plex Mono,monospace" font-size="7.5" font-weight="600" fill="#d8b4fe">APP SERVICES</text>
+              <text x="20" y="114" font-family="IBM Plex Mono,monospace" font-size="7" fill="#64748b">Postfix  Dovecot  Samba  VSFTP  SVN/Git</text>
+              <rect x="8" y="123" width="264" height="22" rx="2" fill="rgba(15,23,42,0.6)"/>
+              <circle cx="18" cy="134" r="3" fill="#4ade80"/>
+              <text x="26" y="138" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#4ade80">ACTIVE</text>
+              <line x1="62" y1="126" x2="62" y2="143" stroke="#1e3a5f" stroke-width="1"/>
+              <text x="68" y="138" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#64748b">2 vCPU · 4 GB RAM · 20 GB · VMware Pro 17</text>
+            </svg>
+            <div class="lab-card-tags">
+              <span class="lab-tag">CentOS 10</span>
+              <span class="lab-tag">BIND DNS</span>
+              <span class="lab-tag">Apache / SSL</span>
+              <span class="lab-tag">VMware</span>
+            </div>
+            <div class="lab-card-footer">
+              <span class="lab-spec">2 GB RAM · 20 GB · VMware Pro</span>
+              <span class="lab-level lab-level--intermediate">Intermediate</span>
+            </div>
+          </a>
         </div>
       </section>
 
@@ -495,6 +504,98 @@
         </div>
       </section>
 
+      <!-- Live & Deployed Projects -->
+      <section class="live-projects">
+        <div class="live-projects-header">
+          <div class="live-header-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Live &amp; Deployed Projects</h3>
+            <p class="meta">Tools you can interact with right now</p>
+          </div>
+        </div>
+        <div class="live-grid">
+
+          <!-- Card 1: Byzantine-Robust-Identity-Framework -->
+          <div class="live-card live-card--purple">
+            <div class="live-card-preview">
+              <img src="assets/img/byzantine-screenshot.png" alt="Byzantine Framework Dashboard" class="live-card-img" />
+              <div class="live-card-preview-overlay"></div>
+              <div class="live-badge live-badge--streamlit">
+                <span class="pulse-dot"></span>
+                Live on Streamlit
+              </div>
+              <div class="live-icon3d live-icon3d--purple">
+                <div class="icon3d-face">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <circle cx="12" cy="5" r="2"/>
+                    <circle cx="5" cy="19" r="2"/>
+                    <circle cx="19" cy="19" r="2"/>
+                    <line x1="12" y1="7" x2="5" y2="17"/>
+                    <line x1="12" y1="7" x2="19" y2="17"/>
+                    <line x1="5" y1="19" x2="19" y2="19"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="live-card-body">
+              <h3>Byzantine-Robust Identity Framework</h3>
+              <p>Federated learning command center with Byzantine attack defense, reputation scoring, and privacy budget tracking.</p>
+              <div class="live-stats live-stats--purple">
+                <span>98.26% Accuracy</span>
+                <span>F1: 0.9787</span>
+                <span>8 Rounds</span>
+              </div>
+              <div class="live-actions">
+                <a href="https://byzantine-robust-identity-framework.streamlit.app/" target="_blank" rel="noopener" class="live-btn live-btn--purple">Launch App →</a>
+                <a href="https://github.com/MoriartyPuth/Byzantine-Robust-Identity-Framework" target="_blank" rel="noopener" class="live-btn live-btn--ghost">Source</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Cyber-kill-chain-tool -->
+          <div class="live-card live-card--blue">
+            <div class="live-card-preview">
+              <img src="assets/img/killchain-screenshot.png" alt="Cyber Kill Chain Dashboard" class="live-card-img" />
+              <div class="live-card-preview-overlay"></div>
+              <div class="live-badge live-badge--docker">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M13.983 11.078h2.119a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.186-.186h-2.119a.185.185 0 0 0-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 0 0 .186-.186V3.574a.186.186 0 0 0-.186-.185h-2.118a.185.185 0 0 0-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 0 0 .186-.186V6.29a.186.186 0 0 0-.186-.185h-2.118a.185.185 0 0 0-.185.185v1.887c0 .102.082.186.185.186m-2.93 0h2.12a.186.186 0 0 0 .184-.186V6.29a.185.185 0 0 0-.185-.185H8.1a.185.185 0 0 0-.185.185v1.887c0 .102.083.186.185.186m-2.964 0h2.119a.186.186 0 0 0 .185-.186V6.29a.185.185 0 0 0-.185-.185H5.136a.186.186 0 0 0-.186.185v1.887c0 .102.084.186.186.186m5.893 2.715h2.118a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.186-.186h-2.118a.185.185 0 0 0-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 0 0 .184-.185V9.006a.184.184 0 0 0-.185-.186h-2.119a.185.185 0 0 0-.185.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 0 0 .185-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.186.186 0 0 0-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 0 0 .184-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.186.186 0 0 0-.186.186v1.887c0 .102.083.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 0 0-.75.748 11.376 11.376 0 0 0 .692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 0 0 3.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z"/>
+                </svg>
+                Self-Hosted · Docker
+              </div>
+              <div class="live-icon3d live-icon3d--blue">
+                <div class="icon3d-face">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <polyline points="9 12 11 14 15 10"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="live-card-body">
+              <h3>Cyber Kill Chain Tool</h3>
+              <p>Real-time security dashboard with live event streaming, alert correlation, EPS trending, and full replay engine.</p>
+              <div class="live-stats live-stats--blue">
+                <span>Live Event Stream</span>
+                <span>Alert Correlation</span>
+                <span>Replay Engine</span>
+              </div>
+              <div class="live-actions">
+                <a href="https://github.com/MoriartyPuth/Cyber-kill-chain-tool#readme" target="_blank" rel="noopener" class="live-btn live-btn--blue">Docker Setup →</a>
+                <a href="https://github.com/MoriartyPuth/Cyber-kill-chain-tool" target="_blank" rel="noopener" class="live-btn live-btn--ghost">Source</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       <!-- Selected Writeups -->
       <section class="writeups-section">
         <div class="writeups-header">
@@ -552,62 +653,6 @@
             <p class="wr-desc">Chained a broken form upload bypass with blind SQL injection, then deployed bubble_siphon to automate post-exploitation secret extraction.</p>
             <div class="wr-footer"><div class="wr-tools"><span>sqlmap</span><span>bubble_siphon</span><span>DirBuster</span></div><div class="wr-diff-bar"><div class="wr-diff-fill" style="width: 35%"></div></div></div>
             <div class="wr-cta">Read writeup <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-          </a>
-        </div>
-      </section>
-
-      <section class="labs-section sr">
-        <div class="labs-header">
-          <div class="labs-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="2" width="20" height="8" rx="2"/>
-              <rect x="2" y="14" width="20" height="8" rx="2"/>
-              <line x1="6" y1="6" x2="6.01" y2="6"/>
-              <line x1="6" y1="18" x2="6.01" y2="18"/>
-            </svg>
-          </div>
-          <div>
-            <h3>Lab &amp; Infrastructure</h3>
-            <p class="labs-sub">Private cloud and enterprise Linux homelab documentation</p>
-          </div>
-        </div>
-        <div id="openstack-console" class="openstack-console"></div>
-        <div class="labs-grid">
-          <a href="https://github.com/MoriartyPuth-Labs/CentOS-Openstack-Epoxy" target="_blank" rel="noopener" class="lab-card">
-            <div class="lab-card-eyebrow">
-              <span class="lab-status">● ACTIVE</span>
-              <span class="lab-modules">43 modules</span>
-            </div>
-            <div class="lab-card-title">CentOS OpenStack Epoxy</div>
-            <p class="lab-card-desc">Expert-level deployment guide for a complete OpenStack Epoxy private cloud on CentOS 9 — Keystone, Glance, Nova, Neutron with OVN, MariaDB, and full VM provisioning from scratch.</p>
-            <div class="lab-card-tags">
-              <span class="lab-tag">OpenStack</span>
-              <span class="lab-tag">CentOS 9</span>
-              <span class="lab-tag">KVM / OVN</span>
-              <span class="lab-tag">Private Cloud</span>
-            </div>
-            <div class="lab-card-footer">
-              <span class="lab-spec">4 vCPU · 8 GB RAM · 80+ GB</span>
-              <span class="lab-level lab-level--expert">Expert</span>
-            </div>
-          </a>
-          <a href="https://github.com/MoriartyPuth-Labs/CentOS-Primary-Server-Lab" target="_blank" rel="noopener" class="lab-card">
-            <div class="lab-card-eyebrow">
-              <span class="lab-status">● ACTIVE</span>
-              <span class="lab-modules">18 modules</span>
-            </div>
-            <div class="lab-card-title">CentOS Primary Server Lab</div>
-            <p class="lab-card-desc">Hands-on curriculum for building an enterprise CentOS Stream 10 server — BIND DNS, DHCP, Apache/SSL, MariaDB, Postfix, Samba, and monitoring stack inside VMware Workstation.</p>
-            <div class="lab-card-tags">
-              <span class="lab-tag">CentOS 10</span>
-              <span class="lab-tag">BIND DNS</span>
-              <span class="lab-tag">Apache / SSL</span>
-              <span class="lab-tag">VMware</span>
-            </div>
-            <div class="lab-card-footer">
-              <span class="lab-spec">2 GB RAM · 20 GB · VMware Pro</span>
-              <span class="lab-level lab-level--intermediate">Intermediate</span>
-            </div>
           </a>
         </div>
       </section>
