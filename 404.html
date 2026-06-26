@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>404 — Segmentation Fault</title>
+  <meta name="description" content="Page not found." />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+  <div class="site-404">
+    <div class="e404-terminal">
+      <div class="e404-bar">
+        <span class="burp-dots"><i class="bd-r"></i><i class="bd-y"></i><i class="bd-g"></i></span>
+        <span class="e404-title">moriarty@sec:~</span>
+      </div>
+      <div class="e404-body">
+        <div class="e404-line e404-dim">$ GET /<span id="e404-path"></span> HTTP/1.1</div>
+        <div class="e404-line e404-red">Segmentation fault (core dumped)</div>
+        <div class="e404-line e404-dim">Signal: SIGSEGV · Address: 0x00000404</div>
+        <div class="e404-line">&nbsp;</div>
+        <div class="e404-line e404-yellow">address 0x404 not mapped in address space</div>
+        <div class="e404-line e404-dim">The page you're looking for does not exist.</div>
+        <div class="e404-line">&nbsp;</div>
+        <div class="e404-line"><span class="e404-green">→</span> <a href="index.html" class="e404-link">cd ~/home</a> <span class="e404-dim">to return to base</span></div>
+        <div class="e404-line"><span class="e404-green">moriarty@sec:~$</span> <span class="e404-cursor"></span></div>
+      </div>
+    </div>
+  </div>
+  <script src="assets/js/terminal-bg.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
