@@ -854,7 +854,7 @@
       'cat playground.txt': () => { var o = document.querySelectorAll('.about-tty .term-out'); return o[1] ? [o[1].textContent] : ['cat: playground.txt: No such file or directory']; },
       fortune:          () => { var f = window.getFortune && window.getFortune(); if (!f) return ['fortune: command not found']; return f.a ? ['"' + f.t + '"', '    — ' + f.a] : ['"' + f.t + '"']; },
       'ls case-studies/': () => ['EES-ANPR/    CSS-GDIN/    AUPP-CTF/','DoccameraDLL/    JoulHub/    SOP/','OWIT-Global/','','7 cases · authorized · coordinated disclosure'],
-      'ls tools/':        () => ['bubble-scanner/    bubble-pop/    bubble-siphon/','AURA/    Sila-Entropy/'],
+      'ls tools/':        () => ['bubble-scanner/    bubble-pop/    bubble-siphon/','AURA/    Sila-Entropy/    Nocturne/'],
       'ls community/':    () => ['NETH/    Khmer-OCR/    Rice-Disease-Detector/','','open source · Cambodia'],
       'cat resume.txt': () => ['──────────────────────────────────','Name:    Moriarty Puth','Role:    Offensive Security Researcher','Focus:   API security · Reverse engineering · AI tooling','Notable: Critical IDOR in Cambodian gov systems','         Top-80 crackmes.one ranking','Status:  Currently employed · building for fun','──────────────────────────────────'],
       'cat skills.txt': () => ['Web/API Exploitation  ▓▓▓▓▓▓▓▓▓░  90%','Reconnaissance        ▓▓▓▓▓▓▓▓░░  85%','Reverse Engineering   ▓▓▓▓▓▓▓▓░░  80%','Malware Analysis      ▓▓▓▓▓▓▓░░░  75%','Blue Team             ▓▓▓▓▓▓▓░░░  70%','AI Security           ▓▓▓▓▓▓▓░░░  75%'],
@@ -943,7 +943,8 @@
     labs: 'category-labs.html', infra: 'category-infrastructure.html',
     re: 'category-reverse-engineering.html', 'reverse-engineering': 'category-reverse-engineering.html',
     blue: 'category-blue-team.html', 'blue-team': 'category-blue-team.html',
-    ml: 'category-ml-ai.html', ai: 'category-ml-ai.html'
+    ml: 'category-ml-ai.html', ai: 'category-ml-ai.html',
+    nocturne: 'https://nocturne-production-281a.up.railway.app/'
   };
   const SECTIONS = {
     threat: '.threat-board', board: '.threat-board',
@@ -1062,7 +1063,7 @@
     const t = (args[0] || '').toLowerCase();
     if (!t) return ['<span class="cb-err">usage: open &lt;page|case&gt;  — e.g. open labs · open f.01</span>'];
     if (CASES[t]) { print('opening <span class="cb-hl">' + CASES[t].n + '</span> on GitHub…', 'cb-dim'); window.open(CASES[t].u, '_blank', 'noopener'); return null; }
-    if (PAGES[t]) { print('navigating to <span class="cb-hl">' + t + '</span>…', 'cb-dim'); setTimeout(() => location.href = PAGES[t], 350); return null; }
+    if (PAGES[t]) { const url = PAGES[t]; print('navigating to <span class="cb-hl">' + t + '</span>…', 'cb-dim'); setTimeout(() => location.href = url, 350); return null; }
     return ['<span class="cb-err">no such target: ' + t + '</span>', '<span class="cb-dim">try: ' + Object.keys(PAGES).join(' · ') + ' · f.01–f.07</span>'];
   }
   function goto(args) {
