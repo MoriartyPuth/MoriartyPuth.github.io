@@ -1821,3 +1821,43 @@
     el.appendChild(attr);
   }
 })();
+
+// ── CTF Board: rank countdown + row expand ──────────────────────────────────
+(() => {
+  const board = document.querySelector('.ctf-board');
+  if (!board) return;
+
+  // Click to expand / collapse (ignore clicks on the writeup link)
+  board.querySelectorAll('.ctf-row').forEach(row => {
+    row.addEventListener('click', e => {
+      if (e.target.closest('.ctf-link')) return;
+      row.classList.toggle('open');
+    });
+  });
+
+  // Rank countdown — fires once when board scrolls into view
+  let counted = false;
+  const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
+
+  function countDown(el, target) {
+    const from = 99, dur = 1300;
+    let t0 = null;
+    const tick = ts => {
+      if (!t0) t0 = ts;
+      const p = Math.min((ts - t0) / dur, 1);
+      el.textContent = Math.round(from - (from - target) * easeOutCubic(p));
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  new IntersectionObserver((entries, obs) => {
+    if (entries[0].isIntersecting && !counted) {
+      counted = true;
+      board.querySelectorAll('.ctf-rank-num[data-target]').forEach(el => {
+        countDown(el, parseInt(el.dataset.target, 10));
+      });
+      obs.disconnect();
+    }
+  }, { threshold: 0.35 }).observe(board);
+})();

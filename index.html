@@ -414,64 +414,106 @@
         </div>
       </section>
 
-      <!-- Selected Writeups -->
-      <section class="writeups-section">
+      <!-- CTF Write Up -->
+      <section class="ctf-writeups-section">
         <div class="writeups-header">
           <div class="writeups-header-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <polyline points="14 2 14 8 20 8"/>
-              <line x1="16" y1="13" x2="8" y2="13"/>
-              <line x1="16" y1="17" x2="8" y2="17"/>
-              <polyline points="10 9 9 9 8 9"/>
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
             </svg>
           </div>
           <div>
-            <h3>Selected Writeups</h3>
-            <p class="meta">Techniques worth reading about</p>
+            <h3>CTF Write Up</h3>
+            <p class="meta">// competition results</p>
           </div>
         </div>
-        <div class="writeups-grid">
-          <a href="https://github.com/MoriartyPuth-Labs/Willy-Wonka-Chocolate-Factory-Lab" target="_blank" rel="noopener" class="wr-card wr-card--purple">
-            <div class="wr-scan"></div>
-            <span class="wr-index">01</span>
-            <div class="wr-top"><span class="wr-type">Reverse Engineering</span><span class="wr-diff">Advanced</span></div>
-            <h4 class="wr-title">Willy Wonka Chocolate Factory</h4>
-            <div class="wr-technique"><span class="wr-technique-label">KEY TECHNIQUE</span><code class="wr-code">anti-debug bypass <span class="wr-code-arrow">+</span> 4-stage keygen <span class="wr-code-arrow">//</span> SSE4.1 · CRC-16</code></div>
-            <p class="wr-desc">Bypassed IsDebuggerPresent + PEB flags, then solved four chained validators — S-Box, SSE4.1 dot-product, 16-bit hash, and CRC-16/CCITT — and implemented a full Python keygen.</p>
-            <div class="wr-footer"><div class="wr-tools"><span>IDA Pro</span><span>x64dbg</span><span>Python keygen</span><span>SSE4.1</span></div><div class="wr-diff-bar"><div class="wr-diff-fill" style="width: 85%"></div></div></div>
-            <div class="wr-cta">Read writeup <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-          </a>
-          <a href="https://github.com/MoriartyPuth-Labs/MalwareTech-VM1-Lab" target="_blank" rel="noopener" class="wr-card wr-card--red">
-            <div class="wr-scan"></div>
-            <span class="wr-index">02</span>
-            <div class="wr-top"><span class="wr-type">Malware Analysis</span><span class="wr-diff">Medium</span></div>
-            <h4 class="wr-title">MalwareTech VM1</h4>
-            <div class="wr-technique"><span class="wr-technique-label">KEY TECHNIQUE</span><code class="wr-code">Python emulator <span class="wr-code-arrow">→</span> safe bytecode execution</code></div>
-            <p class="wr-desc">Disassembled a custom 8-bit VM's bytecode, mapped its instruction set, and built an emulator to decrypt the payload without running the binary.</p>
-            <div class="wr-footer"><div class="wr-tools"><span>Python</span><span>Static analysis</span><span>XOR decrypt</span></div><div class="wr-diff-bar"><div class="wr-diff-fill" style="width: 60%"></div></div></div>
-            <div class="wr-cta">Read writeup <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-          </a>
-          <a href="https://github.com/MoriartyPuth-Labs/The-Alchemist-s-Lock-Lab" target="_blank" rel="noopener" class="wr-card wr-card--yellow">
-            <div class="wr-scan"></div>
-            <span class="wr-index">03</span>
-            <div class="wr-top"><span class="wr-type">Reverse Engineering</span><span class="wr-diff">3.7 / 6.0</span></div>
-            <h4 class="wr-title">The Alchemist's Lock</h4>
-            <div class="wr-technique"><span class="wr-technique-label">KEY TECHNIQUE</span><code class="wr-code">jz <span class="wr-code-arrow">→</span> jnz &nbsp;// skip hash validation</code></div>
-            <p class="wr-desc">Reversed a non-invertible hash, then bypassed it by patching the conditional jump in IDA Pro rather than solving the math.</p>
-            <div class="wr-footer"><div class="wr-tools"><span>IDA Pro</span><span>x64dbg</span><span>Scylla</span></div><div class="wr-diff-bar"><div class="wr-diff-fill" style="width: 45%"></div></div></div>
-            <div class="wr-cta">Read writeup <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-          </a>
-          <a href="https://github.com/MoriartyPuth-Labs/N7-Lab" target="_blank" rel="noopener" class="wr-card wr-card--green">
-            <div class="wr-scan"></div>
-            <span class="wr-index">04</span>
-            <div class="wr-top"><span class="wr-type">VulnHub</span><span class="wr-diff">Medium</span></div>
-            <h4 class="wr-title">Web Machine N7</h4>
-            <div class="wr-technique"><span class="wr-technique-label">KEY TECHNIQUE</span><code class="wr-code">upload bypass <span class="wr-code-arrow">+</span> SQLi <span class="wr-code-arrow">→</span> bubble_siphon</code></div>
-            <p class="wr-desc">Chained a broken form upload bypass with blind SQL injection, then deployed bubble_siphon to automate post-exploitation secret extraction.</p>
-            <div class="wr-footer"><div class="wr-tools"><span>sqlmap</span><span>bubble_siphon</span><span>DirBuster</span></div><div class="wr-diff-bar"><div class="wr-diff-fill" style="width: 35%"></div></div></div>
-            <div class="wr-cta">Read writeup <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-          </a>
+
+        <div class="ctf-board">
+
+          <!-- CNCC 2026 -->
+          <div class="ctf-row ctf-row--cyan">
+            <div class="ctf-rank-col">
+              <span class="ctf-rank-label">TOP</span>
+              <span class="ctf-rank-num" data-target="30">99</span>
+            </div>
+            <div class="ctf-body">
+              <div class="ctf-row-main">
+                <div class="ctf-name-group">
+                  <h4 class="ctf-name">CNCC 2026</h4>
+                  <span class="ctf-org">Cambodia National Cyber Competition</span>
+                </div>
+                <div class="ctf-chips">
+                  <span class="ctf-chip chip--web">WEB</span>
+                  <span class="ctf-chip chip--pwn">PWN ×2</span>
+                  <span class="ctf-chip chip--crypto">CRYPTO</span>
+                  <span class="ctf-chip chip--rev">REV ×2</span>
+                  <span class="ctf-badge-score">HIGHEST SCORE</span>
+                </div>
+              </div>
+              <div class="ctf-expand-panel">
+                <div class="ctf-tech-line">
+                  <span class="ctf-tech-label">TECHNIQUES</span>
+                  <code>NoSQL injection · PIE leak · format string · RSA Bellcore fault · garble-obfuscated Go · PyInstaller XOR-chain</code>
+                </div>
+                <div class="ctf-challenge-list">
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--web">WEB</span><span class="ctf-ch-name">IndigoNotes</span><span class="ctf-ch-desc">NoSQL injection + mass assignment privilege escalation</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--pwn">PWN</span><span class="ctf-ch-name">SpeedRun</span><span class="ctf-ch-desc">Stack overflow + PIE leak → ret2win</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--pwn">PWN</span><span class="ctf-ch-name">OffTheRecord</span><span class="ctf-ch-desc">Format string arbitrary read</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--crypto">CRYPTO</span><span class="ctf-ch-name">TrojanHorse</span><span class="ctf-ch-desc">Custom protocol + RSA Bellcore fault attack</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">nevergonna</span><span class="ctf-ch-desc">PyInstaller unpack + XOR-chain cipher inversion</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">DeathNote</span><span class="ctf-ch-desc">garble-obfuscated Go + 6-round custom cipher</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="ctf-cta-col">
+              <span class="ctf-solved">6 solved</span>
+              <a href="https://github.com/MoriartyPuth-Labs/CNCC-2026-WriteUp" target="_blank" rel="noopener" class="ctf-link">Full writeup →</a>
+              <span class="ctf-toggle-hint">▾ click to expand</span>
+            </div>
+          </div>
+
+          <!-- Crackmes RE CTF 2026 -->
+          <div class="ctf-row ctf-row--amber">
+            <div class="ctf-rank-col">
+              <span class="ctf-rank-label">TOP</span>
+              <span class="ctf-rank-num" data-target="80">99</span>
+            </div>
+            <div class="ctf-body">
+              <div class="ctf-row-main">
+                <div class="ctf-name-group">
+                  <h4 class="ctf-name">Crackmes RE CTF 2026</h4>
+                  <span class="ctf-org">Crackmes.one</span>
+                </div>
+                <div class="ctf-chips">
+                  <span class="ctf-chip chip--rev">REV ×7</span>
+                  <span class="ctf-diff diff--med">MEDIUM</span>
+                  <span class="ctf-diff diff--hard">HARD</span>
+                  <span class="ctf-diff diff--extreme">EXTREME</span>
+                </div>
+              </div>
+              <div class="ctf-expand-panel">
+                <div class="ctf-tech-line">
+                  <span class="ctf-tech-label">TECHNIQUES</span>
+                  <code>BFS maze · self-modifying x86 · recursive DFS · A* 15-puzzle · Unicorn VM emulation · opaque predicates · 4-layer nested PE</code>
+                </div>
+                <div class="ctf-challenge-list">
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">Maze</span><span class="ctf-ch-desc">Assembly-encoded address space, BFS shortest-path solver</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">Bubbly</span><span class="ctf-ch-desc">XOR swap bubble sort — emit swap indices</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">BitCalc</span><span class="ctf-ch-desc">Self-modifying x86 selects ADD/SUB opcodes at runtime — recursive DFS</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">date_of_birth</span><span class="ctf-ch-desc">Anti-debug SIGSTOP + signed byte overflow keygen</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">FLRSCRNSVR</span><span class="ctf-ch-desc">Windows screensaver — substitution + XOR + reverse cipher</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">wallpaper</span><span class="ctf-ch-desc">15-puzzle on hex nibbles, A* optimal path solver</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">Matryoshka v2</span><span class="ctf-ch-desc">4-layer nested PE + 1.3 MB VM-obfuscated shellcode + RC4</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="ctf-cta-col">
+              <span class="ctf-solved">7 solved</span>
+              <a href="https://github.com/MoriartyPuth-Labs/Crackmes-RE-CTF-2026" target="_blank" rel="noopener" class="ctf-link">Full writeup →</a>
+              <span class="ctf-toggle-hint">▾ click to expand</span>
+            </div>
+          </div>
+
         </div>
       </section>
 
