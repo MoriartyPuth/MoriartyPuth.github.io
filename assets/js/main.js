@@ -1851,13 +1851,23 @@
     requestAnimationFrame(tick);
   }
 
+  const rows = board.querySelectorAll('.ctf-row');
+
   new IntersectionObserver((entries, obs) => {
     if (entries[0].isIntersecting && !counted) {
       counted = true;
-      board.querySelectorAll('.ctf-rank-num[data-target]').forEach(el => {
-        countDown(el, parseInt(el.dataset.target, 10));
+      // staggered entrance
+      rows.forEach((row, i) => {
+        row.style.animationDelay = (i * 140) + 'ms';
+        row.classList.add('ctf-in');
       });
+      // rank countdown starts once rows have begun sliding in
+      setTimeout(() => {
+        board.querySelectorAll('.ctf-rank-num[data-target]').forEach(el => {
+          countDown(el, parseInt(el.dataset.target, 10));
+        });
+      }, 250);
       obs.disconnect();
     }
-  }, { threshold: 0.35 }).observe(board);
+  }, { threshold: 0.2 }).observe(board);
 })();
