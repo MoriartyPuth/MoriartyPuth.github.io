@@ -951,7 +951,7 @@
     disclosure: '.field-ops', timeline: '.field-ops', ops: '.field-ops', operations: '.field-ops',
     reports: '.field-ops', cases: '.field-ops', fieldreports: '.field-ops',
     community: '.community-section', tools: '.bubble-suite', bubble: '.bubble-suite',
-    live: '.live-projects', writeups: '.writeups-section',
+    live: '.live-projects', writeups: '.ctf-writeups-section', ctf: '.ctf-writeups-section',
     skills: '.skills-tooling-row', certs: '.certs-section', scan: '.nikto-section',
     top: '.hero', contact: '.site-footer', footer: '.site-footer'
   };
@@ -1517,7 +1517,7 @@
     { n: '02', label: 'Case Studies', sel: '.field-ops' },
     { n: '03', label: 'Community',    sel: '.community-section' },
     { n: '04', label: 'Tools',        sel: '.pinned-section' },
-    { n: '05', label: 'Writeups',     sel: '.writeups-section' },
+    { n: '05', label: 'CTF Write Up', sel: '.ctf-writeups-section' },
     { n: '06', label: 'Skills',       sel: '.skills-tooling-row' },
     { n: '07', label: 'whoami',       sel: '.about-section' }
   ];
