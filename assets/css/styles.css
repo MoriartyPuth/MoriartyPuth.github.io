@@ -23,6 +23,7 @@
 
 body {
   margin: 0;
+  overflow-x: clip;
   font-family: 'IBM Plex Mono', 'IBM Plex Sans', ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
   font-size: 16px;
   line-height: 1.6;
@@ -233,6 +234,7 @@ a {
   font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
   letter-spacing: 0.03em;
   text-shadow: 0 0 12px rgba(34, 197, 94, 0.15);
+  overflow-wrap: anywhere;
 }
 
 .hero-subtitle {
@@ -4882,7 +4884,7 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
 }
 .cmdbar-ps { font-family: 'IBM Plex Mono', monospace; font-size: 13.5px; color: var(--accent); flex-shrink: 0; white-space: nowrap; }
 .cmdbar-in {
-  flex: 1; background: none; border: none; outline: none;
+  flex: 1; min-width: 0; background: none; border: none; outline: none;
   font-family: 'IBM Plex Mono', monospace; font-size: 13.5px;
   color: #e2e8f0; caret-color: var(--accent); padding: 0;
 }
@@ -5862,4 +5864,33 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
   }
   .ctf-row-main { flex-direction: column; }
   .ctf-ch { grid-template-columns: 48px 100px 1fr; }
+}
+
+/* =============================================
+   MOBILE FIXES — header, hero, overflow guards
+   (placed last so these win cleanly)
+   ============================================= */
+@media (max-width: 600px) {
+  /* Hero: shrink title, let long scramble tokens break, keep text in-viewport */
+  .hero { gap: 16px; }
+  .hero > div { min-width: 0; }
+  .hero h2.hero-title { font-size: clamp(20px, 6.2vw, 28px); line-height: 1.22; }
+  .hero-subtitle { font-size: 15px; max-width: 100%; }
+
+  /* Header: let nav wrap to its own line instead of clipping off-screen */
+  .sidebar { gap: 8px 12px; }
+  .nav { margin-left: 0; width: 100%; flex-wrap: wrap; gap: 6px; }
+  .nav a { padding: 8px 10px; }
+  .social { margin-left: 0; }
+
+  /* CTF challenge rows: give the description room on narrow phones */
+  .ctf-ch { grid-template-columns: 44px 1fr; grid-template-rows: auto auto; row-gap: 2px; }
+  .ctf-ch .ctf-ch-name { grid-column: 2; }
+  .ctf-ch .ctf-ch-tag { grid-row: 1 / span 2; align-self: start; }
+  .ctf-ch .ctf-ch-desc { grid-column: 2; }
+
+  /* Bubble-suite: stop the toolbar (tabs + Run) from running off-screen */
+  .bubble-suite { padding: 20px 16px; }
+  .bsuite-chrome { flex-wrap: wrap; gap: 8px 10px; }
+  .bsuite-hint { display: none; }
 }
