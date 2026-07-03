@@ -5703,6 +5703,7 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
 .chip--pwn    { color: #ef4444; border-color: rgba(239,68,68,0.3);   background: rgba(239,68,68,0.06); }
 .chip--crypto { color: #a855f7; border-color: rgba(168,85,247,0.3);  background: rgba(168,85,247,0.06); }
 .chip--rev    { color: #f97316; border-color: rgba(249,115,22,0.3);  background: rgba(249,115,22,0.06); }
+.chip--forensics { color: #14b8a6; border-color: rgba(20,184,166,0.3); background: rgba(20,184,166,0.06); }
 
 .diff--med     { color: #22c55e; border-color: rgba(34,197,94,0.3);   background: rgba(34,197,94,0.06); }
 .diff--hard    { color: #f97316; border-color: rgba(249,115,22,0.3);  background: rgba(249,115,22,0.06); }
@@ -5791,6 +5792,7 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
 .tag--pwn    { color: #ef4444; border-color: rgba(239,68,68,0.22); }
 .tag--crypto { color: #a855f7; border-color: rgba(168,85,247,0.22); }
 .tag--rev    { color: #f97316; border-color: rgba(249,115,22,0.22); }
+.tag--forensics { color: #14b8a6; border-color: rgba(20,184,166,0.22); }
 
 .ctf-ch-name { font-size: 11px; color: var(--text); font-weight: 500; }
 .ctf-ch-desc { font-size: 10px; color: var(--muted); }
