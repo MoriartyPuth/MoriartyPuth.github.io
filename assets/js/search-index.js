@@ -60,16 +60,10 @@ window.SEARCH_INDEX = [
     tags: ["blue team", "ids", "monitoring"]
   },
   {
-    title: "Labs Walkthrough",
-    url: "category-labs.html",
-    summary: "Hands-on labs and security walkthroughs.",
-    tags: ["labs", "ctf", "case study"]
-  },
-  {
-    title: "Reverse Engineering writeup",
-    url: "category-reverse-engineering.html",
-    summary: "Reverse engineering labs and writeups.",
-    tags: ["reverse engineering", "crackme"]
+    title: "Writeup",
+    url: "category-writeup.html",
+    summary: "Reverse-engineering crackme solutions and VulnHub / TryHackMe / AUPP lab writeups.",
+    tags: ["writeup", "reverse engineering", "crackme", "vulnhub", "tryhackme", "ctf", "lab"]
   },
   {
     title: "About",
@@ -138,81 +132,15 @@ window.SEARCH_INDEX = [
     tags: ["kill chain", "threat modeling"]
   },
   {
-    title: "Linux-Data-Analysis-Lab",
-    url: "https://github.com/MoriartyPuth-Labs/Linux-Data-Analysis-Lab",
-    summary: "Linux-focused data analysis lab.",
-    tags: ["linux", "lab"]
+    title: "Crackmes-WriteUp",
+    url: "https://github.com/MoriartyPuth-Labs/Crackmes-WriteUp",
+    summary: "7 reverse-engineering crackme solutions from crackmes.one — .NET IL, custom VM, PRNG prediction, integer overflow, packer unpacking.",
+    tags: ["crackme", "reverse engineering", "writeup", "malware analysis"]
   },
   {
-    title: "Server-Exploitation-Post-Exploitation-Lab",
-    url: "https://github.com/MoriartyPuth-Labs/Server-Exploitation-Post-Exploitation-Lab",
-    summary: "Server exploitation and post-exploitation lab.",
-    tags: ["exploitation", "lab"]
-  },
-  {
-    title: "MSFVenom-and-Trojan-Lab",
-    url: "https://github.com/MoriartyPuth-Labs/MSFVenom-and-Trojan-Lab",
-    summary: "Malware and MSFVenom walkthrough.",
-    tags: ["malware", "lab"]
-  },
-  {
-    title: "Full-Chain-SQLi-Case-Study",
-    url: "https://github.com/MoriartyPuth-Labs/Full-Chain-SQLi-Case-Study",
-    summary: "SQL injection case study and chain analysis.",
-    tags: ["sql injection", "case study"]
-  },
-  {
-    title: "Network-Security-Reconnaissance-Lab",
-    url: "https://github.com/MoriartyPuth-Labs/Network-Security-Reconnaissance-Lab",
-    summary: "Network reconnaissance lab walkthrough.",
-    tags: ["reconnaissance", "lab"]
-  },
-  {
-    title: "Pickle-Rick-Lab",
-    url: "https://github.com/MoriartyPuth-Labs/Pickle-Rick-Lab",
-    summary: "CTF lab walkthrough.",
-    tags: ["ctf", "lab"]
-  },
-  {
-    title: "N7-Lab",
-    url: "https://github.com/MoriartyPuth-Labs/N7-Lab",
-    summary: "Hands-on security lab.",
-    tags: ["lab"]
-  },
-  {
-    title: "Catgirl.crack-Lab",
-    url: "https://github.com/MoriartyPuth-Labs/Catgirl.crack-Lab",
-    summary: "Reverse engineering crackme lab.",
-    tags: ["reverse engineering", "crackme"]
-  },
-  {
-    title: "The-Alchemist-s-Lock-Lab",
-    url: "https://github.com/MoriartyPuth-Labs/The-Alchemist-s-Lock-Lab",
-    summary: "Reverse engineering lock challenge.",
-    tags: ["reverse engineering"]
-  },
-  {
-    title: "MalwareTech-VM1-Lab",
-    url: "https://github.com/MoriartyPuth-Labs/MalwareTech-VM1-Lab",
-    summary: "Malware analysis lab.",
-    tags: ["malware analysis", "reverse engineering"]
-  },
-  {
-    title: "CryMore-Lab",
-    url: "https://github.com/MoriartyPuth-Labs/CryMore-Lab",
-    summary: "Cryptography-focused reverse engineering lab.",
-    tags: ["cryptography", "reverse engineering"]
-  },
-  {
-    title: "Bobs-Gambling-Lab",
-    url: "https://github.com/MoriartyPuth-Labs/Bobs-Gambling-Lab",
-    summary: "Reverse engineering gambling logic lab.",
-    tags: ["reverse engineering", "lab"]
-  },
-  {
-    title: "Roullete-Simulator-Lab",
-    url: "https://github.com/MoriartyPuth-Labs/Roullete-Simulator-Lab",
-    summary: "Simulation and analysis lab.",
-    tags: ["simulation", "lab"]
+    title: "Vulnhub-WriteUp",
+    url: "https://github.com/MoriartyPuth-Labs/Vulnhub-WriteUp",
+    summary: "9 boot-to-root lab writeups from VulnHub, TryHackMe, and AUPP — Drupalgeddon2, blind SQLi, command injection, SUID privesc.",
+    tags: ["vulnhub", "tryhackme", "lab", "writeup", "sql injection", "privilege escalation"]
   }
 ];

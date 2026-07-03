@@ -406,10 +406,10 @@
       { t: 'RHOSTS => moriarty.portfolio', cls: 'msf-val', d: 1900 },
       { t: 'msf6 auxiliary(recon/moriarty_portfolio) > run', cls: 'msf-cmd', d: 2500 },
       { t: '[*] Starting recon module against moriarty.portfolio...', cls: 'msf-info', d: 3200 },
-      { t: '[+] Labs Walkthrough       — 9 modules loaded', cls: 'msf-found', d: 3900 },
-      { t: '[+] Reverse Engineering    — 7 modules loaded', cls: 'msf-found', d: 4400 },
-      { t: '[+] Blue Team Projects     — active', cls: 'msf-found', d: 4900 },
-      { t: '[+] ML & AI Security       — active', cls: 'msf-found', d: 5400 },
+      { t: '[+] Blue Team Projects     — active', cls: 'msf-found', d: 3900 },
+      { t: '[+] ML & AI Security       — active', cls: 'msf-found', d: 4400 },
+      { t: '[+] Lab & Infrastructure   — active', cls: 'msf-found', d: 4900 },
+      { t: '[+] Live & Deployed        — active', cls: 'msf-found', d: 5400 },
       { t: '[*] 4 surfaces enumerated. Scan complete.', cls: 'msf-info', d: 6100 },
     ];
     lines.forEach(({ t, cls, d }) => setTimeout(() => {
@@ -940,8 +940,9 @@
 
   const PAGES = {
     home: 'index.html', categories: 'categories.html',
-    labs: 'category-labs.html', infra: 'category-infrastructure.html',
-    re: 'category-reverse-engineering.html', 'reverse-engineering': 'category-reverse-engineering.html',
+    writeup: 'category-writeup.html', writeups: 'category-writeup.html',
+    labs: 'category-writeup.html', infra: 'category-infrastructure.html',
+    re: 'category-writeup.html', 'reverse-engineering': 'category-writeup.html',
     blue: 'category-blue-team.html', 'blue-team': 'category-blue-team.html',
     ml: 'category-ml-ai.html', ai: 'category-ml-ai.html',
     nocturne: 'https://nocturne-production-281a.up.railway.app/'
@@ -1027,7 +1028,7 @@
       '&nbsp;<span class="cb-cmd">whoami</span>            who is this',
       '&nbsp;<span class="cb-cmd">ls</span> / <span class="cb-cmd">cat &lt;file&gt;</span>     browse (resume.txt, skills.txt, contact.txt)',
       '&nbsp;<span class="cb-cmd">cases</span>             list field reports',
-      '&nbsp;<span class="cb-cmd">open &lt;target&gt;</span>      open a page or case  (open labs · open f.01)',
+      '&nbsp;<span class="cb-cmd">open &lt;target&gt;</span>      open a page or case  (open writeup · open f.01)',
       '&nbsp;<span class="cb-cmd">goto &lt;section&gt;</span>    scroll to a section  (goto threat · goto tools)',
       '&nbsp;<span class="cb-cmd">recon</span>             fingerprint this visitor 😈',
       '&nbsp;<span class="cb-cmd">nmap</span>              scan the portfolio',
@@ -1061,7 +1062,7 @@
 
   function open(args) {
     const t = (args[0] || '').toLowerCase();
-    if (!t) return ['<span class="cb-err">usage: open &lt;page|case&gt;  — e.g. open labs · open f.01</span>'];
+    if (!t) return ['<span class="cb-err">usage: open &lt;page|case&gt;  — e.g. open writeup · open f.01</span>'];
     if (CASES[t]) { print('opening <span class="cb-hl">' + CASES[t].n + '</span> on GitHub…', 'cb-dim'); window.open(CASES[t].u, '_blank', 'noopener'); return null; }
     if (PAGES[t]) { const url = PAGES[t]; print('navigating to <span class="cb-hl">' + t + '</span>…', 'cb-dim'); setTimeout(() => location.href = url, 350); return null; }
     return ['<span class="cb-err">no such target: ' + t + '</span>', '<span class="cb-dim">try: ' + Object.keys(PAGES).join(' · ') + ' · f.01–f.07</span>'];
@@ -1830,7 +1831,7 @@
   // Click to expand / collapse (ignore clicks on the writeup link)
   board.querySelectorAll('.ctf-row').forEach(row => {
     row.addEventListener('click', e => {
-      if (e.target.closest('.ctf-link')) return;
+      if (e.target.closest('.ctf-link, .ctf-ch-link')) return;
       row.classList.toggle('open');
     });
   });

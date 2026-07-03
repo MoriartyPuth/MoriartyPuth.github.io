@@ -5704,6 +5704,9 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
 .chip--crypto { color: #a855f7; border-color: rgba(168,85,247,0.3);  background: rgba(168,85,247,0.06); }
 .chip--rev    { color: #f97316; border-color: rgba(249,115,22,0.3);  background: rgba(249,115,22,0.06); }
 .chip--forensics { color: #14b8a6; border-color: rgba(20,184,166,0.3); background: rgba(20,184,166,0.06); }
+.chip--aupp    { color: #818cf8; border-color: rgba(129,140,248,0.3); background: rgba(129,140,248,0.06); }
+.chip--vulnhub { color: #22c55e; border-color: rgba(34,197,94,0.3);   background: rgba(34,197,94,0.06); }
+.chip--thm     { color: #ef4444; border-color: rgba(239,68,68,0.3);   background: rgba(239,68,68,0.06); }
 
 .diff--med     { color: #22c55e; border-color: rgba(34,197,94,0.3);   background: rgba(34,197,94,0.06); }
 .diff--hard    { color: #f97316; border-color: rgba(249,115,22,0.3);  background: rgba(249,115,22,0.06); }
@@ -5793,9 +5796,17 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
 .tag--crypto { color: #a855f7; border-color: rgba(168,85,247,0.22); }
 .tag--rev    { color: #f97316; border-color: rgba(249,115,22,0.22); }
 .tag--forensics { color: #14b8a6; border-color: rgba(20,184,166,0.22); }
+.tag--aupp    { color: #818cf8; border-color: rgba(129,140,248,0.22); }
+.tag--vulnhub { color: #22c55e; border-color: rgba(34,197,94,0.22); }
+.tag--thm     { color: #ef4444; border-color: rgba(239,68,68,0.22); }
 
 .ctf-ch-name { font-size: 11px; color: var(--text); font-weight: 500; }
 .ctf-ch-desc { font-size: 10px; color: var(--muted); }
+
+/* challenge rows that deep-link into the monorepo */
+.ctf-ch-link { text-decoration: none; padding-left: 6px; margin-left: -6px; border-radius: 3px; transition: background 0.15s ease; }
+.ctf-ch-link:hover { background: rgba(255,255,255,0.03); }
+.ctf-ch-link:hover .ctf-ch-name { color: var(--accent); }
 
 /* ── CTA column ──────────────────────────── */
 .ctf-cta-col {
@@ -5824,6 +5835,16 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
 }
 
 .ctf-link:hover { color: #86efac; }
+
+/* "+ N more on GitHub" teaser link at the foot of a collection's featured list */
+.ctf-more {
+  align-self: flex-start;
+  margin-top: 8px;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+.ctf-more:hover { color: var(--accent); }
 
 .ctf-toggle-hint {
   font-size: 9px;
