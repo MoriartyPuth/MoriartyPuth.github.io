@@ -5275,7 +5275,8 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
 .bsuite-run:hover { background: rgba(34,197,94,0.15); border-color: rgba(34,197,94,0.4); }
 .bsuite-run.is-running { color: #f87171; border-color: rgba(248,113,113,0.3); background: rgba(248,113,113,0.06); }
 .bsuite-body {
-  background: #020806;
+  background: #0d1117;        /* match the kali terminal so the fixed-height block reads as one continuous panel */
+  min-height: 500px;         /* floor to the tallest phase so the block never resizes as it types / switches tabs */
   overflow-x: auto;
   scrollbar-width: thin;
   scrollbar-color: rgba(34,197,94,0.3) transparent;

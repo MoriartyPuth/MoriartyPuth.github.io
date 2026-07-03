@@ -155,7 +155,7 @@
   });
 
   // ── Scroll Reveal ──────────────────────────────────────────────────────────
-  const sectionSelectors = '.spotlight,.live-projects,.writeups-section,.stats-row,.pinned-section,.pinned-grid,.bubble-suite,.skills-section,.tooling-section,.certs-section,.featured-categories,.recent-activity,.cta-section,.cat-hero,.labs-grid';
+  const sectionSelectors = '.spotlight,.live-projects,.writeups-section,.stats-row,.pinned-section,.pinned-grid,.bubble-suite,.certs-section,.featured-categories,.recent-activity,.cta-section,.cat-hero,.labs-grid';
   const childSelectors   = '.featured-item,.lab-card,.repo-card,.wr-card,.category-card,.skill-item,.cert-item,.tool-card,.live-card,.activity-item,.showcase-band';
 
   document.querySelectorAll(sectionSelectors).forEach(el => el.classList.add('sr'));
@@ -857,7 +857,7 @@
       'ls tools/':        () => ['bubble-scanner/    bubble-pop/    bubble-siphon/','AURA/    Sila-Entropy/    Nocturne/'],
       'ls community/':    () => ['NETH/    Khmer-OCR/    Rice-Disease-Detector/','','open source · Cambodia'],
       'cat resume.txt': () => ['──────────────────────────────────','Name:    Moriarty Puth','Role:    Offensive Security Researcher','Focus:   API security · Reverse engineering · AI tooling','Notable: Critical IDOR in Cambodian gov systems','         Top-80 crackmes.one ranking','Status:  Currently employed · building for fun','──────────────────────────────────'],
-      'cat skills.txt': () => ['Web/API Exploitation  ▓▓▓▓▓▓▓▓▓░  90%','Reconnaissance        ▓▓▓▓▓▓▓▓░░  85%','Reverse Engineering   ▓▓▓▓▓▓▓▓░░  80%','Malware Analysis      ▓▓▓▓▓▓▓░░░  75%','Blue Team             ▓▓▓▓▓▓▓░░░  70%','AI Security           ▓▓▓▓▓▓▓░░░  75%'],
+      'cat skills.txt': () => ['Reverse Engineering   ▸ ADVANCED','Web/API Exploitation  ▸ ADVANCED','Reconnaissance        ▸ PROFICIENT','Binary Exploitation   ▸ PROFICIENT','Malware Analysis      ▸ PROFICIENT','AI Security           ▸ INTERMEDIATE','Blue Team             ▸ INTERMEDIATE'],
       'cat contact.txt':() => ['email:    p.camboeav@gmail.com','linkedin: linkedin.com/in/puthcambo-eav-7249b1325','github:   github.com/MoriartyPuth'],
       nmap:             () => { setTimeout(showNmap, 200); return ['[*] Launching nmap scan on moriarty.portfolio...']; },
     };
@@ -953,7 +953,7 @@
     reports: '.field-ops', cases: '.field-ops', fieldreports: '.field-ops',
     community: '.community-section', tools: '.bubble-suite', bubble: '.bubble-suite',
     live: '.live-projects', writeups: '.ctf-writeups-section', ctf: '.ctf-writeups-section',
-    skills: '.skills-tooling-row', certs: '.certs-section', scan: '.nikto-section',
+    certs: '.certs-section', scan: '.nikto-section',
     top: '.hero', contact: '.site-footer', footer: '.site-footer'
   };
   const CASES = {
@@ -1045,9 +1045,10 @@
     'cat resume.txt': () => ['────────────────────────────', 'Name:    Moriarty Puth', 'Role:    Offensive Security Researcher',
       'Focus:   API sec · Reverse engineering · AI tooling', 'Notable: Critical IDOR in Cambodian gov systems',
       '         Top-80 crackmes.one', 'Status:  <span class="cb-ok">Open to security roles</span>', '────────────────────────────'],
-    'cat skills.txt': () => ['Web/API Exploitation  ▓▓▓▓▓▓▓▓▓░  90%', 'Reconnaissance        ▓▓▓▓▓▓▓▓░░  85%',
-      'Reverse Engineering   ▓▓▓▓▓▓▓▓░░  80%', 'Malware Analysis      ▓▓▓▓▓▓▓░░░  75%',
-      'Blue Team             ▓▓▓▓▓▓▓░░░  70%', 'AI Security           ▓▓▓▓▓▓▓░░░  75%'],
+    'cat skills.txt': () => ['Reverse Engineering   ▸ ADVANCED', 'Web/API Exploitation  ▸ ADVANCED',
+      'Reconnaissance        ▸ PROFICIENT', 'Binary Exploitation   ▸ PROFICIENT',
+      'Malware Analysis      ▸ PROFICIENT', 'AI Security           ▸ INTERMEDIATE',
+      'Blue Team             ▸ INTERMEDIATE'],
     'cat contact.txt': () => CMDS.contact(),
     contact: () => ['<span class="cb-key">email&nbsp;&nbsp;&nbsp;</span> <a href="mailto:p.camboeav@gmail.com" class="cb-link">p.camboeav@gmail.com</a>',
       '<span class="cb-key">linkedin</span> <a href="https://www.linkedin.com/in/puthcambo-eav-7249b1325/" target="_blank" rel="noopener" class="cb-link">/in/puthcambo-eav-7249b1325</a>',
@@ -1516,11 +1517,10 @@
   var defs = [
     { n: '01', label: 'Top',          sel: '.hero' },
     { n: '02', label: 'Case Studies', sel: '.field-ops' },
-    { n: '03', label: 'Community',    sel: '.community-section' },
-    { n: '04', label: 'Tools',        sel: '.pinned-section' },
-    { n: '05', label: 'CTF Write Up', sel: '.ctf-writeups-section' },
-    { n: '06', label: 'Skills',       sel: '.skills-tooling-row' },
-    { n: '07', label: 'whoami',       sel: '.about-section' }
+    { n: '03', label: 'CTF Write Up', sel: '.ctf-writeups-section' },
+    { n: '04', label: 'Community',    sel: '.community-section' },
+    { n: '05', label: 'Tools',        sel: '.pinned-section' },
+    { n: '06', label: 'whoami',       sel: '.about-section' }
   ];
   var items = defs
     .map(function (d) { return { d: d, el: document.querySelector(d.sel) }; })

@@ -152,6 +152,116 @@
         </div>
       </section>
 
+      <!-- CTF Write Up -->
+      <section class="ctf-writeups-section">
+        <div class="writeups-header">
+          <div class="writeups-header-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <div>
+            <h3>CTF Write Up</h3>
+            <p class="meta">competition results</p>
+          </div>
+        </div>
+
+        <div class="ctf-board">
+
+          <!-- CNCC 2026 -->
+          <div class="ctf-row ctf-row--cyan">
+            <div class="ctf-rank-col">
+              <span class="ctf-rank-label">TOP</span>
+              <span class="ctf-rank-num" data-target="30">99</span>
+            </div>
+            <div class="ctf-body">
+              <div class="ctf-row-main">
+                <div class="ctf-name-group">
+                  <h4 class="ctf-name">CNCC 2026</h4>
+                  <span class="ctf-org">Cambodia National Cyber Competition</span>
+                </div>
+                <div class="ctf-chips">
+                  <span class="ctf-chip chip--web">WEB</span>
+                  <span class="ctf-chip chip--pwn">PWN ×2</span>
+                  <span class="ctf-chip chip--crypto">CRYPTO</span>
+                  <span class="ctf-chip chip--rev">REV ×2</span>
+                  <span class="ctf-badge-score">HIGHEST SCORE</span>
+                </div>
+              </div>
+              <div class="ctf-expand-panel">
+                <div class="ctf-tech-line">
+                  <span class="ctf-tech-label">TECHNIQUES</span>
+                  <code>NoSQL injection · PIE leak · format string · RSA Bellcore fault · garble-obfuscated Go · PyInstaller XOR-chain</code>
+                </div>
+                <div class="ctf-challenge-list">
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--web">WEB</span><span class="ctf-ch-name">IndigoNotes</span><span class="ctf-ch-desc">NoSQL injection + mass assignment privilege escalation</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--pwn">PWN</span><span class="ctf-ch-name">SpeedRun</span><span class="ctf-ch-desc">Stack overflow + PIE leak → ret2win</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--pwn">PWN</span><span class="ctf-ch-name">OffTheRecord</span><span class="ctf-ch-desc">Format string arbitrary read</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--crypto">CRYPTO</span><span class="ctf-ch-name">TrojanHorse</span><span class="ctf-ch-desc">Custom protocol + RSA Bellcore fault attack</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">nevergonna</span><span class="ctf-ch-desc">PyInstaller unpack + XOR-chain cipher inversion</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">DeathNote</span><span class="ctf-ch-desc">garble-obfuscated Go + 6-round custom cipher</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="ctf-cta-col">
+              <span class="ctf-solved">6 solved</span>
+              <a href="https://github.com/MoriartyPuth-Labs/CNCC-2026-WriteUp" target="_blank" rel="noopener" class="ctf-link">Full writeup →</a>
+              <span class="ctf-toggle-hint">▾ click to expand</span>
+            </div>
+          </div>
+
+          <!-- Crackmes RE CTF 2026 -->
+          <div class="ctf-row ctf-row--amber">
+            <div class="ctf-rank-col">
+              <span class="ctf-rank-label">TOP</span>
+              <span class="ctf-rank-num" data-target="80">99</span>
+            </div>
+            <div class="ctf-body">
+              <div class="ctf-row-main">
+                <div class="ctf-name-group">
+                  <h4 class="ctf-name">Crackmes RE CTF 2026</h4>
+                  <span class="ctf-org">Crackmes.one</span>
+                </div>
+                <div class="ctf-chips">
+                  <span class="ctf-chip chip--rev">REV ×10</span>
+                  <span class="ctf-chip chip--crypto">CRYPTO</span>
+                  <span class="ctf-chip chip--forensics">FORENSICS</span>
+                  <span class="ctf-diff diff--med">MEDIUM</span>
+                  <span class="ctf-diff diff--hard">HARD</span>
+                  <span class="ctf-diff diff--extreme">EXTREME</span>
+                </div>
+              </div>
+              <div class="ctf-expand-panel">
+                <div class="ctf-tech-line">
+                  <span class="ctf-tech-label">TECHNIQUES</span>
+                  <code>BFS maze · self-modifying x86 · recursive DFS · A* 15-puzzle · Unicorn VM emulation · opaque predicates · 4-layer nested PE · ICMP magic packets · timestamp-keyed crypto · USB HID scan-code forensics</code>
+                </div>
+                <div class="ctf-challenge-list">
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">Maze</span><span class="ctf-ch-desc">Assembly-encoded address space, BFS shortest-path solver</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">Bubbly</span><span class="ctf-ch-desc">XOR swap bubble sort — emit swap indices</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">BitCalc</span><span class="ctf-ch-desc">Self-modifying x86 selects ADD/SUB opcodes at runtime — recursive DFS</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">date_of_birth</span><span class="ctf-ch-desc">Anti-debug SIGSTOP + signed byte overflow keygen</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">FLRSCRNSVR</span><span class="ctf-ch-desc">Windows screensaver — substitution + XOR + reverse cipher</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">wallpaper</span><span class="ctf-ch-desc">15-puzzle on hex nibbles, A* optimal path solver</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">Matryoshka v2</span><span class="ctf-ch-desc">4-layer nested PE + 1.3 MB VM-obfuscated shellcode + RC4</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">httpd</span><span class="ctf-ch-desc">Go port-knocker, ICMP magic packet detection, AES-128-CBC</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">a matter of time</span><span class="ctf-ch-desc">Timestamp-keyed decryption via time hook + memory dump</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--crypto">CRYPTO</span><span class="ctf-ch-name">CryptPad</span><span class="ctf-ch-desc">Custom cipher analysis on flag.enc — roll-your-own crypto reversal</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">connected</span><span class="ctf-ch-desc">Automotive security binary, static validation-routine analysis</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--forensics">FORENSICS</span><span class="ctf-ch-name">what did you type</span><span class="ctf-ch-desc">USB HID keylog forensics — scan-code to ASCII decoding</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="ctf-cta-col">
+              <span class="ctf-solved">12 solved</span>
+              <a href="https://github.com/MoriartyPuth-Labs/Crackmes-RE-CTF-2026" target="_blank" rel="noopener" class="ctf-link">Full writeup →</a>
+              <span class="ctf-toggle-hint">▾ click to expand</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       <!-- Community Open Source -->
       <section class="community-section">
         <div class="live-projects-header">
@@ -415,116 +525,6 @@
         </div>
       </section>
 
-      <!-- CTF Write Up -->
-      <section class="ctf-writeups-section">
-        <div class="writeups-header">
-          <div class="writeups-header-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-            </svg>
-          </div>
-          <div>
-            <h3>CTF Write Up</h3>
-            <p class="meta">competition results</p>
-          </div>
-        </div>
-
-        <div class="ctf-board">
-
-          <!-- CNCC 2026 -->
-          <div class="ctf-row ctf-row--cyan">
-            <div class="ctf-rank-col">
-              <span class="ctf-rank-label">TOP</span>
-              <span class="ctf-rank-num" data-target="30">99</span>
-            </div>
-            <div class="ctf-body">
-              <div class="ctf-row-main">
-                <div class="ctf-name-group">
-                  <h4 class="ctf-name">CNCC 2026</h4>
-                  <span class="ctf-org">Cambodia National Cyber Competition</span>
-                </div>
-                <div class="ctf-chips">
-                  <span class="ctf-chip chip--web">WEB</span>
-                  <span class="ctf-chip chip--pwn">PWN ×2</span>
-                  <span class="ctf-chip chip--crypto">CRYPTO</span>
-                  <span class="ctf-chip chip--rev">REV ×2</span>
-                  <span class="ctf-badge-score">HIGHEST SCORE</span>
-                </div>
-              </div>
-              <div class="ctf-expand-panel">
-                <div class="ctf-tech-line">
-                  <span class="ctf-tech-label">TECHNIQUES</span>
-                  <code>NoSQL injection · PIE leak · format string · RSA Bellcore fault · garble-obfuscated Go · PyInstaller XOR-chain</code>
-                </div>
-                <div class="ctf-challenge-list">
-                  <div class="ctf-ch"><span class="ctf-ch-tag tag--web">WEB</span><span class="ctf-ch-name">IndigoNotes</span><span class="ctf-ch-desc">NoSQL injection + mass assignment privilege escalation</span></div>
-                  <div class="ctf-ch"><span class="ctf-ch-tag tag--pwn">PWN</span><span class="ctf-ch-name">SpeedRun</span><span class="ctf-ch-desc">Stack overflow + PIE leak → ret2win</span></div>
-                  <div class="ctf-ch"><span class="ctf-ch-tag tag--pwn">PWN</span><span class="ctf-ch-name">OffTheRecord</span><span class="ctf-ch-desc">Format string arbitrary read</span></div>
-                  <div class="ctf-ch"><span class="ctf-ch-tag tag--crypto">CRYPTO</span><span class="ctf-ch-name">TrojanHorse</span><span class="ctf-ch-desc">Custom protocol + RSA Bellcore fault attack</span></div>
-                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">nevergonna</span><span class="ctf-ch-desc">PyInstaller unpack + XOR-chain cipher inversion</span></div>
-                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">DeathNote</span><span class="ctf-ch-desc">garble-obfuscated Go + 6-round custom cipher</span></div>
-                </div>
-              </div>
-            </div>
-            <div class="ctf-cta-col">
-              <span class="ctf-solved">6 solved</span>
-              <a href="https://github.com/MoriartyPuth-Labs/CNCC-2026-WriteUp" target="_blank" rel="noopener" class="ctf-link">Full writeup →</a>
-              <span class="ctf-toggle-hint">▾ click to expand</span>
-            </div>
-          </div>
-
-          <!-- Crackmes RE CTF 2026 -->
-          <div class="ctf-row ctf-row--amber">
-            <div class="ctf-rank-col">
-              <span class="ctf-rank-label">TOP</span>
-              <span class="ctf-rank-num" data-target="80">99</span>
-            </div>
-            <div class="ctf-body">
-              <div class="ctf-row-main">
-                <div class="ctf-name-group">
-                  <h4 class="ctf-name">Crackmes RE CTF 2026</h4>
-                  <span class="ctf-org">Crackmes.one</span>
-                </div>
-                <div class="ctf-chips">
-                  <span class="ctf-chip chip--rev">REV ×10</span>
-                  <span class="ctf-chip chip--crypto">CRYPTO</span>
-                  <span class="ctf-chip chip--forensics">FORENSICS</span>
-                  <span class="ctf-diff diff--med">MEDIUM</span>
-                  <span class="ctf-diff diff--hard">HARD</span>
-                  <span class="ctf-diff diff--extreme">EXTREME</span>
-                </div>
-              </div>
-              <div class="ctf-expand-panel">
-                <div class="ctf-tech-line">
-                  <span class="ctf-tech-label">TECHNIQUES</span>
-                  <code>BFS maze · self-modifying x86 · recursive DFS · A* 15-puzzle · Unicorn VM emulation · opaque predicates · 4-layer nested PE · ICMP magic packets · timestamp-keyed crypto · USB HID scan-code forensics</code>
-                </div>
-                <div class="ctf-challenge-list">
-                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">Maze</span><span class="ctf-ch-desc">Assembly-encoded address space, BFS shortest-path solver</span></div>
-                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">Bubbly</span><span class="ctf-ch-desc">XOR swap bubble sort — emit swap indices</span></div>
-                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">BitCalc</span><span class="ctf-ch-desc">Self-modifying x86 selects ADD/SUB opcodes at runtime — recursive DFS</span></div>
-                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">date_of_birth</span><span class="ctf-ch-desc">Anti-debug SIGSTOP + signed byte overflow keygen</span></div>
-                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">FLRSCRNSVR</span><span class="ctf-ch-desc">Windows screensaver — substitution + XOR + reverse cipher</span></div>
-                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">wallpaper</span><span class="ctf-ch-desc">15-puzzle on hex nibbles, A* optimal path solver</span></div>
-                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">Matryoshka v2</span><span class="ctf-ch-desc">4-layer nested PE + 1.3 MB VM-obfuscated shellcode + RC4</span></div>
-                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">httpd</span><span class="ctf-ch-desc">Go port-knocker, ICMP magic packet detection, AES-128-CBC</span></div>
-                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">a matter of time</span><span class="ctf-ch-desc">Timestamp-keyed decryption via time hook + memory dump</span></div>
-                  <div class="ctf-ch"><span class="ctf-ch-tag tag--crypto">CRYPTO</span><span class="ctf-ch-name">CryptPad</span><span class="ctf-ch-desc">Custom cipher analysis on flag.enc — roll-your-own crypto reversal</span></div>
-                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">connected</span><span class="ctf-ch-desc">Automotive security binary, static validation-routine analysis</span></div>
-                  <div class="ctf-ch"><span class="ctf-ch-tag tag--forensics">FORENSICS</span><span class="ctf-ch-name">what did you type</span><span class="ctf-ch-desc">USB HID keylog forensics — scan-code to ASCII decoding</span></div>
-                </div>
-              </div>
-            </div>
-            <div class="ctf-cta-col">
-              <span class="ctf-solved">12 solved</span>
-              <a href="https://github.com/MoriartyPuth-Labs/Crackmes-RE-CTF-2026" target="_blank" rel="noopener" class="ctf-link">Full writeup →</a>
-              <span class="ctf-toggle-hint">▾ click to expand</span>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
       <section class="featured-categories">
         <div class="section-header-simple">
           <h3>Explore by Category</h3>
@@ -586,32 +586,6 @@
           </a>
         </div>
       </section>
-      <div class="skills-tooling-row">
-        <section class="skills-section">
-          <div class="skills-header">
-            <div class="skills-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 20V10"/>
-                <path d="M18 20V4"/>
-                <path d="M6 20v-4"/>
-              </svg>
-            </div>
-            <h4>Core Skills</h4>
-          </div>
-          <div id="skills-radar" class="skills-radar"></div>
-        </section>
-        <section class="tooling-section">
-          <div class="skills-header">
-            <div class="skills-icon tooling">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-              </svg>
-            </div>
-            <h4>Tooling Stack</h4>
-          </div>
-          <div id="cme-tools" class="cme-tools"></div>
-        </section>
-      </div>
       <section class="about-section">
         <div class="certs-header">
           <div class="about-icon">
