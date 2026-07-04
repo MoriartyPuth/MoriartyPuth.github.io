@@ -2,8 +2,8 @@ window.SEARCH_INDEX = [
   {
     title: "EES Security Case Study",
     url: "https://github.com/MoriartyPuth-Labs/EES-Security-Case-Study",
-    summary: "Government-integrated ANPR and parking system case study focused on high-impact access control failures.",
-    tags: ["case study", "idor", "bac", "government systems"]
+    summary: "ANPR and parking system case study focused on high-impact access control failures.",
+    tags: ["case study", "idor", "bac", "access control"]
   },
   {
     title: "CSS-GDIN Security Case Study",

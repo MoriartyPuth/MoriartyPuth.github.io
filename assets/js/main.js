@@ -25,7 +25,7 @@
         { text: '$ whoami', delay: 2160, cmd: true },
         { text: 'moriarty', delay: 2560, who: true, role: 'offensive security researcher' },
         { text: '$ id', delay: 2980, cmd: true },
-        { text: 'uid=1337(moriarty) gid=1337(redteam) groups=gov-disclosure,crackmes,api-sec', delay: 3320, idline: true },
+        { text: 'uid=1337(moriarty) gid=1337(redteam) groups=disclosure,crackmes,api-sec', delay: 3320, idline: true },
         { text: '', delay: 3640 },
         { text: 'ACCESS GRANTED', delay: 3860, granted: true },
       ];
@@ -331,8 +331,8 @@
 
   // ── Burp Suite Raw Request Overlay ────────────────────────────────────────
   const burpData = [
-    `GET /api/v1/vehicles/1043 HTTP/1.1\nHost: ees.gov.kh\nAuthorization: Bearer eyJhbGciOiJIUzI1NiJ9...\nX-User-ID: 1042\n\n◀ Response ▶\n\nHTTP/1.1 200 OK\nContent-Type: application/json\n\n{"id":1043,"plate":"RR-4821",\n "owner":"[REDACTED]",\n "bureau":"Law Enforcement MoI"}`,
-    `GET /api/complaints?userId=1 HTTP/1.1\nHost: css-gdin.gov.kh\nCookie: JSESSIONID=3f8ab21c...\n\n◀ Response ▶\n\nHTTP/1.1 200 OK\nContent-Type: application/json\n\n{"total":1247,"page":1,\n "records":[{"id":1,"name":"[REDACTED]",\n "complaint":"...","status":"open"}]}`,
+    `GET /api/v1/vehicles/1043 HTTP/1.1\nHost: anpr-api.internal\nAuthorization: Bearer eyJhbGciOiJIUzI1NiJ9...\nX-User-ID: 1042\n\n◀ Response ▶\n\nHTTP/1.1 200 OK\nContent-Type: application/json\n\n{"id":1043,"plate":"RR-4821",\n "owner":"[REDACTED]",\n "bureau":"[REDACTED]"}`,
+    `GET /api/complaints?userId=1 HTTP/1.1\nHost: complaints.internal\nCookie: JSESSIONID=3f8ab21c...\n\n◀ Response ▶\n\nHTTP/1.1 200 OK\nContent-Type: application/json\n\n{"total":1247,"page":1,\n "records":[{"id":1,"name":"[REDACTED]",\n "complaint":"...","status":"open"}]}`,
     `POST /api/admin/users/reset HTTP/1.1\nHost: ctf.aupp.edu.kh\nContent-Type: application/json\nAuthorization: Bearer <user_token>\n\n{"userId":"*"}\n\n◀ Response ▶\n\nHTTP/1.1 200 OK\n\n{"status":"ok","affected":142}`
   ];
   document.querySelectorAll('.featured-item.breach-card').forEach((card, i) => {
@@ -856,7 +856,7 @@
       'ls case-studies/': () => ['EES-ANPR/    CSS-GDIN/    AUPP-CTF/','DoccameraDLL/    JoulHub/    SOP/','OWIT-Global/','','7 cases · authorized · coordinated disclosure'],
       'ls tools/':        () => ['bubble-scanner/    bubble-pop/    bubble-siphon/','AURA/    Sila-Entropy/    Nocturne/'],
       'ls community/':    () => ['NETH/    Khmer-OCR/    Rice-Disease-Detector/','','open source · Cambodia'],
-      'cat resume.txt': () => ['──────────────────────────────────','Name:    Moriarty Puth','Role:    Offensive Security Researcher','Focus:   API security · Reverse engineering · AI tooling','Notable: Critical IDOR in Cambodian gov systems','         Top-80 crackmes.one ranking','Status:  Currently employed · building for fun','──────────────────────────────────'],
+      'cat resume.txt': () => ['──────────────────────────────────','Name:    Moriarty Puth','Role:    Offensive Security Researcher','Focus:   API security · Reverse engineering · AI tooling','Notable: Critical IDOR in production systems','         Top-80 crackmes.one ranking','Status:  [REDACTED] · building for fun','──────────────────────────────────'],
       'cat skills.txt': () => ['Reverse Engineering   ▸ ADVANCED','Web/API Exploitation  ▸ ADVANCED','Reconnaissance        ▸ PROFICIENT','Binary Exploitation   ▸ PROFICIENT','Malware Analysis      ▸ PROFICIENT','AI Security           ▸ INTERMEDIATE','Blue Team             ▸ INTERMEDIATE'],
       'cat contact.txt':() => ['email:    p.camboeav@gmail.com','linkedin: linkedin.com/in/puthcambo-eav-7249b1325','github:   github.com/MoriartyPuth'],
       nmap:             () => { setTimeout(showNmap, 200); return ['[*] Launching nmap scan on moriarty.portfolio...']; },
@@ -1043,8 +1043,8 @@
     cases: () => Object.entries(CASES).map(([k, v]) =>
       '<span class="cb-cmd">' + k.toUpperCase() + '</span>  <span class="cb-val">' + v.n.padEnd(13, ' ') + '</span> <span class="cb-dim">' + v.s + '</span>  <span class="cb-dim">open ' + k + '</span>'),
     'cat resume.txt': () => ['────────────────────────────', 'Name:    Moriarty Puth', 'Role:    Offensive Security Researcher',
-      'Focus:   API sec · Reverse engineering · AI tooling', 'Notable: Critical IDOR in Cambodian gov systems',
-      '         Top-80 crackmes.one', 'Status:  <span class="cb-ok">Open to security roles</span>', '────────────────────────────'],
+      'Focus:   API sec · Reverse engineering · AI tooling', 'Notable: Critical IDOR in production systems',
+      '         Top-80 crackmes.one', 'Status:  <span class="cb-ok">[REDACTED] · building for fun</span>', '────────────────────────────'],
     'cat skills.txt': () => ['Reverse Engineering   ▸ ADVANCED', 'Web/API Exploitation  ▸ ADVANCED',
       'Reconnaissance        ▸ PROFICIENT', 'Binary Exploitation   ▸ PROFICIENT',
       'Malware Analysis      ▸ PROFICIENT', 'AI Security           ▸ INTERMEDIATE',
@@ -1137,13 +1137,13 @@
   const cards = document.querySelectorAll('.fr-card');
   if (!cards.length) return;
   const EVID = {
-    'F.01': { title: 'EES / ANPR — Insecure Direct Object Reference', target: 'Ministry of Interior · ANPR System', cvss: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H — 9.8 CRITICAL',
-      req: 'GET /api/v1/bureaus/1042 HTTP/1.1\nHost: ees.gov.kh\nAuthorization: Bearer eyJhbGciOiJIUzI1...',
+    'F.01': { title: 'EES / ANPR — Insecure Direct Object Reference', target: 'ANPR / Parking System · redacted', cvss: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H — 9.8 CRITICAL',
+      req: 'GET /api/v1/bureaus/1042 HTTP/1.1\nHost: anpr-api.internal\nAuthorization: Bearer eyJhbGciOiJIUzI1...',
       res: 'HTTP/1.1 200 OK\nContent-Type: application/json\n\n{"id":1042,"bureau":"[REDACTED]",\n "records":[ ... 100+ entries ... ]}',
       impact: 'Sequential bureau IDs let any authenticated user enumerate 100+ law-enforcement bureau records belonging to other tenants.',
       fix: 'Enforce object-level authorization on every record fetch; replace predictable integer IDs with unguessable UUIDs.', repo: 'https://github.com/MoriartyPuth-Labs/EES-Security-Case-Study' },
-    'F.02': { title: 'CSS-GDIN — Broken Access Control', target: 'Gov Complaint System · Spring Boot', cvss: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N — 7.5 HIGH',
-      req: 'GET /api/complaints/all HTTP/1.1\nHost: css-gdin.gov.kh\n# no Authorization header',
+    'F.02': { title: 'CSS-GDIN — Broken Access Control', target: 'Complaint Portal · Spring Boot', cvss: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N — 7.5 HIGH',
+      req: 'GET /api/complaints/all HTTP/1.1\nHost: complaints.internal\n# no Authorization header',
       res: 'HTTP/1.1 200 OK\n\n{"total":1247,"records":[\n  {"id":1,"name":"[REDACTED]", ... }]}',
       impact: 'An unauthenticated endpoint returned 1,000+ citizen complaint records including PII.',
       fix: 'Apply authentication + authorization filters to all data endpoints; deny-by-default routing.', repo: 'https://github.com/MoriartyPuth-Labs/CSS-GDIN-Security-Case-Study' },
@@ -1330,20 +1330,20 @@
   const esc = s => s.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
 
   const CASES = [
-    { id: 'F.01', name: 'EES / ANPR', target: 'Ministry of Interior · ANPR System',
+    { id: 'F.01', name: 'EES / ANPR', target: 'ANPR / Parking System · redacted',
       sev: '9.8', sevClass: 'crit', type: 'IDOR · Mobile', findings: '1 Critical',
       statusText: 'Patched < 24h', statusClass: 'done',
       cvss: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H · 9.8 CRITICAL',
-      req: 'GET /api/v1/bureaus/1042 HTTP/1.1\nHost: ees.gov.kh\nAuthorization: Bearer eyJhbGciOiJIUzI1...',
+      req: 'GET /api/v1/bureaus/1042 HTTP/1.1\nHost: anpr-api.internal\nAuthorization: Bearer eyJhbGciOiJIUzI1...',
       res: 'HTTP/1.1 200 OK\nContent-Type: application/json\n\n{"id":1042,"bureau":"[REDACTED]",\n "records":[ ... 100+ entries ... ]}',
       impact: 'Sequential bureau IDs let any authenticated user enumerate 100+ law-enforcement bureau records belonging to other tenants.',
       fix: 'Enforce object-level authorization on every record fetch; replace predictable integer IDs with unguessable UUIDs.',
       repo: 'https://github.com/MoriartyPuth-Labs/EES-Security-Case-Study' },
-    { id: 'F.02', name: 'CSS-GDIN', target: 'Gov Complaint System · Spring Boot',
+    { id: 'F.02', name: 'CSS-GDIN', target: 'Complaint Portal · Spring Boot',
       sev: '7.5', sevClass: 'high', type: 'IDOR · BAC', findings: '1 High',
       statusText: 'Patched < 24h', statusClass: 'done',
       cvss: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N · 7.5 HIGH',
-      req: 'GET /api/complaints/all HTTP/1.1\nHost: css-gdin.gov.kh\n# no Authorization header',
+      req: 'GET /api/complaints/all HTTP/1.1\nHost: complaints.internal\n# no Authorization header',
       res: 'HTTP/1.1 200 OK\n\n{"total":1247,"records":[\n  {"id":1,"name":"[REDACTED]", ... }]}',
       impact: 'An unauthenticated endpoint returned 1,000+ citizen complaint records including PII.',
       fix: 'Apply authentication + authorization filters to all data endpoints; deny-by-default routing.',
