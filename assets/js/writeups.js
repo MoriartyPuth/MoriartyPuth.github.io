@@ -34,9 +34,19 @@
     {
       name: 'vulnhub/', repo: VB, verb: 'rooted', label: 'VulnHub · updated weekly',
       files: [
-        { folder: 'DC1-Lab',       dir: 'vulnhub', name: 'dc1',       tech: 'Drupalgeddon2 RCE + SUID privesc', tag: 'VULNHUB', cls: 'vulnhub' },
-        { folder: 'Bulldog1-Lab',  dir: 'vulnhub', name: 'bulldog1',  tech: 'Django command injection → root',  tag: 'VULNHUB', cls: 'vulnhub' },
-        { folder: 'N7-Lab',        dir: 'vulnhub', name: 'n7',        tech: 'blind time-based SQLi',            tag: 'VULNHUB', cls: 'vulnhub' }
+        { folder: 'DC1-Lab',            dir: 'vulnhub', name: 'dc1',            tech: 'Drupalgeddon2 RCE + SUID privesc',          tag: 'VULNHUB', cls: 'vulnhub' },
+        { folder: 'Bulldog1-Lab',       dir: 'vulnhub', name: 'bulldog1',       tech: 'Django command injection → root',           tag: 'VULNHUB', cls: 'vulnhub' },
+        { folder: 'N7-Lab',             dir: 'vulnhub', name: 'n7',             tech: 'blind time-based SQLi',                     tag: 'VULNHUB', cls: 'vulnhub' },
+        { folder: 'Holynix1-Lab',       dir: 'vulnhub', name: 'holynix1',       tech: 'SQLi + LFI → tar.gz privesc',               tag: 'VULNHUB', cls: 'vulnhub' },
+        { folder: 'Jigsaw1-Lab',        dir: 'vulnhub', name: 'jigsaw1',        tech: 'UDP sniffing + port knocking → ret2libc',   tag: 'VULNHUB', cls: 'vulnhub' },
+        { folder: 'Katana-Lab',         dir: 'vulnhub', name: 'katana',         tech: 'Linux capabilities privesc (cap_setuid)',   tag: 'VULNHUB', cls: 'vulnhub' },
+        { folder: 'SkyDog-Lab',         dir: 'vulnhub', name: 'skydog',         tech: '6-flag CTF — ExifTool, CeWL, writable cron', tag: 'VULNHUB', cls: 'vulnhub' },
+        { folder: 'StarWars1-Lab',      dir: 'vulnhub', name: 'starwars1',      tech: 'Steganography + CeWL wordlist + Hydra',     tag: 'VULNHUB', cls: 'vulnhub' },
+        { folder: 'Sunset-Dusk-Lab',    dir: 'vulnhub', name: 'sunset-dusk',    tech: 'MySQL INTO OUTFILE → Docker group privesc', tag: 'VULNHUB', cls: 'vulnhub' },
+        { folder: 'Sunset-Sunrise-Lab', dir: 'vulnhub', name: 'sunset-sunrise', tech: 'Weborf dir traversal + Wine privesc',       tag: 'VULNHUB', cls: 'vulnhub' },
+        { folder: 'SuperMario-Lab',     dir: 'vulnhub', name: 'supermario',     tech: 'OverlayFS kernel exploit + SSH brute force', tag: 'VULNHUB', cls: 'vulnhub' },
+        { folder: 'VulnOS1-Lab',        dir: 'vulnhub', name: 'vulnos1',        tech: 'distcc RCE + Webmin file disclosure',       tag: 'VULNHUB', cls: 'vulnhub' },
+        { folder: 'VulnOS2-Lab',        dir: 'vulnhub', name: 'vulnos2',        tech: 'OpenDocMan SQLi → kernel privesc',          tag: 'VULNHUB', cls: 'vulnhub' }
       ]
     },
     {
