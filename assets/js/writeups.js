@@ -10,7 +10,7 @@
 
   var dirs = [
     {
-      name: 'crackmes/', repo: CB, count: '7 solved · crackmes.one',
+      name: 'crackmes/', repo: CB, verb: 'solved', label: 'crackmes.one',
       files: [
         { folder: 'The-Alchemist-Lock-Lab',            name: 'the-alchemists-lock', tech: 'packer unpacking & patching',     tag: 'REV', cls: 'rev' },
         { folder: 'MalwareTech-VM1-Lab',               name: 'malwaretech-vm1',     tech: 'custom VM — bytecode analysis',    tag: 'REV', cls: 'rev' },
@@ -22,7 +22,7 @@
       ]
     },
     {
-      name: 'vulnhub/', repo: VB, count: '9 rooted · vulnhub · thm · aupp',
+      name: 'vulnhub/', repo: VB, verb: 'rooted', label: 'vulnhub · thm · aupp',
       files: [
         { folder: 'DC1-Lab',                                  name: 'dc1',                 tech: 'Drupalgeddon2 RCE + SUID privesc',  tag: 'VULNHUB', cls: 'vulnhub' },
         { folder: 'Bulldog1-Lab',                             name: 'bulldog1',            tech: 'Django command injection → root',   tag: 'VULNHUB', cls: 'vulnhub' },
@@ -48,12 +48,13 @@
     var cont = lastDir ? '    ' : '│   ';   // continuation indent under this dir
     total += dir.files.length;
 
+    var count = dir.files.length + ' ' + dir.verb + ' · ' + dir.label;
     html +=
       '<div class="wtree-dir" data-dir="' + di + '">' +
         '<span class="wtree-branch">' + dirBranch + '</span>' +
         '<span class="wtree-fold" aria-hidden="true">▾</span>' +
         '<a class="wtree-dirname" href="' + dir.repo + '" target="_blank" rel="noopener">' + esc(dir.name) + '</a>' +
-        '<span class="wtree-count">' + esc(dir.count) + '</span>' +
+        '<span class="wtree-count">' + esc(count) + '</span>' +
       '</div>' +
       '<div class="wtree-files" data-files="' + di + '">';
 
