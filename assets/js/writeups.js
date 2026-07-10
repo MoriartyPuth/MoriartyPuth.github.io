@@ -26,17 +26,27 @@
       ]
     },
     {
-      name: 'vulnhub/', repo: VB, verb: 'rooted', label: 'vulnhub · thm · aupp',
+      name: 'aupp program/', repo: VB, verb: 'completed', label: 'AUPP coursework',
       files: [
-        { folder: 'DC1-Lab',                                  dir: 'vulnhub',   name: 'dc1',                 tech: 'Drupalgeddon2 RCE + SUID privesc',  tag: 'VULNHUB', cls: 'vulnhub' },
-        { folder: 'Bulldog1-Lab',                             dir: 'vulnhub',   name: 'bulldog1',            tech: 'Django command injection → root',   tag: 'VULNHUB', cls: 'vulnhub' },
-        { folder: 'N7-Lab',                                   dir: 'vulnhub',   name: 'n7',                  tech: 'blind time-based SQLi',             tag: 'VULNHUB', cls: 'vulnhub' },
-        { folder: 'Full-Chain-SQLi-Case-Study',               dir: 'aupp',      name: 'full-chain-sqli',     tech: 'end-to-end SQL injection chain',    tag: 'AUPP', cls: 'aupp' },
-        { folder: 'Server-Exploitation-Post-Exploitation-Lab', dir: 'aupp',     name: 'server-exploitation', tech: 'Linux exploit + forensic audit',    tag: 'AUPP', cls: 'aupp' },
-        { folder: 'MSFVenom-and-Trojan-Lab',                  dir: 'aupp',      name: 'msfvenom-trojan',     tech: 'payload engineering + evasion',     tag: 'AUPP', cls: 'aupp' },
-        { folder: 'Linux-Data-Analysis-Lab',                  dir: 'aupp',      name: 'linux-data-analysis', tech: 'forensic text processing',          tag: 'AUPP', cls: 'aupp' },
-        { folder: 'Network-Security-Reconnaissance-Lab',      dir: 'aupp',      name: 'network-recon',       tech: 'subnet scanning + profiling',       tag: 'AUPP', cls: 'aupp' },
-        { folder: 'Pickle-Rick-Lab',                          dir: 'tryhackme', name: 'pickle-rick',         tech: 'command injection + privesc',       tag: 'THM',  cls: 'thm' }
+        { folder: 'Full-Chain-SQLi-Case-Study',               dir: 'aupp', name: 'full-chain-sqli',     tech: 'end-to-end SQL injection chain',    tag: 'AUPP', cls: 'aupp' },
+        { folder: 'Server-Exploitation-Post-Exploitation-Lab', dir: 'aupp', name: 'server-exploitation', tech: 'Linux exploit + forensic audit',    tag: 'AUPP', cls: 'aupp' },
+        { folder: 'MSFVenom-and-Trojan-Lab',                  dir: 'aupp', name: 'msfvenom-trojan',     tech: 'payload engineering + evasion',     tag: 'AUPP', cls: 'aupp' },
+        { folder: 'Linux-Data-Analysis-Lab',                  dir: 'aupp', name: 'linux-data-analysis', tech: 'forensic text processing',          tag: 'AUPP', cls: 'aupp' },
+        { folder: 'Network-Security-Reconnaissance-Lab',      dir: 'aupp', name: 'network-recon',       tech: 'subnet scanning + profiling',       tag: 'AUPP', cls: 'aupp' }
+      ]
+    },
+    {
+      name: 'tryhackme/', repo: VB, verb: 'rooted', label: 'TryHackMe',
+      files: [
+        { folder: 'Pickle-Rick-Lab', dir: 'tryhackme', name: 'pickle-rick', tech: 'command injection + privesc', tag: 'THM', cls: 'thm' }
+      ]
+    },
+    {
+      name: 'vulnhub/', repo: VB, verb: 'rooted', label: 'VulnHub · updated weekly',
+      files: [
+        { folder: 'DC1-Lab',       dir: 'vulnhub', name: 'dc1',       tech: 'Drupalgeddon2 RCE + SUID privesc', tag: 'VULNHUB', cls: 'vulnhub' },
+        { folder: 'Bulldog1-Lab',  dir: 'vulnhub', name: 'bulldog1',  tech: 'Django command injection → root',  tag: 'VULNHUB', cls: 'vulnhub' },
+        { folder: 'N7-Lab',        dir: 'vulnhub', name: 'n7',        tech: 'blind time-based SQLi',            tag: 'VULNHUB', cls: 'vulnhub' }
       ]
     }
   ];
