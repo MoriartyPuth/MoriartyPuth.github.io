@@ -1,6 +1,10 @@
 /* Writeup page — data-driven shell tree.
    To add a writeup: drop one entry in the right dir's `files` array below.
-   Branch glyphs (├── / └──) and the summary count are computed automatically. */
+   Branch glyphs (├── / └──) and the summary count are computed automatically.
+   `dir` is the repo subfolder the writeup actually lives in (defaults to
+   'labs' if omitted — that's Crackmes-WriteUp's flat layout). Vulnhub-WriteUp
+   is split by platform: 'vulnhub' | 'aupp' | 'tryhackme' — match it to
+   wherever the folder really sits in that repo, it won't always equal `cls`. */
 (function () {
   var mount = document.getElementById('wtree-mount');
   if (!mount) return;
@@ -24,15 +28,15 @@
     {
       name: 'vulnhub/', repo: VB, verb: 'rooted', label: 'vulnhub · thm · aupp',
       files: [
-        { folder: 'DC1-Lab',                                  name: 'dc1',                 tech: 'Drupalgeddon2 RCE + SUID privesc',  tag: 'VULNHUB', cls: 'vulnhub' },
-        { folder: 'Bulldog1-Lab',                             name: 'bulldog1',            tech: 'Django command injection → root',   tag: 'VULNHUB', cls: 'vulnhub' },
-        { folder: 'N7-Lab',                                   name: 'n7',                  tech: 'blind time-based SQLi',             tag: 'VULNHUB', cls: 'vulnhub' },
-        { folder: 'Full-Chain-SQLi-Case-Study',               name: 'full-chain-sqli',     tech: 'end-to-end SQL injection chain',    tag: 'AUPP', cls: 'aupp' },
-        { folder: 'Server-Exploitation-Post-Exploitation-Lab', name: 'server-exploitation', tech: 'Linux exploit + forensic audit',    tag: 'AUPP', cls: 'aupp' },
-        { folder: 'MSFVenom-and-Trojan-Lab',                  name: 'msfvenom-trojan',     tech: 'payload engineering + evasion',     tag: 'AUPP', cls: 'aupp' },
-        { folder: 'Linux-Data-Analysis-Lab',                  name: 'linux-data-analysis', tech: 'forensic text processing',          tag: 'AUPP', cls: 'aupp' },
-        { folder: 'Network-Security-Reconnaissance-Lab',      name: 'network-recon',       tech: 'subnet scanning + profiling',       tag: 'AUPP', cls: 'aupp' },
-        { folder: 'Pickle-Rick-Lab',                          name: 'pickle-rick',         tech: 'command injection + privesc',       tag: 'THM',  cls: 'thm' }
+        { folder: 'DC1-Lab',                                  dir: 'vulnhub',   name: 'dc1',                 tech: 'Drupalgeddon2 RCE + SUID privesc',  tag: 'VULNHUB', cls: 'vulnhub' },
+        { folder: 'Bulldog1-Lab',                             dir: 'vulnhub',   name: 'bulldog1',            tech: 'Django command injection → root',   tag: 'VULNHUB', cls: 'vulnhub' },
+        { folder: 'N7-Lab',                                   dir: 'vulnhub',   name: 'n7',                  tech: 'blind time-based SQLi',             tag: 'VULNHUB', cls: 'vulnhub' },
+        { folder: 'Full-Chain-SQLi-Case-Study',               dir: 'aupp',      name: 'full-chain-sqli',     tech: 'end-to-end SQL injection chain',    tag: 'AUPP', cls: 'aupp' },
+        { folder: 'Server-Exploitation-Post-Exploitation-Lab', dir: 'aupp',     name: 'server-exploitation', tech: 'Linux exploit + forensic audit',    tag: 'AUPP', cls: 'aupp' },
+        { folder: 'MSFVenom-and-Trojan-Lab',                  dir: 'aupp',      name: 'msfvenom-trojan',     tech: 'payload engineering + evasion',     tag: 'AUPP', cls: 'aupp' },
+        { folder: 'Linux-Data-Analysis-Lab',                  dir: 'aupp',      name: 'linux-data-analysis', tech: 'forensic text processing',          tag: 'AUPP', cls: 'aupp' },
+        { folder: 'Network-Security-Reconnaissance-Lab',      dir: 'aupp',      name: 'network-recon',       tech: 'subnet scanning + profiling',       tag: 'AUPP', cls: 'aupp' },
+        { folder: 'Pickle-Rick-Lab',                          dir: 'tryhackme', name: 'pickle-rick',         tech: 'command injection + privesc',       tag: 'THM',  cls: 'thm' }
       ]
     }
   ];
@@ -61,7 +65,7 @@
     dir.files.forEach(function (f, fi) {
       var branch = cont + (fi === dir.files.length - 1 ? '└──' : '├──');
       html +=
-        '<a class="wtree-file" href="' + dir.repo + '/tree/main/labs/' + f.folder + '" target="_blank" rel="noopener">' +
+        '<a class="wtree-file" href="' + dir.repo + '/tree/main/' + (f.dir || 'labs') + '/' + f.folder + '" target="_blank" rel="noopener">' +
           '<span class="wtree-branch">' + branch + '</span>' +
           '<span class="wtree-fname">' + esc(f.name) + '</span>' +
           '<span class="wtree-tech">' + esc(f.tech) + '</span>' +
