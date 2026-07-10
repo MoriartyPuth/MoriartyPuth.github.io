@@ -956,15 +956,10 @@
     certs: '.certs-section', scan: '.nikto-section',
     top: '.hero', contact: '.site-footer', footer: '.site-footer'
   };
-  const CASES = {
-    'f.01': { n: 'EES / ANPR', u: 'https://github.com/MoriartyPuth-Labs/EES-Security-Case-Study', s: '9.8 CRIT' },
-    'f.02': { n: 'CSS-GDIN',   u: 'https://github.com/MoriartyPuth-Labs/CSS-GDIN-Security-Case-Study', s: '7.5 HIGH' },
-    'f.03': { n: 'AUPP CTF',   u: 'https://github.com/MoriartyPuth-Labs/AUPP-CTF-Platform-Security-Study-Case', s: '1C·3H' },
-    'f.04': { n: 'DOCCAMERA',  u: 'https://github.com/MoriartyPuth-Labs/DoccameraDLL-Security-Case-Study', s: '4C·8H' },
-    'f.05': { n: 'JOULHUB',    u: 'https://github.com/MoriartyPuth-Labs/Joulhub-Security-Case-Study', s: '2H·3M' },
-    'f.06': { n: 'SOP',        u: 'https://github.com/MoriartyPuth-Labs/SOP-Security-Case-Study', s: '2C·6H' },
-    'f.07': { n: 'OWIT GLOBAL',u: 'https://github.com/MoriartyPuth-Labs/OWIT-Global-Security-Case-Study', s: '8.1 HIGH' }
-  };
+  const CASES = {};
+  (window.CASE_STUDIES || []).forEach(function (c) {
+    CASES[c.id.toLowerCase()] = { n: (c.termName || c.name).toUpperCase(), u: c.repo, s: c.quickScore };
+  });
 
   const print = (lines, cls) => {
     (Array.isArray(lines) ? lines : [lines]).forEach(l => {
@@ -1066,7 +1061,8 @@
     if (!t) return ['<span class="cb-err">usage: open &lt;page|case&gt;  — e.g. open writeup · open f.01</span>'];
     if (CASES[t]) { print('opening <span class="cb-hl">' + CASES[t].n + '</span> on GitHub…', 'cb-dim'); window.open(CASES[t].u, '_blank', 'noopener'); return null; }
     if (PAGES[t]) { const url = PAGES[t]; print('navigating to <span class="cb-hl">' + t + '</span>…', 'cb-dim'); setTimeout(() => location.href = url, 350); return null; }
-    return ['<span class="cb-err">no such target: ' + t + '</span>', '<span class="cb-dim">try: ' + Object.keys(PAGES).join(' · ') + ' · f.01–f.07</span>'];
+    const lastCase = 'f.' + String(Object.keys(CASES).length).padStart(2, '0');
+    return ['<span class="cb-err">no such target: ' + t + '</span>', '<span class="cb-dim">try: ' + Object.keys(PAGES).join(' · ') + ' · f.01–' + lastCase + '</span>'];
   }
   function goto(args) {
     const t = (args[0] || '').toLowerCase();
@@ -1113,6 +1109,43 @@
 (function () {
   const board = document.querySelector('.threat-board');
   if (!board) return;
+
+  // derive the stat bar (Critical/High/Medium/findings/cases/patched) from CASE_STUDIES
+  // so it never drifts out of sync as case studies are added
+  const cases = window.CASE_STUDIES || [];
+  if (cases.length) {
+    const crit = cases.reduce((n, c) => n + (c.critCount || 0), 0);
+    const high = cases.reduce((n, c) => n + (c.highCount || 0), 0);
+    const med  = cases.reduce((n, c) => n + (c.medCount  || 0), 0);
+    const total = crit + high + med || 1;
+    const patched = cases.filter(c => c.statusClass === 'done').length;
+    const pct = n => Math.round(n / total * 100);
+
+    const segs = { crit: board.querySelector('.tb-seg--crit'), high: board.querySelector('.tb-seg--high'), med: board.querySelector('.tb-seg--med') };
+    const counts = { crit, high, med };
+    const labels = { crit: 'Critical', high: 'High', med: 'Medium' };
+    Object.keys(segs).forEach(k => {
+      if (!segs[k]) return;
+      segs[k].dataset.w = pct(counts[k]);
+      segs[k].title = counts[k] + ' ' + labels[k];
+      const b = segs[k].querySelector('b');
+      if (b) b.textContent = counts[k];
+    });
+    const legendCrit = document.getElementById('tb-legend-crit');
+    const legendHigh = document.getElementById('tb-legend-high');
+    const legendMed  = document.getElementById('tb-legend-med');
+    if (legendCrit) legendCrit.textContent = crit;
+    if (legendHigh) legendHigh.textContent = high;
+    if (legendMed)  legendMed.textContent  = med;
+
+    const casesCount = document.getElementById('tb-cases-count');
+    if (casesCount) casesCount.textContent = cases.length;
+    const findingsEl = document.getElementById('tb-findings-count');
+    if (findingsEl) findingsEl.dataset.count = crit + high + med;
+    const patchedEl = document.getElementById('tb-patched-count');
+    if (patchedEl) patchedEl.dataset.count = patched;
+  }
+
   const io = new IntersectionObserver(entries => {
     if (!entries[0].isIntersecting) return;
     io.disconnect();
@@ -1128,89 +1161,6 @@
     });
   }, { threshold: 0.3 });
   io.observe(board);
-})();
-
-// ════════════════════════════════════════════════════════════════════════════
-//  Per-Case Evidence Drawer  —  slide-out forensic detail for field reports
-// ════════════════════════════════════════════════════════════════════════════
-(function () {
-  const cards = document.querySelectorAll('.fr-card');
-  if (!cards.length) return;
-  const EVID = {
-    'F.01': { title: 'EES / ANPR — Insecure Direct Object Reference', target: 'ANPR / Parking System · redacted', cvss: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H — 9.8 CRITICAL',
-      req: 'GET /api/v1/bureaus/1042 HTTP/1.1\nHost: anpr-api.internal\nAuthorization: Bearer eyJhbGciOiJIUzI1...',
-      res: 'HTTP/1.1 200 OK\nContent-Type: application/json\n\n{"id":1042,"bureau":"[REDACTED]",\n "records":[ ... 100+ entries ... ]}',
-      impact: 'Sequential bureau IDs let any authenticated user enumerate 100+ law-enforcement bureau records belonging to other tenants.',
-      fix: 'Enforce object-level authorization on every record fetch; replace predictable integer IDs with unguessable UUIDs.', repo: 'https://github.com/MoriartyPuth-Labs/EES-Security-Case-Study' },
-    'F.02': { title: 'CSS-GDIN — Broken Access Control', target: 'Complaint Portal · Spring Boot', cvss: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N — 7.5 HIGH',
-      req: 'GET /api/complaints/all HTTP/1.1\nHost: complaints.internal\n# no Authorization header',
-      res: 'HTTP/1.1 200 OK\n\n{"total":1247,"records":[\n  {"id":1,"name":"[REDACTED]", ... }]}',
-      impact: 'An unauthenticated endpoint returned 1,000+ citizen complaint records including PII.',
-      fix: 'Apply authentication + authorization filters to all data endpoints; deny-by-default routing.', repo: 'https://github.com/MoriartyPuth-Labs/CSS-GDIN-Security-Case-Study' },
-    'F.03': { title: 'AUPP CTF — Cloudflare Origin Exposure + WAF Bypass', target: 'University CTF Platform', cvss: '1 Critical · 3 High — 26 findings',
-      req: 'curl -H "Host: ctf.aupp.edu.kh" https://[ORIGIN-IP]/\n# Cloudflare proxy bypassed',
-      res: 'HTTP/1.1 200 OK  ← served directly by origin\nDDoS exposure: 0% → 80%',
-      impact: 'Exposed origin IP allowed attackers to bypass Cloudflare protections and hit the server directly.',
-      fix: 'Restrict origin firewall to Cloudflare IP ranges; rotate the origin IP after exposure.', repo: 'https://github.com/MoriartyPuth-Labs/AUPP-CTF-Platform-Security-Study-Case' },
-    'F.04': { title: 'DoccameraDLL — Zero-Auth WebSocket Hardware Access', target: 'Document-camera DLL bridge', cvss: '4 Critical · 8 High — 19 findings',
-      req: 'ws://localhost:3456/\n→ {"cmd":"read_id_card"}',
-      res: '← [CITIZEN ID DATA]\n← [LIVE CAMERA STREAM]\n# no authentication layer',
-      impact: 'Any local process (incl. a malicious webpage) could drive the camera and read scanned national-ID data.',
-      fix: 'Require an origin allowlist + per-session token on the WebSocket; bind to loopback with auth handshake.', repo: 'https://github.com/MoriartyPuth-Labs/DoccameraDLL-Security-Case-Study' },
-    'F.05': { title: 'JoulHub — CORS Misconfiguration → Credential Theft', target: 'joulhub.com · SaaS', cvss: '2 High · 3 Medium — 10× OWASP',
-      req: 'GET /api/account HTTP/1.1\nOrigin: https://attacker.com\nCookie: session=...',
-      res: 'Access-Control-Allow-Origin: https://attacker.com\nAccess-Control-Allow-Credentials: true',
-      impact: 'Reflected Origin with credentials enabled cross-site reads of authenticated responses — full account takeover PoC.',
-      fix: 'Never reflect arbitrary Origins with credentials; use a strict allowlist of trusted origins.', repo: 'https://github.com/MoriartyPuth-Labs/Joulhub-Security-Case-Study' },
-    'F.06': { title: 'SOP — IDOR + Undeployed Patches', target: 'Van Mgmt System · FastAPI / Railway', cvss: '2 Critical · 6 High — 19 findings',
-      req: 'GET /api/vans/[ID] HTTP/1.1\nAuthorization: (none)',
-      res: 'HTTP/1.1 200 OK\n→ IDOR + path traversal\n# fixes coded, never deployed',
-      impact: 'Object references were exploitable and remediation code existed but was never shipped to production.',
-      fix: 'Authorize every object access; add a deploy gate so security fixes reach production and are verified.', repo: 'https://github.com/MoriartyPuth-Labs/SOP-Security-Case-Study' },
-    'F.07': { title: 'OWIT Global — Auth-Filter Bypass', target: 'Insurance SaaS · Spring Boot / .NET / AWS EKS', cvss: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N — 8.1 HIGH',
-      req: 'GET /docs/[endpoint] HTTP/1.1\nAuthorization: (none)',
-      res: 'HTTP/1.1 200 OK\n→ unauthorized file upload / read / callback',
-      impact: 'The authentication filter could be bypassed on document endpoints, exposing upload/read/callback flows.',
-      fix: 'Normalize paths before filter evaluation; apply the auth filter to all sub-paths and callbacks.', repo: 'https://github.com/MoriartyPuth-Labs/OWIT-Global-Security-Case-Study' }
-  };
-
-  const drawer = document.createElement('div');
-  drawer.id = 'evidence-drawer';
-  drawer.innerHTML = '<div class="ev-scrim"></div><aside class="ev-panel" role="dialog" aria-label="Case evidence"><div class="ev-bar"><span class="burp-dots"><i class="bd-r"></i><i class="bd-y"></i><i class="bd-g"></i></span><span class="ev-bar-title">forensic://evidence</span><button class="ev-x" aria-label="Close">✕</button></div><div class="ev-content"></div></aside>';
-  document.body.appendChild(drawer);
-  const content = drawer.querySelector('.ev-content');
-  const close = () => drawer.classList.remove('ev-open');
-  drawer.querySelector('.ev-x').addEventListener('click', close);
-  drawer.querySelector('.ev-scrim').addEventListener('click', close);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
-
-  function openDrawer(id) {
-    const d = EVID[id]; if (!d) return;
-    content.innerHTML =
-      '<div class="ev-case">' + id + ' <span class="ev-case-cvss">' + d.cvss + '</span></div>' +
-      '<h4 class="ev-title">' + d.title + '</h4>' +
-      '<div class="ev-target">▸ ' + d.target + '</div>' +
-      '<div class="ev-block"><div class="ev-label">REQUEST</div><pre class="ev-pre ev-req">' + d.req + '</pre></div>' +
-      '<div class="ev-block"><div class="ev-label">RESPONSE</div><pre class="ev-pre ev-res">' + d.res + '</pre></div>' +
-      '<div class="ev-block"><div class="ev-label ev-label--red">IMPACT</div><p class="ev-text">' + d.impact + '</p></div>' +
-      '<div class="ev-block"><div class="ev-label ev-label--green">REMEDIATION</div><p class="ev-text">' + d.fix + '</p></div>' +
-      '<a class="ev-repo" href="' + d.repo + '" target="_blank" rel="noopener">View full case study on GitHub →</a>';
-    drawer.classList.add('ev-open');
-  }
-
-  cards.forEach(card => {
-    const caseEl = card.querySelector('.fr-case');
-    if (!caseEl) return;
-    const id = caseEl.textContent.trim();
-    if (!EVID[id]) return;
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'fr-evbtn';
-    btn.innerHTML = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> evidence';
-    btn.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); openDrawer(id); });
-    const foot = card.querySelector('.fr-card-foot');
-    (foot || card).appendChild(btn);
-  });
 })();
 
 // ════════════════════════════════════════════════════════════════════════════
@@ -1329,78 +1279,14 @@
   if (!list || !detail) return;
   const esc = s => s.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
 
-  const CASES = [
-    { id: 'F.01', name: 'EES / ANPR', target: 'ANPR / Parking System · redacted',
-      sev: '9.8', sevClass: 'crit', type: 'IDOR · Mobile', findings: '1 Critical',
-      statusText: 'Patched < 24h', statusClass: 'done',
-      cvss: 'CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H · 9.8 CRITICAL',
-      req: 'GET /api/v1/bureaus/1042 HTTP/1.1\nHost: anpr-api.internal\nAuthorization: Bearer eyJhbGciOiJIUzI1...',
-      res: 'HTTP/1.1 200 OK\nContent-Type: application/json\n\n{"id":1042,"bureau":"[REDACTED]",\n "records":[ ... 100+ entries ... ]}',
-      impact: 'Sequential bureau IDs let any authenticated user enumerate 100+ law-enforcement bureau records belonging to other tenants.',
-      fix: 'Enforce object-level authorization on every record fetch; replace predictable integer IDs with unguessable UUIDs.',
-      repo: 'https://github.com/MoriartyPuth-Labs/EES-Security-Case-Study' },
-    { id: 'F.02', name: 'CSS-GDIN', target: 'Complaint Portal · Spring Boot',
-      sev: '7.5', sevClass: 'high', type: 'IDOR · BAC', findings: '1 High',
-      statusText: 'Patched < 24h', statusClass: 'done',
-      cvss: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N · 7.5 HIGH',
-      req: 'GET /api/complaints/all HTTP/1.1\nHost: complaints.internal\n# no Authorization header',
-      res: 'HTTP/1.1 200 OK\n\n{"total":1247,"records":[\n  {"id":1,"name":"[REDACTED]", ... }]}',
-      impact: 'An unauthenticated endpoint returned 1,000+ citizen complaint records including PII.',
-      fix: 'Apply authentication + authorization filters to all data endpoints; deny-by-default routing.',
-      repo: 'https://github.com/MoriartyPuth-Labs/CSS-GDIN-Security-Case-Study' },
-    { id: 'F.03', name: 'AUPP CTF', target: 'University CTF Platform',
-      sev: 'CRIT', sevClass: 'crit', type: 'External + Internal', findings: '1 Crit · 3 High (26 total)',
-      statusText: 'Report Delivered', statusClass: 'info',
-      cvss: '1 Critical · 3 High · 26 findings across 6 sessions',
-      req: 'curl -H "Host: ctf.aupp.edu.kh" https://[ORIGIN-IP]/\n# Cloudflare proxy bypassed',
-      res: 'HTTP/1.1 200 OK  ← served directly by origin\nDDoS exposure: 0% → 80%',
-      impact: 'Exposed origin IP allowed attackers to bypass Cloudflare protections and hit the server directly.',
-      fix: 'Restrict origin firewall to Cloudflare IP ranges; rotate the origin IP after exposure.',
-      repo: 'https://github.com/MoriartyPuth-Labs/AUPP-CTF-Platform-Security-Study-Case' },
-    { id: 'F.04', name: 'DoccameraDLL', target: 'Document-camera DLL bridge',
-      sev: 'CRIT', sevClass: 'crit', type: 'API · Hardware', findings: '4 Crit · 8 High (19 total)',
-      statusText: 'Remediation', statusClass: 'active',
-      cvss: '4 Critical · 8 High · 19 findings',
-      req: 'ws://localhost:3456/\n→ {"cmd":"read_id_card"}',
-      res: '← [CITIZEN ID DATA]\n← [LIVE CAMERA STREAM]\n# no authentication layer',
-      impact: 'Any local process (including a malicious webpage) could drive the camera and read scanned national-ID data.',
-      fix: 'Require an origin allowlist + per-session token on the WebSocket; bind to loopback with an auth handshake.',
-      repo: 'https://github.com/MoriartyPuth-Labs/DoccameraDLL-Security-Case-Study' },
-    { id: 'F.05', name: 'JoulHub', target: 'joulhub.com · SaaS Platform',
-      sev: 'HIGH', sevClass: 'high', type: 'Web App · CORS', findings: '2 High · 3 Med (10× OWASP)',
-      statusText: 'Report Delivered', statusClass: 'info',
-      cvss: '2 High · 3 Medium · 10× OWASP categories',
-      req: 'GET /api/account HTTP/1.1\nOrigin: https://attacker.com\nCookie: session=...',
-      res: 'Access-Control-Allow-Origin: https://attacker.com\nAccess-Control-Allow-Credentials: true',
-      impact: 'Reflected Origin with credentials enabled cross-site reads of authenticated responses — full account-takeover PoC.',
-      fix: 'Never reflect arbitrary Origins with credentials; use a strict allowlist of trusted origins.',
-      repo: 'https://github.com/MoriartyPuth-Labs/Joulhub-Security-Case-Study' },
-    { id: 'F.06', name: 'SOP', target: 'Van Mgmt System · FastAPI / Railway',
-      sev: 'CRIT', sevClass: 'crit', type: 'White-box + Black-box', findings: '2 Crit · 6 High (19 total)',
-      statusText: 'Report Delivered', statusClass: 'info',
-      cvss: '2 Critical · 6 High · 19 findings',
-      req: 'GET /api/vans/[ID] HTTP/1.1\nAuthorization: (none)',
-      res: 'HTTP/1.1 200 OK\n→ IDOR + path traversal\n# fixes coded, never deployed',
-      impact: 'Object references were exploitable and remediation code existed but was never shipped to production.',
-      fix: 'Authorize every object access; add a deploy gate so security fixes actually reach production and are verified.',
-      repo: 'https://github.com/MoriartyPuth-Labs/SOP-Security-Case-Study' },
-    { id: 'F.07', name: 'OWIT Global', target: 'Insurance SaaS · Spring Boot / .NET / AWS EKS',
-      sev: '8.1', sevClass: 'high', type: 'Black-box', findings: '1 High · 3 Med (13 total)',
-      statusText: 'Remediation', statusClass: 'active',
-      cvss: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N · 8.1 HIGH',
-      req: 'GET /docs/[endpoint] HTTP/1.1\nAuthorization: (none)',
-      res: 'HTTP/1.1 200 OK\n→ unauthorized file upload / read / callback',
-      impact: 'The authentication filter could be bypassed on document endpoints, exposing upload/read/callback flows.',
-      fix: 'Normalize paths before filter evaluation; apply the auth filter to all sub-paths and callbacks.',
-      repo: 'https://github.com/MoriartyPuth-Labs/OWIT-Global-Security-Case-Study' }
-  ];
+  const CASES = window.CASE_STUDIES || [];
 
   list.innerHTML = CASES.map((c, i) =>
     '<button class="fo-row' + (i === 0 ? ' fo-row--active' : '') + '" role="tab" data-i="' + i + '" aria-selected="' + (i === 0 ? 'true' : 'false') + '">' +
       '<span class="fo-row-dot fo-dot--' + c.statusClass + '"></span>' +
       '<span class="fo-row-id">' + c.id + '</span>' +
       '<span class="fo-row-name">' + c.name + '</span>' +
-      '<span class="fo-sev fo-sev--' + c.sevClass + '">' + c.sev + '</span>' +
+      '<span class="fo-sev fo-sev--' + c.sevClass + '">' + c.sevBadge + '</span>' +
     '</button>'
   ).join('');
 
@@ -1412,11 +1298,11 @@
           '<h4 class="fo-d-title">' + c.name + '</h4>' +
           '<div class="fo-d-target">▸ ' + esc(c.target) + '</div>' +
         '</div>' +
-        '<span class="fo-sev fo-sev--' + c.sevClass + ' fo-sev--lg">' + c.sev + '</span>' +
+        '<span class="fo-sev fo-sev--' + c.sevClass + ' fo-sev--lg">' + c.sevBadge + '</span>' +
       '</div>' +
       '<div class="fo-d-meta">' +
         '<div><span class="fo-d-k">TYPE</span><span class="fo-d-v">' + esc(c.type) + '</span></div>' +
-        '<div><span class="fo-d-k">FINDINGS</span><span class="fo-d-v">' + esc(c.findings) + '</span></div>' +
+        '<div><span class="fo-d-k">FINDINGS</span><span class="fo-d-v">' + esc(c.findingsText) + '</span></div>' +
         '<div class="fo-d-meta-wide"><span class="fo-d-k">CVSS</span><span class="fo-d-v fo-d-cvss">' + esc(c.cvss) + '</span></div>' +
       '</div>' +
       '<div class="fo-d-ev">' +

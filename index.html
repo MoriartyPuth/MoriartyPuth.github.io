@@ -130,16 +130,16 @@
           </div>
           <div class="tb-foot">
             <div class="tb-legend">
-              <span><i class="tb-dot tb-dot--crit"></i>Critical <b>8</b></span>
-              <span><i class="tb-dot tb-dot--high"></i>High <b>21</b></span>
-              <span><i class="tb-dot tb-dot--med"></i>Medium <b>6</b></span>
+              <span><i class="tb-dot tb-dot--crit"></i>Critical <b id="tb-legend-crit">8</b></span>
+              <span><i class="tb-dot tb-dot--high"></i>High <b id="tb-legend-high">21</b></span>
+              <span><i class="tb-dot tb-dot--med"></i>Medium <b id="tb-legend-med">6</b></span>
             </div>
             <div class="tb-stats">
-              <span><b data-count="35">0</b> findings</span>
+              <span><b id="tb-findings-count" data-count="35">0</b> findings</span>
               <span class="tb-sep">&middot;</span>
-              <span><b>7</b> cases</span>
+              <span><b id="tb-cases-count">7</b> cases</span>
               <span class="tb-sep">&middot;</span>
-              <span class="tb-ok"><b data-count="2">0</b> patched &lt; 24h</span>
+              <span class="tb-ok"><b id="tb-patched-count" data-count="2">0</b> patched &lt; 24h</span>
               <span class="tb-sep">&middot;</span>
               <span class="tb-zero"><b data-count="0" data-zero="1">0</b> unauthorized</span>
             </div>
@@ -255,6 +255,55 @@
             <div class="ctf-cta-col">
               <span class="ctf-solved">12 solved</span>
               <a href="https://github.com/MoriartyPuth-Labs/Crackmes-RE-CTF-2026" target="_blank" rel="noopener" class="ctf-link">Full writeup →</a>
+              <span class="ctf-toggle-hint">▾ click to expand</span>
+            </div>
+          </div>
+
+          <!-- LYKN CTF -->
+          <div class="ctf-row ctf-row--purple">
+            <div class="ctf-rank-col">
+              <span class="ctf-rank-label">TOP</span>
+              <span class="ctf-rank-num" data-target="69">99</span>
+            </div>
+            <div class="ctf-body">
+              <div class="ctf-row-main">
+                <div class="ctf-name-group">
+                  <h4 class="ctf-name">LYKN CTF</h4>
+                  <span class="ctf-org">Jeopardy · 7 categories</span>
+                </div>
+                <div class="ctf-chips">
+                  <span class="ctf-chip chip--rev">REV ×10</span>
+                  <span class="ctf-chip chip--pwn">PWN ×7</span>
+                  <span class="ctf-chip chip--crypto">CRYPTO ×6</span>
+                  <span class="ctf-chip chip--osint">OSINT ×5</span>
+                  <span class="ctf-chip chip--forensics">FORENSICS ×4</span>
+                  <span class="ctf-chip chip--web">WEB</span>
+                  <span class="ctf-chip chip--misc">MISC</span>
+                </div>
+              </div>
+              <div class="ctf-expand-panel">
+                <div class="ctf-tech-line">
+                  <span class="ctf-tech-label">TECHNIQUES</span>
+                  <code>RISC-V code golf · heap UAF + fake vtable · Python packer + anti-debug · PE keygen VMs · RSA Wiener attack · AES-CBC padding oracle · audio spectrogram forensics · WebSocket race conditions · blockchain tracing</code>
+                </div>
+                <div class="ctf-challenge-list">
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--pwn">PWN</span><span class="ctf-ch-name">Golfing</span><span class="ctf-ch-desc">Insane — RISC-V assembly code golf</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--pwn">PWN</span><span class="ctf-ch-name">Glyph Cache</span><span class="ctf-ch-desc">Hard — heap use-after-free + fake vtable manipulation</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--pwn">PWN</span><span class="ctf-ch-name">H34p D3v1l</span><span class="ctf-ch-desc">Hard — heap-based exploitation</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">inferior student</span><span class="ctf-ch-desc">Hard — Python packer reverse engineering + anti-debug</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">cr4ck series</span><span class="ctf-ch-desc">Medium-Hard — Windows PE keygens, VM serial validation</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--crypto">CRYPTO</span><span class="ctf-ch-name">Shortcut</span><span class="ctf-ch-desc">RSA Wiener attack — small private exponent</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--crypto">CRYPTO</span><span class="ctf-ch-name">Postbox</span><span class="ctf-ch-desc">AES-CBC padding oracle</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--forensics">FORENSICS</span><span class="ctf-ch-name">Thanh Hoa 1</span><span class="ctf-ch-desc">Audio spectrogram analysis + AES-encrypted archive</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--web">WEB</span><span class="ctf-ch-name">waguri 1</span><span class="ctf-ch-desc">WebSocket race condition vulnerability</span></div>
+                  <div class="ctf-ch"><span class="ctf-ch-tag tag--osint">OSINT</span><span class="ctf-ch-name">Follow The Layer</span><span class="ctf-ch-desc">Blockchain transaction tracing (Tron USDT)</span></div>
+                  <a class="ctf-more ctf-link" href="https://github.com/MoriartyPuth-Labs/LYKN-CTF-Writeup" target="_blank" rel="noopener">+ 24 more on GitHub →</a>
+                </div>
+              </div>
+            </div>
+            <div class="ctf-cta-col">
+              <span class="ctf-solved">34 solved</span>
+              <a href="https://github.com/MoriartyPuth-Labs/LYKN-CTF-Writeup" target="_blank" rel="noopener" class="ctf-link">Full writeup →</a>
               <span class="ctf-toggle-hint">▾ click to expand</span>
             </div>
           </div>
@@ -634,6 +683,7 @@
     </div>
   </footer>
   <script src="assets/js/terminal-bg.js"></script>
+  <script src="assets/js/case-studies.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
