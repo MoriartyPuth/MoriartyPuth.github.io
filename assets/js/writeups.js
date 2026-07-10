@@ -14,24 +14,6 @@
 
   var dirs = [
     {
-      name: 'crackmes/', repo: CB, verb: 'solved', label: 'crackmes.one',
-      files: [
-        { folder: 'The-Alchemist-Lock-Lab',            name: 'the-alchemists-lock', tech: 'packer unpacking & patching',     tag: 'REV', cls: 'rev' },
-        { folder: 'MalwareTech-VM1-Lab',               name: 'malwaretech-vm1',     tech: 'custom VM — bytecode analysis',    tag: 'REV', cls: 'rev' },
-        { folder: 'Catgirl.crack-Lab',                 name: 'catgirl.crack',       tech: '.NET assembly — IL disassembly',   tag: 'REV', cls: 'rev' },
-        { folder: 'Willy-Wonka-Chocolate-Factory-Lab', name: 'willy-wonka',         tech: 'Windows PE — constraint solving',  tag: 'REV', cls: 'rev' },
-        { folder: 'CryMore-Lab',                       name: 'crymore',             tech: 'network spoofing — killswitch bypass', tag: 'REV', cls: 'rev' },
-        { folder: 'Bobs-Gambling-Lab',                 name: 'bobs-gambling',       tech: 'Windows PE — integer overflow',    tag: 'REV', cls: 'rev' },
-        { folder: 'Roullete-Simulator-Lab',            name: 'roullete-simulator',  tech: 'Java — PRNG prediction',           tag: 'REV', cls: 'rev' }
-      ]
-    },
-    {
-      name: 'tryhackme/', repo: VB, verb: 'rooted', label: 'TryHackMe',
-      files: [
-        { folder: 'Pickle-Rick-Lab', dir: 'tryhackme', name: 'pickle-rick', tech: 'command injection + privesc', tag: 'THM', cls: 'thm' }
-      ]
-    },
-    {
       name: 'vulnhub/', repo: VB, verb: 'rooted', label: 'VulnHub · updated weekly',
       files: [
         { folder: 'DC1-Lab',            dir: 'vulnhub', name: 'dc1',            tech: 'Drupalgeddon2 RCE + SUID privesc',          tag: 'VULNHUB', cls: 'vulnhub' },
@@ -47,6 +29,24 @@
         { folder: 'SuperMario-Lab',     dir: 'vulnhub', name: 'supermario',     tech: 'OverlayFS kernel exploit + SSH brute force', tag: 'VULNHUB', cls: 'vulnhub' },
         { folder: 'VulnOS1-Lab',        dir: 'vulnhub', name: 'vulnos1',        tech: 'distcc RCE + Webmin file disclosure',       tag: 'VULNHUB', cls: 'vulnhub' },
         { folder: 'VulnOS2-Lab',        dir: 'vulnhub', name: 'vulnos2',        tech: 'OpenDocMan SQLi → kernel privesc',          tag: 'VULNHUB', cls: 'vulnhub' }
+      ]
+    },
+    {
+      name: 'crackmes/', repo: CB, verb: 'solved', label: 'crackmes.one',
+      files: [
+        { folder: 'The-Alchemist-Lock-Lab',            name: 'the-alchemists-lock', tech: 'packer unpacking & patching',     tag: 'REV', cls: 'rev' },
+        { folder: 'MalwareTech-VM1-Lab',               name: 'malwaretech-vm1',     tech: 'custom VM — bytecode analysis',    tag: 'REV', cls: 'rev' },
+        { folder: 'Catgirl.crack-Lab',                 name: 'catgirl.crack',       tech: '.NET assembly — IL disassembly',   tag: 'REV', cls: 'rev' },
+        { folder: 'Willy-Wonka-Chocolate-Factory-Lab', name: 'willy-wonka',         tech: 'Windows PE — constraint solving',  tag: 'REV', cls: 'rev' },
+        { folder: 'CryMore-Lab',                       name: 'crymore',             tech: 'network spoofing — killswitch bypass', tag: 'REV', cls: 'rev' },
+        { folder: 'Bobs-Gambling-Lab',                 name: 'bobs-gambling',       tech: 'Windows PE — integer overflow',    tag: 'REV', cls: 'rev' },
+        { folder: 'Roullete-Simulator-Lab',            name: 'roullete-simulator',  tech: 'Java — PRNG prediction',           tag: 'REV', cls: 'rev' }
+      ]
+    },
+    {
+      name: 'tryhackme/', repo: VB, verb: 'rooted', label: 'TryHackMe',
+      files: [
+        { folder: 'Pickle-Rick-Lab', dir: 'tryhackme', name: 'pickle-rick', tech: 'command injection + privesc', tag: 'THM', cls: 'thm' }
       ]
     },
     {
