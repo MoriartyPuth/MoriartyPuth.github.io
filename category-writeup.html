@@ -77,7 +77,11 @@
             <div id="wtree-mount"></div>
             <div class="wtree-line wtree-summary"><span class="wtree-dim" id="wtree-summary"></span></div>
             <div id="wtree-pager-trigger-mount"></div>
-            <div class="wtree-line wtree-cmd"><span class="wtree-prompt">visitor@moriarty</span><span class="wtree-sep">:</span><span class="wtree-path">~/writeups</span><span class="wtree-dollar">$</span> <span class="wtree-caret">█</span></div>
+            <div id="wtree-shell-out" class="cmdbar-body wtree-shell-out"></div>
+            <div class="wtree-shell-row">
+              <span class="wtree-shell-ps"><span class="wtree-prompt">visitor@moriarty</span><span class="wtree-sep">:</span><span class="wtree-path" id="wtree-cwd">~/writeups</span><span class="wtree-dollar">$</span></span>
+              <input id="wtree-shell-in" class="cmdbar-in" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Writeup shell input" placeholder="try: help · ls · less" />
+            </div>
           </div>
         </div>
       </div>

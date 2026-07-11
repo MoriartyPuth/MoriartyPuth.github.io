@@ -5942,6 +5942,16 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
 .wtree-caret { color: var(--accent); animation: wtree-blink 1.05s step-end infinite; }
 @keyframes wtree-blink { 50% { opacity: 0; } }
 
+/* ── real shell — ls/cd/cat/open/less scoped to this tree ── */
+.wtree-shell-out { margin: 10px -20px 0; padding-left: 20px; padding-right: 20px; border-top: 1px solid rgba(255,255,255,0.06); border-radius: 0; }
+.wtree-shell-row {
+  display: flex; align-items: center; gap: 8px;
+  white-space: nowrap;
+  padding-top: 8px;
+}
+.wtree-shell-ps { flex-shrink: 0; }
+.wtree-shell-row .wtree-path { min-width: 0; }
+
 /* ── "recent" strip — tail of newest-tagged writeups ── */
 .wtree-recent-row {
   display: grid;
@@ -6061,6 +6071,7 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
   .wtree-recent-tech { display: none; }
   .wtree-pager-row { grid-template-columns: 1fr max-content; }
   .wtree-pager-dir, .wtree-pager-tech { display: none; }
+  .wtree-shell-out { margin: 10px -14px 0; padding-left: 14px; padding-right: 14px; }
 }
 
 .ctf-toggle-hint {

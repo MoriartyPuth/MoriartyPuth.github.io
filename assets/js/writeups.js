@@ -75,7 +75,7 @@
   var flat = [];
   dirs.forEach(function (dir) {
     dir.files.forEach(function (f) {
-      flat.push({ dirName: dir.name, repo: dir.repo, f: f, url: href(dir, f) });
+      flat.push({ dirName: dir.name, repo: dir.repo, dir: dir, f: f, url: href(dir, f) });
     });
   });
 
@@ -236,9 +236,9 @@
       : '-- ' + flat.length + ' items · type to search · Esc/q to close --';
   }
 
-  function openPager() {
+  function openPager(presetQuery) {
     buildPager();
-    pagerInput.value = '';
+    pagerInput.value = presetQuery || '';
     renderPagerList();
     pager.classList.add('wtree-pager-open');
     document.body.style.overflow = 'hidden';
@@ -258,4 +258,154 @@
     var el = e.target.closest('#wtree-pager-open');
     if (el && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openPager(); }
   });
+
+  /* ── real shell — the prompt at the bottom now actually works ──────────
+     ls / cd / cat / open / less, scoped to this page's writeup tree.     */
+  var shellOut = document.getElementById('wtree-shell-out');
+  var shellInput = document.getElementById('wtree-shell-in');
+  var cwdLabel = document.getElementById('wtree-cwd');
+  if (shellOut && shellInput) {
+    var cwd = null; // null = root; else a dir object from `dirs`
+
+    function updateCwdLabel() {
+      if (cwdLabel) cwdLabel.textContent = cwd ? '~/writeups/' + cwd.name.replace(/\/$/, '') : '~/writeups';
+    }
+
+    function resolveDir(query) {
+      if (!query) return null;
+      var q = query.trim().toLowerCase();
+      var exact = dirs.filter(function (d) { return d.name.replace(/\/$/, '').toLowerCase() === q; });
+      if (exact.length === 1) return exact[0];
+      var prefix = dirs.filter(function (d) { return d.name.toLowerCase().indexOf(q) === 0; });
+      if (prefix.length === 1) return prefix[0];
+      var fuzzy = dirs.filter(function (d) { return fuzzyMatch(q, d.name.toLowerCase()); });
+      if (fuzzy.length === 1) return fuzzy[0];
+      return null;
+    }
+
+    function resolveFile(query) {
+      if (!query) return null;
+      var q = query.trim().toLowerCase();
+      if (q.indexOf('/') !== -1) {
+        var parts = q.split('/');
+        var d = resolveDir(parts[0]);
+        if (!d) return null;
+        var rest = parts.slice(1).join('/');
+        var m = d.files.filter(function (f) { return f.name.toLowerCase() === rest; });
+        return m.length ? { dir: d, f: m[0] } : null;
+      }
+      var pool = cwd ? cwd.files.map(function (f) { return { dir: cwd, f: f }; }) : flat.map(function (x) { return { dir: x.dir, f: x.f }; });
+      var exact = pool.filter(function (x) { return x.f.name.toLowerCase() === q; });
+      if (exact.length === 1) return exact[0];
+      var partial = pool.filter(function (x) { return x.f.name.toLowerCase().indexOf(q) === 0; });
+      if (partial.length === 1) return partial[0];
+      return null;
+    }
+
+    function cmdLs(args) {
+      var d = args[0] ? resolveDir(args[0]) : cwd;
+      if (args[0] && !d) return ['<span class="cb-err">ls: no such folder: ' + esc(args[0]) + '</span>'];
+      if (!d) {
+        return dirs.map(function (x) {
+          return '<span class="cb-dir">' + esc(x.name) + '</span>&nbsp;&nbsp;<span class="cb-dim">' + x.files.length + ' ' + esc(x.verb) + '</span>';
+        });
+      }
+      return d.files.map(function (f) {
+        return '<span class="wtree-fname">' + esc(f.name) + '</span>&nbsp;&nbsp;<span class="cb-dim">' + esc(f.tech) + '</span>';
+      });
+    }
+
+    function cmdCd(args) {
+      var target = args[0];
+      if (!target || target === '~' || target === '/' || target === '..') { cwd = null; updateCwdLabel(); return null; }
+      var d = resolveDir(target);
+      if (!d) return ['<span class="cb-err">cd: no such folder: ' + esc(target) + '</span>'];
+      cwd = d; updateCwdLabel(); return null;
+    }
+
+    function cmdCat(args) {
+      var target = args.join(' ');
+      if (!target) return ['<span class="cb-err">usage: cat &lt;writeup&gt;</span>'];
+      var m = resolveFile(target);
+      if (!m) return ['<span class="cb-err">cat: not found: ' + esc(target) + '</span>', '<span class="cb-dim">try: ls' + (cwd ? '' : ' vulnhub') + '</span>'];
+      return [
+        '<span class="wtree-tag tag--' + m.f.cls + '">' + esc(m.f.tag) + '</span> <span class="wtree-fname">' + esc(m.f.name) + '</span>',
+        esc(m.f.tech),
+        '<span class="cb-dim">open ' + esc(m.f.name) + '</span>'
+      ];
+    }
+
+    function cmdOpen(args) {
+      var target = args.join(' ');
+      if (!target) return ['<span class="cb-err">usage: open &lt;writeup&gt;</span>'];
+      var m = resolveFile(target);
+      if (!m) return ['<span class="cb-err">open: not found: ' + esc(target) + '</span>'];
+      shellPrint('<span class="cb-dim">opening <span class="cb-hl">' + esc(m.f.name) + '</span> on GitHub…</span>');
+      window.open(href(m.dir, m.f), '_blank', 'noopener');
+      return null;
+    }
+
+    function cmdLess(args) {
+      var q = args.join(' ');
+      openPager(q);
+      return ['<span class="cb-dim">opening pager' + (q ? ' — searching "' + esc(q) + '"' : '') + '…</span>'];
+    }
+
+    var SHELL_HELP = [
+      '<span class="cb-good">Available commands:</span>',
+      '&nbsp;<span class="cb-cmd">ls [folder]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list folders, or a folder’s writeups',
+      '&nbsp;<span class="cb-cmd">cd &lt;folder&gt;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enter a folder  (cd .. to go back)',
+      '&nbsp;<span class="cb-cmd">cat &lt;writeup&gt;</span>&nbsp;&nbsp;&nbsp;&nbsp;show its technique',
+      '&nbsp;<span class="cb-cmd">open &lt;writeup&gt;</span>&nbsp;&nbsp;&nbsp;open it on GitHub',
+      '&nbsp;<span class="cb-cmd">less [query]</span>&nbsp;&nbsp;&nbsp;&nbsp;open the full pager, optionally pre-searched',
+      '&nbsp;<span class="cb-cmd">find &lt;query&gt;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alias for less &lt;query&gt;',
+      '&nbsp;<span class="cb-cmd">pwd</span> · <span class="cb-cmd">clear</span>'
+    ];
+
+    function shellPrint(lines, cls) {
+      (Array.isArray(lines) ? lines : [lines]).forEach(function (l) {
+        var d = document.createElement('div');
+        d.className = 'cmdbar-out' + (cls ? ' ' + cls : '');
+        d.innerHTML = l;
+        shellOut.appendChild(d);
+      });
+      shellOut.scrollTop = shellOut.scrollHeight;
+    }
+
+    var shellHistory = [], shellHi = -1;
+    function shellRun(raw) {
+      var cmd = raw.trim();
+      if (!cmd) return;
+      shellHistory.unshift(cmd); shellHi = -1;
+      var echo = document.createElement('div');
+      echo.className = 'cmdbar-out cmdbar-echo';
+      echo.innerHTML = '<span class="cmdbar-ps-sm">' + esc(cwd ? '~/writeups/' + cwd.name.replace(/\/$/, '') : '~/writeups') + '$</span> ' + esc(cmd);
+      shellOut.appendChild(echo);
+
+      var parts = cmd.split(/\s+/);
+      var head = parts[0].toLowerCase();
+      var args = parts.slice(1);
+      var out;
+      if (head === 'help') out = SHELL_HELP;
+      else if (head === 'ls') out = cmdLs(args);
+      else if (head === 'cd') out = cmdCd(args);
+      else if (head === 'cat') out = cmdCat(args);
+      else if (head === 'open') out = cmdOpen(args);
+      else if (head === 'less') out = cmdLess(args);
+      else if (head === 'find' || head === 'grep') out = cmdLess(args);
+      else if (head === 'pwd') out = [esc(cwd ? '~/writeups/' + cwd.name.replace(/\/$/, '') : '~/writeups')];
+      else if (head === 'tree') out = ['<span class="cb-dim">↑ the tree is shown above — try ‘ls’ to browse from here</span>'];
+      else if (head === 'clear') { shellOut.innerHTML = ''; out = null; }
+      else out = ['<span class="cb-err">' + esc(head) + ': command not found</span> <span class="cb-dim">— type help</span>'];
+      if (out) shellPrint(out);
+      shellOut.scrollTop = shellOut.scrollHeight;
+    }
+
+    shellPrint('<span class="cb-dim">Type <span class="cb-cmd">help</span> to see what you can do here.</span>');
+    shellInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { shellRun(shellInput.value); shellInput.value = ''; }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); if (shellHi < shellHistory.length - 1) shellInput.value = shellHistory[++shellHi]; }
+      else if (e.key === 'ArrowDown') { e.preventDefault(); shellHi > 0 ? shellInput.value = shellHistory[--shellHi] : (shellHi = -1, shellInput.value = ''); }
+    });
+  }
 })();
