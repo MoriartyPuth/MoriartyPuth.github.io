@@ -5983,7 +5983,7 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
   color: var(--accent);
   background: rgba(34,197,94,0.08);
 }
-.wtree-recent-path { color: var(--accent); }
+.wtree-recent-path { color: var(--accent); overflow: hidden; text-overflow: ellipsis; }
 .wtree-recent-tech { color: #7c8a80; font-size: 12px; overflow: hidden; text-overflow: ellipsis; }
 
 /* ── pager trigger line ── */

@@ -42,7 +42,19 @@
         { folder: 'Willy-Wonka-Chocolate-Factory-Lab', name: 'willy-wonka',         tech: 'Windows PE — constraint solving',  tag: 'REV', cls: 'rev' },
         { folder: 'CryMore-Lab',                       name: 'crymore',             tech: 'network spoofing — killswitch bypass', tag: 'REV', cls: 'rev' },
         { folder: 'Bobs-Gambling-Lab',                 name: 'bobs-gambling',       tech: 'Windows PE — integer overflow',    tag: 'REV', cls: 'rev' },
-        { folder: 'Roullete-Simulator-Lab',            name: 'roullete-simulator',  tech: 'Java — PRNG prediction',           tag: 'REV', cls: 'rev' }
+        { folder: 'Roullete-Simulator-Lab',            name: 'roullete-simulator',  tech: 'Java — PRNG prediction',           tag: 'REV', cls: 'rev' },
+        { folder: 'Level 1',  dir: 'Lack-Level-Series-Lab', name: 'lack-level-1',  tech: 'Plaintext string in .rdata',              tag: 'REV', cls: 'rev', added: '2026-07' },
+        { folder: 'Level 2',  dir: 'Lack-Level-Series-Lab', name: 'lack-level-2',  tech: 'XOR 0x5A vs stack blob',                   tag: 'REV', cls: 'rev', added: '2026-07' },
+        { folder: 'Level 3',  dir: 'Lack-Level-Series-Lab', name: 'lack-level-3',  tech: 'Keygen — sum×1337 ^ 0x5A5A',               tag: 'REV', cls: 'rev', added: '2026-07' },
+        { folder: 'Level 4',  dir: 'Lack-Level-Series-Lab', name: 'lack-level-4',  tech: 'Keygen + serial-keyed XOR flag',           tag: 'REV', cls: 'rev', added: '2026-07' },
+        { folder: 'Level 5',  dir: 'Lack-Level-Series-Lab', name: 'lack-level-5',  tech: 'Two-part license + XOR flag',              tag: 'REV', cls: 'rev', added: '2026-07' },
+        { folder: 'Level 6',  dir: 'Lack-Level-Series-Lab', name: 'lack-level-6',  tech: 'Exact-char key + XOR flag (bugged)',       tag: 'REV', cls: 'rev', added: '2026-07' },
+        { folder: 'Level 7',  dir: 'Lack-Level-Series-Lab', name: 'lack-level-7',  tech: 'XOR-0x5A password + decoy menu UI',        tag: 'REV', cls: 'rev', added: '2026-07' },
+        { folder: 'Level 8',  dir: 'Lack-Level-Series-Lab', name: 'lack-level-8',  tech: 'Bytecode VM (load/xor/assert), bugged',    tag: 'REV', cls: 'rev', added: '2026-07' },
+        { folder: 'Level 9',  dir: 'Lack-Level-Series-Lab', name: 'lack-level-9',  tech: 'Bytes-as-int32 arithmetic constraint, bugged', tag: 'REV', cls: 'rev', added: '2026-07' },
+        { folder: 'Level 10', dir: 'Lack-Level-Series-Lab', name: 'lack-level-10', tech: 'Base-31 hash in worker thread (BOSS)',     tag: 'REV', cls: 'rev', added: '2026-07' },
+        { folder: 'Ultimate Boss - Final',          dir: 'Lack-Level-Series-Lab', name: 'lack-boss-final',    tech: 'Anti-debug + jump-table VM, 2-part license',    tag: 'REV', cls: 'rev', added: '2026-07' },
+        { folder: 'Ultimate Real Boss - 152-Part',  dir: 'Lack-Level-Series-Lab', name: 'lack-boss-152part',  tech: 'Anti-debug + VM, 152-part chained keygen',      tag: 'REV', cls: 'rev', added: '2026-07' }
       ]
     },
     {
@@ -68,7 +80,8 @@
   }
 
   function href(dir, f) {
-    return dir.repo + '/tree/main/' + (f.dir || 'labs') + '/' + f.folder;
+    var seg = (f.dir || 'labs').split('/').map(encodeURIComponent).join('/');
+    return dir.repo + '/tree/main/' + seg + '/' + encodeURIComponent(f.folder);
   }
 
   // flatten once — feeds both the "recent" strip and the pager's search list
