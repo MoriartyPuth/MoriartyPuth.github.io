@@ -948,7 +948,7 @@
     nocturne: 'https://nocturne-production-281a.up.railway.app/'
   };
   const SECTIONS = {
-    community: '.community-section', tools: '.pinned-section', bubble: '.showcase-band--bubble',
+    community: '.community-section', tools: '.pinned-section', bubble: '.pinned-section',
     live: '.live-projects', writeups: '.ctf-writeups-section', ctf: '.ctf-writeups-section',
     certs: '.certs-section', scan: '.nikto-section',
     top: '.hero', contact: '.site-footer', footer: '.site-footer'

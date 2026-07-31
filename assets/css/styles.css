@@ -2378,81 +2378,9 @@ body::before {
   .sb-body { padding: 22px 20px; }
 }
 
-/* ── Tools (Personal Tools + Bubble Suite) — flat full-bleed landing rows ── */
-.showcase-bands--tools { margin-top: 16px; gap: 0; }
-.showcase-band--tool {
-  grid-template-columns: 1.2fr 1fr;
-  border-radius: 0;
-  background: transparent;
-}
-.showcase-band--tool + .showcase-band--tool,
-.showcase-band--tool + div + .showcase-band--tool {
-  margin-top: -1px;
-}
-.showcase-band--tool .sb-media { min-height: 300px; }
-.showcase-band--tool .sb-media img {
-  object-fit: cover;
-  object-position: center;
-}
-.showcase-band--tool .sb-body { justify-content: center; padding: 44px 48px; }
-.showcase-band--tool .tool-tagrow { display: flex; gap: 8px; margin-bottom: 18px; }
-.showcase-band--tool .tool-tag {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 5px 10px;
-  border-radius: 3px;
-  border: 1px solid var(--border);
-  color: var(--muted);
-}
-.showcase-band--tool .tool-tag--accent {
-  color: var(--accent);
-  border-color: rgba(34, 197, 94, 0.35);
-}
-.showcase-band--tool .sb-body h3 {
-  margin: 0 0 14px;
-  font-size: 30px;
-  font-weight: 800;
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
-  line-height: 1.15;
-}
-.showcase-band--tool .sb-body p { max-width: 480px; }
-.tool-links { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
-.tool-arrow-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--accent);
-  text-decoration: none;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  transition: gap 0.2s ease, opacity 0.2s ease;
-  align-self: flex-start;
-}
-.tool-arrow-link:hover { gap: 12px; }
-.tool-arrow-link--muted { color: var(--muted); }
-.tool-arrow-link--muted:hover { color: var(--text); }
-.showcase-band--bubble .sb-body { padding-bottom: 24px; }
-.showcase-band--bubble .sb-full {
-  grid-column: 1 / -1;
-  padding: 24px 48px 44px;
-  border-top: 1px solid var(--border);
-}
-.showcase-band--bubble .sb-full .phase-strip { margin-top: 0; border-radius: 0; }
-@media (max-width: 760px) {
-  .showcase-band--tool .sb-body { padding: 28px 20px; }
-  .showcase-band--bubble .sb-full { padding: 20px 20px 28px; }
-}
+/* ── Tools (Personal Tools + Bubble Suite) — same band pattern as Community Open Source ── */
+.showcase-bands--tools { margin-top: 16px; }
+.showcase-band--tool .sb-media img { object-position: center; }
 
 /* ── Community Open Source — Teal & Amber color variants ── */
 .live-card--teal:hover { box-shadow: 0 24px 48px rgba(20,184,166,0.14), 0 0 0 1px rgba(20,184,166,0.18); }
