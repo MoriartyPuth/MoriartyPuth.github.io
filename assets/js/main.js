@@ -1326,58 +1326,6 @@
   });
 })();
 
-// ════════════════════════════════════════════════════════════════════════════
-//  Tool Demo Terminals  —  type a command + show output inside each tool card
-// ════════════════════════════════════════════════════════════════════════════
-(function () {
-  var configs = [
-    { id: 'tool-term-1', ps: '~/aura $', cmd: 'aura scan 10.10.14.0/24 --chain',
-      out: [
-        { t: '[*] recon: 14 hosts up · 92 ports open', c: 'tt-info', d: 420 },
-        { t: '[+] 3 exploit-paths mapped → report.json', c: 'tt-ok', d: 940 }
-      ] },
-    { id: 'tool-term-2', ps: '~/sila $', cmd: 'sila-entropy audit --wordlist km.txt',
-      out: [
-        { t: '[*] model: Khmer + EN linguistic analysis', c: 'tt-info', d: 420 },
-        { t: '[+] 1,204 weak credentials flagged', c: 'tt-ok', d: 940 }
-      ] }
-  ];
-  var UID = 0;
-  function typePrompt(el, ps, cmd, done) {
-    var sid = 'tt-s' + (UID++), cid = 'tt-c' + UID;
-    var d = document.createElement('div');
-    d.className = 'tt-line tt-cmd';
-    d.innerHTML = '<span class="tt-ps">' + ps + '</span> <span id="' + sid + '"></span><span class="tt-cur" id="' + cid + '">_</span>';
-    el.appendChild(d);
-    var span = document.getElementById(sid), cur = document.getElementById(cid), i = 0;
-    var iv = setInterval(function () {
-      span.textContent += cmd[i++];
-      if (i >= cmd.length) { clearInterval(iv); cur.style.display = 'none'; if (done) setTimeout(done, 150); }
-    }, 34);
-  }
-  configs.forEach(function (cfg) {
-    var el = document.getElementById(cfg.id);
-    if (!el) return;
-    var io = new IntersectionObserver(function (entries) {
-      if (!entries[0].isIntersecting) return;
-      io.disconnect();
-      setTimeout(function () {
-        typePrompt(el, cfg.ps, cfg.cmd, function () {
-          cfg.out.forEach(function (o) {
-            setTimeout(function () {
-              var d = document.createElement('div');
-              d.className = 'tt-line ' + o.c;
-              d.textContent = o.t;
-              el.appendChild(d);
-            }, o.d);
-          });
-        });
-      }, 250);
-    }, { threshold: 0.5 });
-    io.observe(el);
-  });
-})();
-
 // ── Footer year (keeps copyright current automatically) ──────────────────────
 (function () {
   var fy = document.getElementById('footer-year');

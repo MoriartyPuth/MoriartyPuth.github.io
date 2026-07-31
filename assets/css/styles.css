@@ -753,82 +753,6 @@ a {
   color: var(--accent);
 }
 
-.repo-foot {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 2px;
-  padding-top: 13px;
-  border-top: 1px solid var(--border);
-}
-.repo-tested {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10.5px;
-  color: #6b8f72;
-}
-.repo-tested svg { width: 13px; height: 13px; color: var(--accent); opacity: 0.85; flex-shrink: 0; }
-
-/* ── Tool demo terminal ── */
-.tool-term {
-  background: #07100a;
-  border: 1px solid var(--border);
-  border-radius: 9px;
-  padding: 11px 13px 9px;
-  margin-bottom: 13px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  line-height: 1.75;
-  min-height: 76px;
-  position: relative;
-  overflow: hidden;
-}
-.tool-term::before {
-  content: '';
-  position: absolute;
-  top: 9px; left: 12px;
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: #ff5f56;
-  box-shadow: 12px 0 #ffbd2e, 24px 0 #27c93f;
-  opacity: 0.5;
-}
-.tool-term .tt-line:first-child { margin-top: 16px; }
-.tt-line { white-space: pre-wrap; word-break: break-word; }
-.tt-ps { color: var(--accent); }
-.tt-cmd { color: #e2e8f0; }
-.tt-cur { color: var(--accent); animation: blink 0.8s step-end infinite; }
-.tt-info { color: #7dd3fc; }
-.tt-ok { color: #4ade80; }
-
-.repo-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12.5px;
-  font-weight: 600;
-  color: var(--accent);
-  text-decoration: none;
-  padding: 7px 13px;
-  border: 1px solid rgba(34,197,94,0.3);
-  border-radius: 8px;
-  background: rgba(34,197,94,0.05);
-  transition: background 0.18s ease, gap 0.2s ease;
-}
-.repo-link:hover {
-  gap: 9px;
-  background: rgba(34,197,94,0.14);
-}
-
-@media (max-width: 768px) {
-  .repo-foot { flex-direction: column; align-items: flex-start; }
-  .repo-link { width: 100%; justify-content: center; }
-}
-
 /* Skills + Tooling two-column row */
 .skills-tooling-row {
   display: grid;
@@ -2454,29 +2378,80 @@ body::before {
   .sb-body { padding: 22px 20px; }
 }
 
-/* ── Tools (Personal Tools + Bubble Suite) — reuse showcase-band, logo art instead of screenshots ── */
-.showcase-bands--tools { margin-top: 16px; }
-.showcase-band--tool .sb-media {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* ── Tools (Personal Tools + Bubble Suite) — flat full-bleed landing rows ── */
+.showcase-bands--tools { margin-top: 16px; gap: 0; }
+.showcase-band--tool {
+  grid-template-columns: 1.2fr 1fr;
+  border-radius: 0;
+  background: transparent;
 }
+.showcase-band--tool + .showcase-band--tool,
+.showcase-band--tool + div + .showcase-band--tool {
+  margin-top: -1px;
+}
+.showcase-band--tool .sb-media { min-height: 300px; }
 .showcase-band--tool .sb-media img {
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
-  padding: 32px;
 }
-.showcase-band--tool .sb-body { justify-content: flex-start; }
-.showcase-band--tool .tool-term { margin-top: 4px; }
-.showcase-band--bubble .sb-body { padding-bottom: 16px; }
+.showcase-band--tool .sb-body { justify-content: center; padding: 44px 48px; }
+.showcase-band--tool .tool-tagrow { display: flex; gap: 8px; margin-bottom: 18px; }
+.showcase-band--tool .tool-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+.showcase-band--tool .tool-tag--accent {
+  color: var(--accent);
+  border-color: rgba(34, 197, 94, 0.35);
+}
+.showcase-band--tool .sb-body h3 {
+  margin: 0 0 14px;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  line-height: 1.15;
+}
+.showcase-band--tool .sb-body p { max-width: 480px; }
+.tool-links { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+.tool-arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: gap 0.2s ease, opacity 0.2s ease;
+  align-self: flex-start;
+}
+.tool-arrow-link:hover { gap: 12px; }
+.tool-arrow-link--muted { color: var(--muted); }
+.tool-arrow-link--muted:hover { color: var(--text); }
+.showcase-band--bubble .sb-body { padding-bottom: 24px; }
 .showcase-band--bubble .sb-full {
   grid-column: 1 / -1;
-  padding: 20px 40px 38px;
+  padding: 24px 48px 44px;
   border-top: 1px solid var(--border);
 }
-.showcase-band--bubble .sb-full .phase-strip { margin-top: 0; }
+.showcase-band--bubble .sb-full .phase-strip { margin-top: 0; border-radius: 0; }
 @media (max-width: 760px) {
-  .showcase-band--bubble .sb-full { padding: 20px 20px 22px; }
+  .showcase-band--tool .sb-body { padding: 28px 20px; }
+  .showcase-band--bubble .sb-full { padding: 20px 20px 28px; }
 }
 
 /* ── Community Open Source — Teal & Amber color variants ── */
@@ -5249,29 +5224,6 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
 }
 
 /* ── Sila-Entropy output band ── */
-.sila-trigger {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  width: 100%;
-  margin-top: 14px;
-  padding: 10px 14px;
-  background: rgba(34,197,94,0.05);
-  border: 1px solid rgba(34,197,94,0.18);
-  border-radius: 9px;
-  color: var(--accent);
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12.5px;
-  cursor: pointer;
-  transition: background 0.2s, border-color 0.2s;
-  text-align: left;
-}
-.sila-trigger:hover {
-  background: rgba(34,197,94,0.1);
-  border-color: rgba(34,197,94,0.35);
-}
-.sila-trigger svg { flex-shrink: 0; transition: transform 0.25s; }
-.sila-trigger[aria-expanded="true"] svg { transform: rotate(90deg); }
 
 .sila-output-band {
   max-height: 0;
