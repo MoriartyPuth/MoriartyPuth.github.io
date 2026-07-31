@@ -811,6 +811,16 @@ a {
   transform: translateY(-2px);
 }
 
+.tool-logo-banner {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  margin-bottom: 18px;
+}
+.bubble-suite .tool-logo-banner { margin-bottom: 24px; }
+
 .repo-header {
   display: flex;
   align-items: center;
