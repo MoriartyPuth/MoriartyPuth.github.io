@@ -155,7 +155,7 @@
   });
 
   // ── Scroll Reveal ──────────────────────────────────────────────────────────
-  const sectionSelectors = '.spotlight,.live-projects,.writeups-section,.stats-row,.pinned-section,.pinned-grid,.bubble-suite,.certs-section,.featured-categories,.recent-activity,.cta-section,.cat-hero,.labs-grid';
+  const sectionSelectors = '.spotlight,.live-projects,.writeups-section,.stats-row,.pinned-section,.showcase-bands--tools,.certs-section,.featured-categories,.recent-activity,.cta-section,.cat-hero,.labs-grid';
   const childSelectors   = '.featured-item,.lab-card,.repo-card,.wr-card,.category-card,.skill-item,.cert-item,.tool-card,.live-card,.activity-item,.showcase-band';
 
   document.querySelectorAll(sectionSelectors).forEach(el => el.classList.add('sr'));
@@ -948,7 +948,7 @@
     nocturne: 'https://nocturne-production-281a.up.railway.app/'
   };
   const SECTIONS = {
-    community: '.community-section', tools: '.bubble-suite', bubble: '.bubble-suite',
+    community: '.community-section', tools: '.pinned-section', bubble: '.showcase-band--bubble',
     live: '.live-projects', writeups: '.ctf-writeups-section', ctf: '.ctf-writeups-section',
     certs: '.certs-section', scan: '.nikto-section',
     top: '.hero', contact: '.site-footer', footer: '.site-footer'

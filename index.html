@@ -418,163 +418,149 @@
           </svg>
         </div>
         <div class="section-title">
-          <h3>Personal Tools</h3>
+          <h3>Tools</h3>
           <p>My own offensive toolchain — built for real engagements</p>
         </div>
       </section>
-      <section class="pinned-grid">
-        <div class="repo-card">
-          <div class="card-glint"></div>
-          <img src="assets/img/aura-scanner-logo-ruby.png" alt="AURA-Scanner — high-velocity auditing framework" class="tool-logo-banner" loading="lazy" />
-          <div class="repo-top">
-            <div class="repo-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-                <polyline points="2 17 12 22 22 17"/>
-                <polyline points="2 12 12 17 22 12"/>
-              </svg>
-            </div>
-            <div class="repo-titlewrap">
-              <h4>AURA</h4>
-              <div class="repo-stack">Python · CLI · modular engine</div>
-            </div>
-            <span class="repo-status"><span class="repo-status-dot"></span>Active</span>
-          </div>
-          <div class="tool-term" id="tool-term-1"></div>
-          <p>Chains reconnaissance into automated exploit-path discovery for infrastructure audits.</p>
-          <div class="repo-foot">
-            <span class="repo-tested">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
-              field-tested · internal engagements
-            </span>
-            <a class="repo-link" href="https://github.com/MoriartyPuth/AURA" target="_blank" rel="noopener">View on GitHub <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-          <button class="sila-trigger" id="aura-trigger" aria-expanded="false" aria-controls="aura-output-band">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
-            View sample scan output
-          </button>
-        </div>
-        <div class="repo-card">
-          <div class="card-glint"></div>
-          <img src="assets/img/sila-entropy-logo-royal.png" alt="Sila-Entropy — password auditing suite" class="tool-logo-banner" loading="lazy" />
-          <div class="repo-top">
-            <div class="repo-icon entropy">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 2a10 10 0 1 0 10 10"/>
-                <path d="M12 2v10l6.5-6.5"/>
-              </svg>
-            </div>
-            <div class="repo-titlewrap">
-              <h4>Sila-Entropy</h4>
-              <div class="repo-stack">Python · CLI · linguistic analysis</div>
-            </div>
-            <span class="repo-status"><span class="repo-status-dot"></span>Active</span>
-          </div>
-          <div class="tool-term" id="tool-term-2"></div>
-          <p>Password-strength auditing with localized linguistic analysis and real-time vulnerability mapping.</p>
-          <div class="repo-foot">
-            <span class="repo-tested">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
-              field-tested · internal engagements
-            </span>
-            <a class="repo-link" href="https://github.com/MoriartyPuth/Sila-Entropy" target="_blank" rel="noopener">View on GitHub <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-          <button class="sila-trigger" id="sila-trigger" aria-expanded="false" aria-controls="sila-output-band">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
-            View sample audit output
-          </button>
-        </div>
-      </section>
 
-      <div id="aura-output-band" class="sila-output-band" aria-hidden="true">
-        <div class="sila-band-chrome">
-          <div class="sila-band-dots"><i></i><i></i><i></i></div>
-          <span class="sila-band-title">aura scan testph.vulnweb.com --chain</span>
-          <button class="sila-band-close" aria-label="Close output">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </button>
-        </div>
-        <div class="sila-band-body">
-          <img src="assets/img/aura-output.png" alt="AURA sample scan output — passive OSINT, identity & logic audit phases" loading="lazy" />
-        </div>
-      </div>
+      <section class="showcase-bands showcase-bands--tools">
 
-      <div id="sila-output-band" class="sila-output-band" aria-hidden="true">
-        <div class="sila-band-chrome">
-          <div class="sila-band-dots"><i></i><i></i><i></i></div>
-          <span class="sila-band-title">sila-entropy audit --wordlist km.txt --report</span>
-          <button class="sila-band-close" aria-label="Close output">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </button>
-        </div>
-        <div class="sila-band-body">
-          <img src="assets/img/sila-output.png" alt="Sila-Entropy sample audit output — entropy analysis, breach check, and crack-time projections" loading="lazy" />
-        </div>
-      </div>
+        <!-- AURA -->
+        <article class="showcase-band showcase-band--tool">
+          <div class="sb-media">
+            <img src="assets/img/aura-scanner-logo-ruby.png" alt="AURA-Scanner — high-velocity auditing framework" loading="lazy" />
+            <div class="live-badge live-badge--active"><span class="pulse-dot"></span>Active</div>
+          </div>
+          <div class="sb-body">
+            <div class="community-flag">Personal Tool · Python · CLI · modular engine</div>
+            <h3>AURA</h3>
+            <div class="tool-term" id="tool-term-1"></div>
+            <p>Chains reconnaissance into automated exploit-path discovery for infrastructure audits.</p>
+            <div class="repo-foot">
+              <span class="repo-tested">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+                field-tested · internal engagements
+              </span>
+              <a class="repo-link" href="https://github.com/MoriartyPuth/AURA" target="_blank" rel="noopener">View on GitHub <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            </div>
+            <button class="sila-trigger" id="aura-trigger" aria-expanded="false" aria-controls="aura-output-band">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+              View sample scan output
+            </button>
+          </div>
+        </article>
 
-      <section class="bubble-suite">
-        <img src="assets/img/bubble-logo.png" alt="Bubble Security Suite" class="tool-logo-banner" loading="lazy" />
-        <div class="suite-header">
-          <div class="suite-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="12" cy="12" r="10"/>
-              <circle cx="12" cy="12" r="4" fill="currentColor" opacity="0.3"/>
-              <line x1="12" y1="2" x2="12" y2="6"/>
-              <line x1="12" y1="18" x2="12" y2="22"/>
-              <line x1="2" y1="12" x2="6" y2="12"/>
-              <line x1="18" y1="12" x2="22" y2="12"/>
-            </svg>
-          </div>
-          <div class="suite-title">
-            <h3>Bubble Security Suite</h3>
-            <p>Three-phase offensive toolkit for API security research</p>
-          </div>
-        </div>
-        <div class="phase-strip">
-          <div class="phase-strip-item phase-strip-item--active" data-bsuite-phase="0">
-            <span class="psi-num">Phase 1</span>
-            <span class="psi-name">bubble-scanner</span>
-            <span class="psi-desc">Recon and endpoint discovery</span>
-            <a class="psi-link" href="https://github.com/MoriartyPuth/bubble-scanner" target="_blank" rel="noopener">View →</a>
-          </div>
-          <div class="phase-strip-div"></div>
-          <div class="phase-strip-item" data-bsuite-phase="1">
-            <span class="psi-num">Phase 2</span>
-            <span class="psi-name">bubble-pop</span>
-            <span class="psi-desc">Hidden parameter &amp; IDOR discovery</span>
-            <a class="psi-link" href="https://github.com/MoriartyPuth/bubble-pop" target="_blank" rel="noopener">View →</a>
-          </div>
-          <div class="phase-strip-div"></div>
-          <div class="phase-strip-item" data-bsuite-phase="2">
-            <span class="psi-num">Phase 3</span>
-            <span class="psi-name">bubble-siphon</span>
-            <span class="psi-desc">Post-exploitation data extraction</span>
-            <a class="psi-link" href="https://github.com/MoriartyPuth/bubble-siphon" target="_blank" rel="noopener">View →</a>
-          </div>
-        </div>
-
-        <div class="bsuite-panel">
-          <div class="bsuite-chrome">
+        <div id="aura-output-band" class="sila-output-band" aria-hidden="true">
+          <div class="sila-band-chrome">
             <div class="sila-band-dots"><i></i><i></i><i></i></div>
-            <div class="bsuite-tabs">
-              <button class="bstab bstab--active" data-tab="0">Phase 1 · scanner</button>
-              <button class="bstab" data-tab="1">Phase 2 · pop</button>
-              <button class="bstab" data-tab="2">Phase 3 · siphon</button>
-            </div>
-            <button class="bsuite-run" id="bsuite-run">❚❚ Pause</button>
+            <span class="sila-band-title">aura scan testph.vulnweb.com --chain</span>
+            <button class="sila-band-close" aria-label="Close output">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
           </div>
-          <div class="bsuite-body">
-            <div class="bstab-pane bstab-pane--active" data-pane="0">
-              <div class="bstab-kali"><pre class="bstab-kali-pre" id="bsp-0"></pre></div>
-            </div>
-            <div class="bstab-pane" data-pane="1">
-              <div class="bstab-kali"><pre class="bstab-kali-pre" id="bsp-1"></pre></div>
-            </div>
-            <div class="bstab-pane" data-pane="2">
-              <div class="bstab-kali"><pre class="bstab-kali-pre" id="bsp-2"></pre></div>
-            </div>
+          <div class="sila-band-body">
+            <img src="assets/img/aura-output.png" alt="AURA sample scan output — passive OSINT, identity & logic audit phases" loading="lazy" />
           </div>
         </div>
+
+        <!-- Sila-Entropy -->
+        <article class="showcase-band showcase-band--tool showcase-band--flip">
+          <div class="sb-media">
+            <img src="assets/img/sila-entropy-logo-royal.png" alt="Sila-Entropy — password auditing suite" loading="lazy" />
+            <div class="live-badge live-badge--active"><span class="pulse-dot"></span>Active</div>
+          </div>
+          <div class="sb-body">
+            <div class="community-flag">Personal Tool · Python · CLI · linguistic analysis</div>
+            <h3>Sila-Entropy</h3>
+            <div class="tool-term" id="tool-term-2"></div>
+            <p>Password-strength auditing with localized linguistic analysis and real-time vulnerability mapping.</p>
+            <div class="repo-foot">
+              <span class="repo-tested">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+                field-tested · internal engagements
+              </span>
+              <a class="repo-link" href="https://github.com/MoriartyPuth/Sila-Entropy" target="_blank" rel="noopener">View on GitHub <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            </div>
+            <button class="sila-trigger" id="sila-trigger" aria-expanded="false" aria-controls="sila-output-band">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+              View sample audit output
+            </button>
+          </div>
+        </article>
+
+        <div id="sila-output-band" class="sila-output-band" aria-hidden="true">
+          <div class="sila-band-chrome">
+            <div class="sila-band-dots"><i></i><i></i><i></i></div>
+            <span class="sila-band-title">sila-entropy audit --wordlist km.txt --report</span>
+            <button class="sila-band-close" aria-label="Close output">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+          <div class="sila-band-body">
+            <img src="assets/img/sila-output.png" alt="Sila-Entropy sample audit output — entropy analysis, breach check, and crack-time projections" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- Bubble Security Suite -->
+        <article class="showcase-band showcase-band--tool showcase-band--bubble">
+          <div class="sb-media">
+            <img src="assets/img/bubble-logo.png" alt="Bubble Security Suite" loading="lazy" />
+            <div class="live-badge live-badge--active"><span class="pulse-dot"></span>3 phases</div>
+          </div>
+          <div class="sb-body">
+            <div class="community-flag">Personal Tool · API security research</div>
+            <h3>Bubble Security Suite</h3>
+            <p>Three-phase offensive toolkit — recon and endpoint discovery, hidden-parameter &amp; IDOR discovery, and post-exploitation data extraction.</p>
+          </div>
+          <div class="sb-full">
+            <div class="phase-strip">
+              <div class="phase-strip-item phase-strip-item--active" data-bsuite-phase="0">
+                <span class="psi-num">Phase 1</span>
+                <span class="psi-name">bubble-scanner</span>
+                <span class="psi-desc">Recon and endpoint discovery</span>
+                <a class="psi-link" href="https://github.com/MoriartyPuth/bubble-scanner" target="_blank" rel="noopener">View →</a>
+              </div>
+              <div class="phase-strip-div"></div>
+              <div class="phase-strip-item" data-bsuite-phase="1">
+                <span class="psi-num">Phase 2</span>
+                <span class="psi-name">bubble-pop</span>
+                <span class="psi-desc">Hidden parameter &amp; IDOR discovery</span>
+                <a class="psi-link" href="https://github.com/MoriartyPuth/bubble-pop" target="_blank" rel="noopener">View →</a>
+              </div>
+              <div class="phase-strip-div"></div>
+              <div class="phase-strip-item" data-bsuite-phase="2">
+                <span class="psi-num">Phase 3</span>
+                <span class="psi-name">bubble-siphon</span>
+                <span class="psi-desc">Post-exploitation data extraction</span>
+                <a class="psi-link" href="https://github.com/MoriartyPuth/bubble-siphon" target="_blank" rel="noopener">View →</a>
+              </div>
+            </div>
+
+            <div class="bsuite-panel">
+              <div class="bsuite-chrome">
+                <div class="sila-band-dots"><i></i><i></i><i></i></div>
+                <div class="bsuite-tabs">
+                  <button class="bstab bstab--active" data-tab="0">Phase 1 · scanner</button>
+                  <button class="bstab" data-tab="1">Phase 2 · pop</button>
+                  <button class="bstab" data-tab="2">Phase 3 · siphon</button>
+                </div>
+                <button class="bsuite-run" id="bsuite-run">❚❚ Pause</button>
+              </div>
+              <div class="bsuite-body">
+                <div class="bstab-pane bstab-pane--active" data-pane="0">
+                  <div class="bstab-kali"><pre class="bstab-kali-pre" id="bsp-0"></pre></div>
+                </div>
+                <div class="bstab-pane" data-pane="1">
+                  <div class="bstab-kali"><pre class="bstab-kali-pre" id="bsp-1"></pre></div>
+                </div>
+                <div class="bstab-pane" data-pane="2">
+                  <div class="bstab-kali"><pre class="bstab-kali-pre" id="bsp-2"></pre></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
       </section>
 
       <section class="featured-categories">
