@@ -375,7 +375,8 @@
     addLink('email   ', 'p.camboeav@gmail.com',                          'mailto:p.camboeav@gmail.com',                                    'rs-contact', 5100);
     addLink('linkedin', '/in/puthcambo-eav-7249b1325',                   'https://www.linkedin.com/in/puthcambo-eav-7249b1325/',            'rs-contact', 5600);
     addLink('github  ', '/MoriartyPuth',                                  'https://github.com/MoriartyPuth',                                'rs-contact', 6100);
-    addText('moriarty@sec:~# ▋', 'rs-prompt', 6700);
+    addLink('htb     ', '/users/3188797',                                 'https://app.hackthebox.com/users/3188797',                       'rs-contact', 6600);
+    addText('moriarty@sec:~# ▋', 'rs-prompt', 7200);
   }
 
   // ── Wireshark Packet Strip ─────────────────────────────────────────────────
