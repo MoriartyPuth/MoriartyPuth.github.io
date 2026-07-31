@@ -847,16 +847,15 @@
     print(['Type "help" for available commands.'], 'iterm-dim');
     const history = []; let histIdx = -1;
     const CMDS = {
-      help:             () => ['Commands:','  whoami            · who am I (jumps to ~/whoami)','  ls                · list filesystem','  cat <file>        · read file (try about.txt, playground.txt, resume.txt)','  fortune           · random hacker / dev quote','  ls case-studies/  · list security case studies','  ls tools/         · list offensive tools','  ls community/     · list open-source projects','  nmap              · port scan easter egg ;)','  clear             · clear terminal'],
+      help:             () => ['Commands:','  whoami            · who am I (jumps to ~/whoami)','  ls                · list filesystem','  cat <file>        · read file (try about.txt, playground.txt, resume.txt)','  fortune           · random hacker / dev quote','  ls tools/         · list offensive tools','  ls community/     · list open-source projects','  nmap              · port scan easter egg ;)','  clear             · clear terminal'],
       whoami:           () => { var s = document.querySelector('.about-section'); if (s) setTimeout(function () { s.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 250); return ['Moriarty Puth','Offensive Security Researcher','Final-year cybersecurity student · Cambodia','API security · Binary exploitation · AI tooling','','↓ jumping to ~/whoami']; },
-      ls:               () => ['about.txt  playground.txt  resume.txt  skills.txt  contact.txt  case-studies/  tools/  community/'],
+      ls:               () => ['about.txt  playground.txt  resume.txt  skills.txt  contact.txt  tools/  community/'],
       'cat about.txt':      () => { var o = document.querySelectorAll('.about-tty .term-out'); return o[0] ? [o[0].textContent] : ['cat: about.txt: No such file or directory']; },
       'cat playground.txt': () => { var o = document.querySelectorAll('.about-tty .term-out'); return o[1] ? [o[1].textContent] : ['cat: playground.txt: No such file or directory']; },
       fortune:          () => { var f = window.getFortune && window.getFortune(); if (!f) return ['fortune: command not found']; return f.a ? ['"' + f.t + '"', '    — ' + f.a] : ['"' + f.t + '"']; },
-      'ls case-studies/': () => ['EES-ANPR/    CSS-GDIN/    AUPP-CTF/','DoccameraDLL/    JoulHub/    SOP/','OWIT-Global/','','7 cases · authorized · coordinated disclosure'],
       'ls tools/':        () => ['bubble-scanner/    bubble-pop/    bubble-siphon/','AURA/    Sila-Entropy/    Nocturne/'],
       'ls community/':    () => ['NETH/    Khmer-OCR/    Rice-Disease-Detector/','','open source · Cambodia'],
-      'cat resume.txt': () => ['──────────────────────────────────','Name:    Moriarty Puth','Role:    Offensive Security Researcher','Focus:   API security · Reverse engineering · AI tooling','Notable: Critical IDOR in production systems','         Top-80 crackmes.one ranking','Status:  [REDACTED] · building for fun','──────────────────────────────────'],
+      'cat resume.txt': () => ['──────────────────────────────────','Name:    Moriarty Puth','Role:    Offensive Security Researcher','Focus:   API security · Reverse engineering · AI tooling','Notable: Top-30 at CNCC 2026 — highest score','         Top-80 crackmes.one ranking','Status:  [REDACTED] · building for fun','──────────────────────────────────'],
       'cat skills.txt': () => ['Reverse Engineering   ▸ ADVANCED','Web/API Exploitation  ▸ ADVANCED','Reconnaissance        ▸ PROFICIENT','Binary Exploitation   ▸ PROFICIENT','Malware Analysis      ▸ PROFICIENT','AI Security           ▸ INTERMEDIATE','Blue Team             ▸ INTERMEDIATE'],
       'cat contact.txt':() => ['email:    p.camboeav@gmail.com','linkedin: linkedin.com/in/puthcambo-eav-7249b1325','github:   github.com/MoriartyPuth'],
       nmap:             () => { setTimeout(showNmap, 200); return ['[*] Launching nmap scan on moriarty.portfolio...']; },
@@ -948,18 +947,11 @@
     nocturne: 'https://nocturne-production-281a.up.railway.app/'
   };
   const SECTIONS = {
-    threat: '.threat-board', board: '.threat-board',
-    disclosure: '.field-ops', timeline: '.field-ops', ops: '.field-ops', operations: '.field-ops',
-    reports: '.field-ops', cases: '.field-ops', fieldreports: '.field-ops',
     community: '.community-section', tools: '.bubble-suite', bubble: '.bubble-suite',
     live: '.live-projects', writeups: '.ctf-writeups-section', ctf: '.ctf-writeups-section',
     certs: '.certs-section', scan: '.nikto-section',
     top: '.hero', contact: '.site-footer', footer: '.site-footer'
   };
-  const CASES = {};
-  (window.CASE_STUDIES || []).forEach(function (c) {
-    CASES[c.id.toLowerCase()] = { n: (c.termName || c.name).toUpperCase(), u: c.repo, s: c.quickScore };
-  });
 
   const print = (lines, cls) => {
     (Array.isArray(lines) ? lines : [lines]).forEach(l => {
@@ -1022,9 +1014,8 @@
       '<span class="cb-good">Available commands:</span>',
       '&nbsp;<span class="cb-cmd">whoami</span>            who is this',
       '&nbsp;<span class="cb-cmd">ls</span> / <span class="cb-cmd">cat &lt;file&gt;</span>     browse (resume.txt, skills.txt, contact.txt)',
-      '&nbsp;<span class="cb-cmd">cases</span>             list field reports',
-      '&nbsp;<span class="cb-cmd">open &lt;target&gt;</span>      open a page or case  (open writeup · open f.01)',
-      '&nbsp;<span class="cb-cmd">goto &lt;section&gt;</span>    scroll to a section  (goto threat · goto tools)',
+      '&nbsp;<span class="cb-cmd">open &lt;target&gt;</span>      open a page  (open writeup)',
+      '&nbsp;<span class="cb-cmd">goto &lt;section&gt;</span>    scroll to a section  (goto ctf · goto tools)',
       '&nbsp;<span class="cb-cmd">recon</span>             fingerprint this visitor 😈',
       '&nbsp;<span class="cb-cmd">nmap</span>              scan the portfolio',
       '&nbsp;<span class="cb-cmd">contact</span>           how to reach me',
@@ -1034,11 +1025,9 @@
     whoami: () => ['<span class="cb-good">Moriarty Puth</span> — Offensive Security Researcher',
       'Final-year cybersecurity student · Cambodia',
       'API security · Binary exploitation · AI tooling'],
-    ls: () => ['<span class="cb-dir">projects/</span>  <span class="cb-dir">certs/</span>  <span class="cb-dir">cases/</span>  resume.txt  skills.txt  contact.txt'],
-    cases: () => Object.entries(CASES).map(([k, v]) =>
-      '<span class="cb-cmd">' + k.toUpperCase() + '</span>  <span class="cb-val">' + v.n.padEnd(13, ' ') + '</span> <span class="cb-dim">' + v.s + '</span>  <span class="cb-dim">open ' + k + '</span>'),
+    ls: () => ['<span class="cb-dir">projects/</span>  <span class="cb-dir">certs/</span>  resume.txt  skills.txt  contact.txt'],
     'cat resume.txt': () => ['────────────────────────────', 'Name:    Moriarty Puth', 'Role:    Offensive Security Researcher',
-      'Focus:   API sec · Reverse engineering · AI tooling', 'Notable: Critical IDOR in production systems',
+      'Focus:   API sec · Reverse engineering · AI tooling', 'Notable: Top-30 at CNCC 2026 — highest score',
       '         Top-80 crackmes.one', 'Status:  <span class="cb-ok">[REDACTED] · building for fun</span>', '────────────────────────────'],
     'cat skills.txt': () => ['Reverse Engineering   ▸ ADVANCED', 'Web/API Exploitation  ▸ ADVANCED',
       'Reconnaissance        ▸ PROFICIENT', 'Binary Exploitation   ▸ PROFICIENT',
@@ -1058,11 +1047,9 @@
 
   function open(args) {
     const t = (args[0] || '').toLowerCase();
-    if (!t) return ['<span class="cb-err">usage: open &lt;page|case&gt;  — e.g. open writeup · open f.01</span>'];
-    if (CASES[t]) { print('opening <span class="cb-hl">' + CASES[t].n + '</span> on GitHub…', 'cb-dim'); window.open(CASES[t].u, '_blank', 'noopener'); return null; }
+    if (!t) return ['<span class="cb-err">usage: open &lt;page&gt;  — e.g. open writeup</span>'];
     if (PAGES[t]) { const url = PAGES[t]; print('navigating to <span class="cb-hl">' + t + '</span>…', 'cb-dim'); setTimeout(() => location.href = url, 350); return null; }
-    const lastCase = 'f.' + String(Object.keys(CASES).length).padStart(2, '0');
-    return ['<span class="cb-err">no such target: ' + t + '</span>', '<span class="cb-dim">try: ' + Object.keys(PAGES).join(' · ') + ' · f.01–' + lastCase + '</span>'];
+    return ['<span class="cb-err">no such target: ' + t + '</span>', '<span class="cb-dim">try: ' + Object.keys(PAGES).join(' · ') + '</span>'];
   }
   function goto(args) {
     const t = (args[0] || '').toLowerCase();
@@ -1402,11 +1389,10 @@
 (function () {
   var defs = [
     { n: '01', label: 'Top',          sel: '.hero' },
-    { n: '02', label: 'Case Studies', sel: '.field-ops' },
-    { n: '03', label: 'CTF Write Up', sel: '.ctf-writeups-section' },
-    { n: '04', label: 'Community',    sel: '.community-section' },
-    { n: '05', label: 'Tools',        sel: '.pinned-section' },
-    { n: '06', label: 'whoami',       sel: '.about-section' }
+    { n: '02', label: 'CTF Write Up', sel: '.ctf-writeups-section' },
+    { n: '03', label: 'Community',    sel: '.community-section' },
+    { n: '04', label: 'Tools',        sel: '.pinned-section' },
+    { n: '05', label: 'whoami',       sel: '.about-section' }
   ];
   var items = defs
     .map(function (d) { return { d: d, el: document.querySelector(d.sel) }; })

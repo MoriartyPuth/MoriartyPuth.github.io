@@ -1,23 +1,5 @@
 window.SEARCH_INDEX = [
   {
-    title: "EES Security Case Study",
-    url: "https://github.com/MoriartyPuth-Labs/EES-Security-Case-Study",
-    summary: "ANPR and parking system case study focused on high-impact access control failures.",
-    tags: ["case study", "idor", "bac", "access control"]
-  },
-  {
-    title: "CSS-GDIN Security Case Study",
-    url: "https://github.com/MoriartyPuth-Labs/CSS-GDIN-Security-Case-Study",
-    summary: "Real-life exploitation research and remediation guidance.",
-    tags: ["case study", "access control", "exploitation"]
-  },
-  {
-    title: "AUPP CTF Platform Security Study Case",
-    url: "https://github.com/MoriartyPuth-Labs/AUPP-CTF-Platform-Security-Study-Case",
-    summary: "Authorized external pentest of a university-hosted CTF platform across five testing sessions.",
-    tags: ["case study", "ctf", "api security", "load testing"]
-  },
-  {
     title: "AURA",
     url: "https://github.com/MoriartyPuth/AURA",
     summary: "Internal testing suite for infrastructure auditing.",
