@@ -5327,6 +5327,7 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
 .ctf-row--amber.ctf-in::before { color: #f97316; }
 .ctf-row--purple.ctf-in::before { color: #a855f7; }
 .ctf-row--gold.ctf-in::before { color: #eab308; }
+.ctf-row--blue.ctf-in::before { color: #3b82f6; }
 
 @keyframes ctf-border-grow {
   to { transform: scaleY(1); }
@@ -5351,6 +5352,7 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
 .ctf-row--amber { border-left-color: #f97316; }
 .ctf-row--purple { border-left-color: #a855f7; }
 .ctf-row--gold { border-left-color: #eab308; }
+.ctf-row--blue { border-left-color: #3b82f6; }
 
 .ctf-row--cyan:hover {
   background: rgba(0,212,255,0.025);
@@ -5367,6 +5369,10 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
 .ctf-row--gold:hover {
   background: rgba(234,179,8,0.025);
   box-shadow: -4px 0 28px rgba(234,179,8,0.1);
+}
+.ctf-row--blue:hover {
+  background: rgba(59,130,246,0.025);
+  box-shadow: -4px 0 28px rgba(59,130,246,0.1);
 }
 
 /* ── Rank column ─────────────────────────── */
@@ -5399,10 +5405,12 @@ article:hover .lab-icon svg        { animation: spin-once 0.5s ease forwards; }
 .ctf-row--amber .ctf-rank-num { color: #f97316; text-shadow: 0 0 18px rgba(249,115,22,0.35); }
 .ctf-row--purple .ctf-rank-num { color: #a855f7; text-shadow: 0 0 18px rgba(168,85,247,0.35); }
 .ctf-row--gold .ctf-rank-num { color: #eab308; text-shadow: 0 0 18px rgba(234,179,8,0.35); }
+.ctf-row--blue .ctf-rank-num { color: #3b82f6; text-shadow: 0 0 18px rgba(59,130,246,0.35); }
 .ctf-row--cyan:hover  .ctf-rank-num { text-shadow: 0 0 28px rgba(0,212,255,0.7), 0 0 56px rgba(0,212,255,0.25); }
 .ctf-row--amber:hover .ctf-rank-num { text-shadow: 0 0 28px rgba(249,115,22,0.7), 0 0 56px rgba(249,115,22,0.25); }
 .ctf-row--purple:hover .ctf-rank-num { text-shadow: 0 0 28px rgba(168,85,247,0.7), 0 0 56px rgba(168,85,247,0.25); }
 .ctf-row--gold:hover .ctf-rank-num { text-shadow: 0 0 28px rgba(234,179,8,0.7), 0 0 56px rgba(234,179,8,0.25); }
+.ctf-row--blue:hover .ctf-rank-num { text-shadow: 0 0 28px rgba(59,130,246,0.7), 0 0 56px rgba(59,130,246,0.25); }
 
 /* ── Body ────────────────────────────────── */
 .ctf-body {
