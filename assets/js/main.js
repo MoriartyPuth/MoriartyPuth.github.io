@@ -155,8 +155,8 @@
   });
 
   // ── Scroll Reveal ──────────────────────────────────────────────────────────
-  const sectionSelectors = '.spotlight,.live-projects,.writeups-section,.stats-row,.pinned-section,.showcase-bands--tools,.certs-section,.featured-categories,.recent-activity,.cta-section,.cat-hero,.labs-grid';
-  const childSelectors   = '.featured-item,.lab-card,.repo-card,.wr-card,.category-card,.skill-item,.cert-item,.tool-card,.live-card,.activity-item,.showcase-band';
+  const sectionSelectors = '.spotlight,.live-projects,.writeups-section,.stats-row,.pinned-section,.tools-grid,.certs-section,.featured-categories,.recent-activity,.cta-section,.cat-hero,.labs-grid';
+  const childSelectors   = '.featured-item,.lab-card,.repo-card,.wr-card,.category-card,.skill-item,.cert-item,.tool-card,.live-card,.activity-item,.showcase-band,.tools-card';
 
   document.querySelectorAll(sectionSelectors).forEach(el => el.classList.add('sr'));
   document.querySelectorAll(childSelectors).forEach((el, i) => {

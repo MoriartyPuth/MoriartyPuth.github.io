@@ -459,77 +459,68 @@
         </div>
       </section>
 
-      <section class="showcase-bands showcase-bands--tools">
+      <div class="tools-grid">
 
         <!-- AURA -->
-        <article class="showcase-band showcase-band--tool">
-          <div class="sb-media">
+        <article class="tools-card">
+          <div class="tools-card-banner">
             <img src="assets/img/aura-scanner-logo-ruby.png" alt="AURA-Scanner — high-velocity auditing framework" loading="lazy" />
-            <div class="live-badge live-badge--active"><span class="pulse-dot"></span>Active</div>
           </div>
-          <div class="sb-body">
-            <div class="community-flag">Personal Tool</div>
-            <h3>AURA</h3>
-            <p>Chains reconnaissance into automated exploit-path discovery for infrastructure audits.</p>
-            <div class="live-stats live-stats--green">
-              <span>Python · CLI</span>
-              <span>modular engine</span>
-              <span>field-tested</span>
+          <div class="tools-card-body">
+            <h4 class="tools-card-title">AURA</h4>
+            <div class="tools-card-meta">Active · field-tested</div>
+            <div class="tools-card-tags">
+              <span class="tools-tag">Python</span>
+              <span class="tools-tag">CLI</span>
+              <span class="tools-tag">Recon</span>
             </div>
-            <div class="live-actions">
-              <a href="https://github.com/MoriartyPuth/AURA" target="_blank" rel="noopener" class="live-btn live-btn--green">View on GitHub →</a>
-              <button class="live-btn live-btn--ghost" id="aura-trigger" aria-expanded="false" aria-controls="aura-output-band">Sample scan output</button>
+            <div class="tools-card-actions">
+              <a class="tools-card-link" href="https://github.com/MoriartyPuth/AURA" target="_blank" rel="noopener">GitHub →</a>
+              <button class="tools-card-link" id="aura-trigger" aria-expanded="false" aria-controls="aura-output-band">Sample scan output →</button>
             </div>
           </div>
         </article>
 
-        <!-- Sila-Entropy (image on the right) -->
-        <article class="showcase-band showcase-band--tool showcase-band--flip">
-          <div class="sb-media">
+        <!-- Sila-Entropy -->
+        <article class="tools-card">
+          <div class="tools-card-banner">
             <img src="assets/img/sila-entropy-logo-royal.png" alt="Sila-Entropy — password auditing suite" loading="lazy" />
-            <div class="live-badge live-badge--active"><span class="pulse-dot"></span>Active</div>
           </div>
-          <div class="sb-body">
-            <div class="community-flag">Personal Tool</div>
-            <h3>Sila-Entropy</h3>
-            <p>Password-strength auditing with localized linguistic analysis and real-time vulnerability mapping.</p>
-            <div class="live-stats live-stats--purple">
-              <span>Python · CLI</span>
-              <span>linguistic analysis</span>
-              <span>field-tested</span>
+          <div class="tools-card-body">
+            <h4 class="tools-card-title">Sila-Entropy</h4>
+            <div class="tools-card-meta">Active · field-tested</div>
+            <div class="tools-card-tags">
+              <span class="tools-tag">Python</span>
+              <span class="tools-tag">CLI</span>
+              <span class="tools-tag">Passwords</span>
             </div>
-            <div class="live-actions">
-              <a href="https://github.com/MoriartyPuth/Sila-Entropy" target="_blank" rel="noopener" class="live-btn live-btn--purple">View on GitHub →</a>
-              <button class="live-btn live-btn--ghost" id="sila-trigger" aria-expanded="false" aria-controls="sila-output-band">Sample audit output</button>
+            <div class="tools-card-actions">
+              <a class="tools-card-link" href="https://github.com/MoriartyPuth/Sila-Entropy" target="_blank" rel="noopener">GitHub →</a>
+              <button class="tools-card-link" id="sila-trigger" aria-expanded="false" aria-controls="sila-output-band">Sample audit output →</button>
             </div>
           </div>
         </article>
 
         <!-- Bubble Security Suite -->
-        <article class="showcase-band showcase-band--tool">
-          <div class="sb-media">
+        <article class="tools-card">
+          <div class="tools-card-banner">
             <img src="assets/img/bubble-logo.png" alt="Bubble Security Suite" loading="lazy" />
-            <div class="live-badge live-badge--active"><span class="pulse-dot"></span>Active</div>
           </div>
-          <div class="sb-body">
-            <div class="community-flag">Personal Tool · API security research</div>
-            <h3>Bubble Security Suite</h3>
-            <p>Three-phase offensive toolkit — recon and endpoint discovery, hidden-parameter &amp; IDOR discovery, and post-exploitation data extraction.</p>
-            <div class="live-stats live-stats--blue">
-              <span>bubble-scanner</span>
-              <span>bubble-pop</span>
-              <span>bubble-siphon</span>
+          <div class="tools-card-body">
+            <h4 class="tools-card-title">Bubble Security Suite</h4>
+            <div class="tools-card-meta">Active · 3-phase toolkit</div>
+            <div class="tools-card-tags">
+              <span class="tools-tag">bubble-scanner</span>
+              <span class="tools-tag">bubble-pop</span>
+              <span class="tools-tag">bubble-siphon</span>
             </div>
-            <div class="live-actions">
-              <a href="https://github.com/MoriartyPuth/bubble-scanner" target="_blank" rel="noopener" class="live-btn live-btn--blue">bubble-scanner →</a>
-              <a href="https://github.com/MoriartyPuth/bubble-pop" target="_blank" rel="noopener" class="live-btn live-btn--ghost">bubble-pop →</a>
-              <a href="https://github.com/MoriartyPuth/bubble-siphon" target="_blank" rel="noopener" class="live-btn live-btn--ghost">bubble-siphon →</a>
-              <a href="archive/bubble-security-suite.html" class="live-btn live-btn--ghost">Live demo →</a>
+            <div class="tools-card-actions">
+              <a class="tools-card-link" href="archive/bubble-security-suite.html">Live demo →</a>
             </div>
           </div>
         </article>
 
-      </section>
+      </div>
 
       <div id="aura-output-band" class="sila-output-band" aria-hidden="true">
         <div class="sila-band-chrome">
