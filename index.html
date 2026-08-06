@@ -119,7 +119,7 @@
 
         <div class="ctf-board">
 
-          <!-- CNCC 2026 -->
+          <!-- Cambodia Cyber Arena 2026 -->
           <div class="ctf-row ctf-row--cyan">
             <div class="ctf-rank-col">
               <span class="ctf-rank-label">TOP</span>
@@ -128,8 +128,8 @@
             <div class="ctf-body">
               <div class="ctf-row-main">
                 <div class="ctf-name-group">
-                  <h4 class="ctf-name">CNCC 2026</h4>
-                  <span class="ctf-org">Cambodia National Cyber Competition</span>
+                  <h4 class="ctf-name">Cambodia Cyber Arena 2026</h4>
+                  <span class="ctf-org">Jeopardy · 7 categories</span>
                   <span class="ctf-org">Team Sl Oun 1 Jivit</span>
                 </div>
                 <div class="ctf-chips">
@@ -340,6 +340,52 @@
             <div class="ctf-cta-col">
               <span class="ctf-solved">14 solved</span>
               <a href="https://github.com/MoriartyPuth-Labs/AUPP-Certified-Stalker-CTF" target="_blank" rel="noopener" class="ctf-link">View repo →</a>
+              <span class="ctf-toggle-hint">▾ click to expand</span>
+            </div>
+          </div>
+
+          <!-- D3CTF 2026 -->
+          <div class="ctf-row ctf-row--red">
+            <div class="ctf-rank-col">
+              <span class="ctf-rank-label">RANKED</span>
+              <span class="ctf-rank-num" data-target="26">99</span>
+            </div>
+            <div class="ctf-body">
+              <div class="ctf-row-main">
+                <div class="ctf-name-group">
+                  <h4 class="ctf-name">D³CTF 2026</h4>
+                  <span class="ctf-org">Jeopardy · 5 categories</span>
+                  <span class="ctf-org">Solo</span>
+                </div>
+                <div class="ctf-chips">
+                  <span class="ctf-chip chip--rev">REV ×3</span>
+                  <span class="ctf-chip chip--pwn">PWN ×2</span>
+                  <span class="ctf-chip chip--web">WEB ×2</span>
+                  <span class="ctf-chip chip--crypto">CRYPTO</span>
+                  <span class="ctf-chip chip--misc">MISC</span>
+                </div>
+              </div>
+              <div class="ctf-expand-panel">
+                <div class="ctf-tech-line">
+                  <span class="ctf-tech-label">TECHNIQUES</span>
+                  <code>Service Worker scope hijack via double URL-decode · SQLite deleted-page recovery · kernel page-cache overwrite (DirtyFrag) · slab double-free + cred zeroing · overdetermined MQ system via XL · Mach-O bytecode VM · OLLVM deobfuscation · EPT-hook kernel driver</code>
+                </div>
+                <div class="ctf-challenge-list">
+                  <a class="ctf-ch ctf-ch-link" href="https://github.com/MoriartyPuth-Labs/D3CTF-Writeups/blob/main/web/scope-drift.md" target="_blank" rel="noopener"><span class="ctf-ch-tag tag--web">WEB</span><span class="ctf-ch-name">Scope Drift</span><span class="ctf-ch-desc">Medium — double URL-decode path normalization → Service Worker scope hijack</span></a>
+                  <a class="ctf-ch ctf-ch-link" href="https://github.com/MoriartyPuth-Labs/D3CTF-Writeups/blob/main/web/ghost-zero.md" target="_blank" rel="noopener"><span class="ctf-ch-tag tag--web">WEB</span><span class="ctf-ch-name">Ghost Zero</span><span class="ctf-ch-desc">Hard — SQLite sqlite_dbpage recovery of deleted PCAP + ticket scope bypass</span></a>
+                  <a class="ctf-ch ctf-ch-link" href="https://github.com/MoriartyPuth-Labs/D3CTF-Writeups/blob/main/pwn/d3kbus.md" target="_blank" rel="noopener"><span class="ctf-ch-tag tag--pwn">PWN</span><span class="ctf-ch-name">d3kbus</span><span class="ctf-ch-desc">Hard — kernel zero-copy CRC32C linear system solving, page-cache overwrite (DirtyFrag)</span></a>
+                  <a class="ctf-ch ctf-ch-link" href="https://github.com/MoriartyPuth-Labs/D3CTF-Writeups/blob/main/pwn/d3kheap2pro.md" target="_blank" rel="noopener"><span class="ctf-ch-tag tag--pwn">PWN</span><span class="ctf-ch-name">d3kheap2pro</span><span class="ctf-ch-desc">Hard — kernel slab double-free, CPU Sheaf cache draining, INIT_ON_ALLOC cred zeroing</span></a>
+                  <a class="ctf-ch ctf-ch-link" href="https://github.com/MoriartyPuth-Labs/D3CTF-Writeups/blob/main/misc/proxyport.md" target="_blank" rel="noopener"><span class="ctf-ch-tag tag--misc">MISC</span><span class="ctf-ch-name">proxyport</span><span class="ctf-ch-desc">Easy — FRP reverse-proxy TCP half-closed FIN handling discrepancy</span></a>
+                  <a class="ctf-ch ctf-ch-link" href="https://github.com/MoriartyPuth-Labs/D3CTF-Writeups/blob/main/crypto/d3hferp.md" target="_blank" rel="noopener"><span class="ctf-ch-tag tag--crypto">CRYPTO</span><span class="ctf-ch-name">D3HFERP</span><span class="ctf-ch-desc">Hard — overdetermined multivariate quadratic system via XL over F₃</span></a>
+                  <a class="ctf-ch ctf-ch-link" href="https://github.com/MoriartyPuth-Labs/D3CTF-Writeups/blob/main/reverse/pacman.md" target="_blank" rel="noopener"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">PacMan</span><span class="ctf-ch-desc">Hard — iOS Mach-O, distributed Mach-messaging bytecode VM, RC4 decryption</span></a>
+                  <a class="ctf-ch ctf-ch-link" href="https://github.com/MoriartyPuth-Labs/D3CTF-Writeups/blob/main/reverse/d3llvm.md" target="_blank" rel="noopener"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">d3llvm</span><span class="ctf-ch-desc">Hard — Android OLLVM-obfuscated library, 16-bit non-linear mixing, AES-ECB</span></a>
+                  <a class="ctf-ch ctf-ch-link" href="https://github.com/MoriartyPuth-Labs/D3CTF-Writeups/blob/main/reverse/d3gomoku.md" target="_blank" rel="noopener"><span class="ctf-ch-tag tag--rev">REV</span><span class="ctf-ch-name">d3gomoku</span><span class="ctf-ch-desc">Hard — Windows kernel driver Gomoku, EPT hooks, vmfunc dual-view, base-37 solver</span></a>
+                </div>
+              </div>
+            </div>
+            <div class="ctf-cta-col">
+              <span class="ctf-solved">9 solved</span>
+              <a href="https://github.com/MoriartyPuth-Labs/D3CTF-Writeups" target="_blank" rel="noopener" class="ctf-link">Full writeup →</a>
               <span class="ctf-toggle-hint">▾ click to expand</span>
             </div>
           </div>
