@@ -11,6 +11,148 @@
   <meta name="twitter:card" content="summary" />
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    /* ── Community Open Source Horizontal Slider ── */
+    .community-section .live-projects-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .community-header-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .community-slider-controls {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      user-select: none;
+    }
+    .community-slider-counter {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+    .community-slider-dots {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .community-dot {
+      width: 20px;
+      height: 4px;
+      border-radius: 2px;
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .community-dot:hover {
+      background: rgba(34, 197, 94, 0.5);
+    }
+    .community-dot.active {
+      width: 32px;
+      background: var(--accent);
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.6);
+    }
+    .community-slider-arrows {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .community-nav-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      padding: 0;
+    }
+    .community-nav-btn:hover:not(:disabled) {
+      border-color: rgba(34, 197, 94, 0.5);
+      background: rgba(34, 197, 94, 0.1);
+      color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+    }
+    .community-nav-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+    .community-section .showcase-bands {
+      display: flex !important;
+      flex-direction: row !important;
+      gap: 24px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      padding: 4px 4px 18px 4px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(34, 197, 94, 0.35) rgba(255, 255, 255, 0.03);
+      outline: none;
+      cursor: grab;
+    }
+    .community-section .showcase-bands.is-dragging {
+      cursor: grabbing;
+      scroll-snap-type: none;
+      scroll-behavior: auto;
+      user-select: none;
+    }
+    .community-section .showcase-bands::-webkit-scrollbar {
+      height: 6px;
+    }
+    .community-section .showcase-bands::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 6px;
+    }
+    .community-section .showcase-bands::-webkit-scrollbar-thumb {
+      background: rgba(34, 197, 94, 0.3);
+      border-radius: 6px;
+      transition: background 0.2s ease;
+    }
+    .community-section .showcase-bands::-webkit-scrollbar-thumb:hover {
+      background: rgba(34, 197, 94, 0.6);
+    }
+    .community-section .showcase-band {
+      flex: 0 0 100%;
+      min-width: 0;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      box-sizing: border-box;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+    .community-section .showcase-band:hover {
+      transform: translateY(-2px) !important;
+    }
+    @media (max-width: 760px) {
+      .community-section .showcase-bands {
+        gap: 16px;
+      }
+      .community-slider-counter {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Boot Screen -->
@@ -395,22 +537,44 @@
       </section>
 
       <!-- Community Open Source -->
-      <section class="community-section">
+      <section class="community-section" aria-label="Community Open Source Projects">
         <div class="live-projects-header">
-          <div class="live-header-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
+          <div class="community-header-title">
+            <div class="live-header-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Community Open Source</h3>
+              <p class="meta">Building tools that solve real problems in Cambodia</p>
+            </div>
           </div>
-          <div>
-            <h3>Community Open Source</h3>
-            <p class="meta">Building tools that solve real problems in Cambodia</p>
+          <div class="community-slider-controls">
+            <span class="community-slider-counter" id="communitySlideCounter">01 / 03</span>
+            <div class="community-slider-dots" id="communitySlideDots" role="tablist" aria-label="Slide indicators">
+              <button class="community-dot active" role="tab" aria-selected="true" aria-label="Slide 1: NETH" data-index="0"></button>
+              <button class="community-dot" role="tab" aria-selected="false" aria-label="Slide 2: Khmer OCR" data-index="1"></button>
+              <button class="community-dot" role="tab" aria-selected="false" aria-label="Slide 3: Rice Disease Detector" data-index="2"></button>
+            </div>
+            <div class="community-slider-arrows">
+              <button class="community-nav-btn" id="communitySlidePrev" type="button" aria-label="Previous slide" title="Previous">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <button class="community-nav-btn" id="communitySlideNext" type="button" aria-label="Next slide" title="Next">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
-        <div class="showcase-bands">
+        <div class="showcase-bands" id="communitySlider" role="region" aria-roledescription="carousel" aria-label="Community open source projects slider" tabindex="0">
 
           <!-- NETH -->
           <article class="showcase-band">
@@ -705,5 +869,152 @@
   </footer>
   <script src="assets/js/terminal-bg.js"></script>
   <script src="assets/js/main.js"></script>
+  <script>
+    // ── Community Open Source Horizontal Slider ──
+    (() => {
+      const slider = document.getElementById('communitySlider');
+      if (!slider) return;
+
+      const slides = Array.from(slider.querySelectorAll('.showcase-band'));
+      const prevBtn = document.getElementById('communitySlidePrev');
+      const nextBtn = document.getElementById('communitySlideNext');
+      const dots = Array.from(document.querySelectorAll('#communitySlideDots .community-dot'));
+      const counter = document.getElementById('communitySlideCounter');
+      const totalSlides = slides.length;
+      if (!totalSlides) return;
+
+      let currentIndex = 0;
+      let isDragging = false;
+      let startX = 0;
+      let startScrollLeft = 0;
+      let hasDragged = false;
+
+      function getSlideOffset(idx) {
+        if (!slides[idx]) return 0;
+        return slides[idx].offsetLeft - slider.offsetLeft;
+      }
+
+      function updateNav(index) {
+        currentIndex = Math.max(0, Math.min(index, totalSlides - 1));
+        if (counter) {
+          counter.textContent = `${String(currentIndex + 1).padStart(2, '0')} / ${String(totalSlides).padStart(2, '0')}`;
+        }
+        dots.forEach((dot, i) => {
+          const isActive = i === currentIndex;
+          dot.classList.toggle('active', isActive);
+          dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+        if (prevBtn) prevBtn.disabled = (currentIndex === 0);
+        if (nextBtn) nextBtn.disabled = (currentIndex === totalSlides - 1);
+      }
+
+      function scrollToSlide(index) {
+        const targetIndex = Math.max(0, Math.min(index, totalSlides - 1));
+        slider.scrollTo({
+          left: getSlideOffset(targetIndex),
+          behavior: 'smooth'
+        });
+        updateNav(targetIndex);
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          scrollToSlide(currentIndex - 1);
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          scrollToSlide(currentIndex + 1);
+        });
+      }
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          scrollToSlide(i);
+        });
+      });
+
+      // Synchronize active indicator on scroll
+      let scrollTimer = null;
+      slider.addEventListener('scroll', () => {
+        if (isDragging) return;
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+          const currentScroll = slider.scrollLeft;
+          let bestIndex = 0;
+          let minDiff = Infinity;
+          slides.forEach((slide, i) => {
+            const diff = Math.abs((slide.offsetLeft - slider.offsetLeft) - currentScroll);
+            if (diff < minDiff) {
+              minDiff = diff;
+              bestIndex = i;
+            }
+          });
+          updateNav(bestIndex);
+        }, 50);
+      }, { passive: true });
+
+      // Keyboard arrow navigation
+      slider.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          scrollToSlide(currentIndex - 1);
+        } else if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          scrollToSlide(currentIndex + 1);
+        }
+      });
+
+      // Desktop drag-to-scroll
+      slider.addEventListener('mousedown', (e) => {
+        if (e.target.closest('a, button')) return;
+        isDragging = true;
+        hasDragged = false;
+        startX = e.pageX - slider.offsetLeft;
+        startScrollLeft = slider.scrollLeft;
+        slider.classList.add('is-dragging');
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX);
+        if (Math.abs(walk) > 4) hasDragged = true;
+        slider.scrollLeft = startScrollLeft - walk;
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (!isDragging) return;
+        isDragging = false;
+        slider.classList.remove('is-dragging');
+        // Snap to nearest slide after drag
+        const currentScroll = slider.scrollLeft;
+        let bestIndex = 0;
+        let minDiff = Infinity;
+        slides.forEach((slide, i) => {
+          const diff = Math.abs((slide.offsetLeft - slider.offsetLeft) - currentScroll);
+          if (diff < minDiff) {
+            minDiff = diff;
+            bestIndex = i;
+          }
+        });
+        scrollToSlide(bestIndex);
+      });
+
+      // Prevent accidental link triggers if dragged
+      slider.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', (e) => {
+          if (hasDragged) {
+            e.preventDefault();
+            hasDragged = false;
+          }
+        });
+      });
+
+      // Initial state
+      updateNav(0);
+    })();
+  </script>
 </body>
 </html>
