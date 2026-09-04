@@ -1645,7 +1645,7 @@
     }, 2800);
   }
 
-  document.querySelectorAll('.research-btn--cite').forEach(btn => {
+  document.querySelectorAll('.pub-btn--cite, .rs-btn--cite, .research-btn--cite').forEach(btn => {
     btn.addEventListener('click', function () {
       const key = this.getAttribute('data-bibtex');
       const text = BIBTEX_DATA[key];
