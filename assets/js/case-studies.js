@@ -37,7 +37,7 @@ window.CASE_STUDIES = [
     repo: 'https://github.com/MoriartyPuth-Labs/AUPP-CTF-Platform-Security-Study-Case' },
 
   { id: 'F.04', name: 'DoccameraDLL', termName: 'DOCCAMERA', target: 'Document-camera DLL bridge',
-    sevBadge: 'CRIT', sevClass: 'crit', type: 'API · Hardware',
+    sevBadge: 'CRIT', sevClass: 'crit', type: 'API · Hardware · Published Paper',
     critCount: 4, highCount: 8, medCount: 0, findingsText: '4 Crit · 8 High (19 total)',
     statusText: 'Remediation', statusClass: 'active', quickScore: '4C·8H',
     cvss: '4 Critical · 8 High · 19 findings',

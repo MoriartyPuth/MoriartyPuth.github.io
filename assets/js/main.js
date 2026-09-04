@@ -948,6 +948,7 @@
     nocturne: 'https://nocturne-iota-orpin.vercel.app/'
   };
   const SECTIONS = {
+    research: '.research-section', papers: '.research-section', publications: '.research-section',
     community: '.community-section', tools: '.pinned-section', bubble: '.pinned-section',
     live: '.live-projects', writeups: '.ctf-writeups-section', ctf: '.ctf-writeups-section',
     certs: '.certs-section', scan: '.nikto-section',
@@ -1014,9 +1015,10 @@
     help: () => [
       '<span class="cb-good">Available commands:</span>',
       '&nbsp;<span class="cb-cmd">whoami</span>            who is this',
+      '&nbsp;<span class="cb-cmd">papers</span> · <span class="cb-cmd">research</span>  academic publications &amp; papers',
       '&nbsp;<span class="cb-cmd">ls</span> / <span class="cb-cmd">cat &lt;file&gt;</span>     browse (resume.txt, skills.txt, contact.txt)',
       '&nbsp;<span class="cb-cmd">open &lt;target&gt;</span>      open a page  (open writeup)',
-      '&nbsp;<span class="cb-cmd">goto &lt;section&gt;</span>    scroll to a section  (goto ctf · goto tools)',
+      '&nbsp;<span class="cb-cmd">goto &lt;section&gt;</span>    scroll to a section  (goto research · goto ctf · goto tools)',
       '&nbsp;<span class="cb-cmd">recon</span>             fingerprint this visitor 😈',
       '&nbsp;<span class="cb-cmd">nmap</span>              scan the portfolio',
       '&nbsp;<span class="cb-cmd">contact</span>           how to reach me',
@@ -1025,11 +1027,27 @@
     ],
     whoami: () => ['<span class="cb-good">Moriarty Puth</span> — Offensive Security Researcher',
       'Final-year cybersecurity student · Cambodia',
-      'API security · Binary exploitation · AI tooling'],
-    ls: () => ['<span class="cb-dir">projects/</span>  <span class="cb-dir">certs/</span>  resume.txt  skills.txt  contact.txt'],
+      'API security · Binary exploitation · AI tooling · 2x Published Author'],
+    papers: () => [
+      '<span class="cb-good">Published Research &amp; Papers:</span>',
+      ' [01] <span class="cb-hl">Linear-Time Continuous Shannon Entropy</span> (O(1) Sliding-Window)',
+      '      Information Theory · Mathematical Formulation',
+      '      <a href="https://www.researchgate.net/publication/413880282" target="_blank" rel="noopener" class="cb-link">https://www.researchgate.net/publication/413880282</a>',
+      '',
+      ' [02] <span class="cb-hl">Breaking the Localhost Illusion</span> (Hardware WebSocket Bridges)',
+      '      Offensive Security · CSWSH &amp; Identity Systems',
+      '      <a href="https://www.researchgate.net/publication/413879936" target="_blank" rel="noopener" class="cb-link">https://www.researchgate.net/publication/413879936</a>',
+      '',
+      '<span class="cb-dim">tip: run "goto research" to jump to cards &amp; copy BibTeX</span>'
+    ],
+    research: () => {
+      scrollTo('.research-section');
+      return ['<span class="cb-good">[+]</span> Scrolling to Academic Research &amp; Publications section...'];
+    },
+    ls: () => ['<span class="cb-dir">projects/</span>  <span class="cb-dir">research/</span>  <span class="cb-dir">certs/</span>  resume.txt  skills.txt  contact.txt'],
     'cat resume.txt': () => ['────────────────────────────', 'Name:    Moriarty Puth', 'Role:    Offensive Security Researcher',
       'Focus:   API sec · Reverse engineering · AI tooling', 'Notable: Top-30 at CNCC 2026 — highest score',
-      '         Top-80 crackmes.one', 'Status:  <span class="cb-ok">[REDACTED] · building for fun</span>', '────────────────────────────'],
+      '         Top-80 crackmes.one ranking · 2x Published Research', 'Status:  <span class="cb-ok">[REDACTED] · building for fun</span>', '────────────────────────────'],
     'cat skills.txt': () => ['Reverse Engineering   ▸ ADVANCED', 'Web/API Exploitation  ▸ ADVANCED',
       'Reconnaissance        ▸ PROFICIENT', 'Binary Exploitation   ▸ PROFICIENT',
       'Malware Analysis      ▸ PROFICIENT', 'AI Security           ▸ INTERMEDIATE',
@@ -1586,6 +1604,90 @@
       trigger.setAttribute('aria-expanded', 'false');
       band.setAttribute('aria-hidden', 'true');
       trigger.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  });
+})();
+
+/* ── Research & Publications: BibTeX Copy Handler ── */
+(function () {
+  const BIBTEX_DATA = {
+    entropy: `@article{eav2026linear_shannon_entropy,
+  title     = {Linear-Time Continuous Shannon Entropy: Mathematical Formulation, O(1) Sliding-Window Decompositions, and Information-Theoretic Structural Analysis},
+  author    = {Eav, Puthcambo},
+  journal   = {ResearchGate},
+  year      = {2026},
+  doi       = {10.13140/RG.2.2.34567.89012},
+  url       = {https://www.researchgate.net/publication/413880282}
+}`,
+    localhost: `@article{eav2026breaking_localhost_illusion,
+  title     = {Breaking the Localhost Illusion: An Empirical Security and Privacy Analysis of Hardware-Integrated WebSocket Bridges in Digital Identity Systems},
+  author    = {Eav, Puthcambo},
+  journal   = {ResearchGate},
+  year      = {2026},
+  url       = {https://www.researchgate.net/publication/413879936}
+}`
+  };
+
+  let toast = document.querySelector('.research-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.className = 'research-toast';
+    document.body.appendChild(toast);
+  }
+
+  let toastTimeout = null;
+  function showToast(msg) {
+    toast.innerHTML = '<span style="color:#22c55e">✓</span> ' + msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2800);
+  }
+
+  document.querySelectorAll('.research-btn--cite').forEach(btn => {
+    btn.addEventListener('click', function () {
+      const key = this.getAttribute('data-bibtex');
+      const text = BIBTEX_DATA[key];
+      if (!text) return;
+
+      const btnSpan = this.querySelector('span');
+      const originalText = btnSpan ? btnSpan.textContent : 'Copy BibTeX';
+
+      function onSuccess() {
+        btn.classList.add('copied');
+        if (btnSpan) btnSpan.textContent = 'Copied!';
+        showToast('BibTeX citation copied to clipboard!');
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          if (btnSpan) btnSpan.textContent = originalText;
+        }, 2200);
+      }
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(onSuccess).catch(() => {
+          // Fallback
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          onSuccess();
+        });
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        onSuccess();
+      }
     });
   });
 })();

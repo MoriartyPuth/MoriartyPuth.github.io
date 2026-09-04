@@ -181,6 +181,7 @@
       </div>
       <nav class="nav">
         <a class="active" href="index.html">Home</a>
+        <a href="#research">Research<span class="nav-tag"> / 2 pub</span></a>
         <a href="categories.html">Categories</a>
         <a href="category-writeup.html">Writeup</a>
         <a href="https://moriartyputh.gitbook.io/">Blog</a>
@@ -536,6 +537,143 @@
         </div>
       </section>
 
+      <!-- Academic Research & Publications -->
+      <section class="research-section" id="research" aria-label="Academic Research and Publications">
+        <div class="research-header">
+          <div class="research-header-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+              <line x1="9" y1="7" x2="15" y2="7"/>
+              <line x1="9" y1="11" x2="13" y2="11"/>
+            </svg>
+          </div>
+          <div class="research-header-title">
+            <div class="research-title-row">
+              <h3>Academic Research &amp; Publications</h3>
+              <span class="research-count-badge">2 Papers Published</span>
+            </div>
+            <p class="meta">Mathematical formulations, algorithmic complexity &amp; hardware security analysis</p>
+          </div>
+        </div>
+
+        <div class="research-cards">
+
+          <!-- Paper 1: Linear-Time Continuous Shannon Entropy -->
+          <article class="research-card research-card--cyan">
+            <div class="research-card-top">
+              <div class="research-badges">
+                <span class="research-badge research-badge--topic">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
+                  Information Theory · Algorithmic Complexity
+                </span>
+                <span class="research-badge research-badge--venue">
+                  <span class="research-pulse"></span>
+                  ResearchGate · 2026
+                </span>
+              </div>
+              <span class="research-paper-id">PAPER ID: 413880282</span>
+            </div>
+
+            <h4 class="research-title">
+              <a href="https://www.researchgate.net/publication/413880282_Linear-Time_Continuous_Shannon_Entropy_Mathematical_Formulation_O1_Sliding-Window_Decompositions_and_Information-Theoretic_Structural_Analysis?channel=doi&amp;linkId=6a980079a4549d7af9bf004f&amp;showFulltext=true" target="_blank" rel="noopener">
+                Linear-Time Continuous Shannon Entropy: Mathematical Formulation, O(1) Sliding-Window Decompositions, and Information-Theoretic Structural Analysis
+              </a>
+            </h4>
+
+            <div class="research-meta-line">
+              <span class="research-author"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Puthcambo Eav (Moriarty)</span>
+              <span class="research-divider">·</span>
+              <span class="research-access">Full Text Available</span>
+            </div>
+
+            <p class="research-abstract">
+              Formulates continuous differential Shannon entropy with an exact \(O(1)\) sliding-window update decomposition, eliminating polynomial recalculation overhead for streaming signal telemetry and high-throughput real-time security auditing.
+            </p>
+
+            <div class="research-tags">
+              <span class="research-tag">#Continuous-Entropy</span>
+              <span class="research-tag">#O(1)-Sliding-Window</span>
+              <span class="research-tag">#Information-Theory</span>
+              <span class="research-tag">#Streaming-Telemetry</span>
+              <span class="research-tag">#Mathematical-Formulation</span>
+            </div>
+
+            <div class="research-actions">
+              <a href="https://www.researchgate.net/publication/413880282_Linear-Time_Continuous_Shannon_Entropy_Mathematical_Formulation_O1_Sliding-Window_Decompositions_and_Information-Theoretic_Structural_Analysis?channel=doi&amp;linkId=6a980079a4549d7af9bf004f&amp;showFulltext=true" target="_blank" rel="noopener" class="research-btn research-btn--primary">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                Read Paper (ResearchGate) →
+              </a>
+              <a href="https://github.com/MoriartyPuth/Sila-Entropy" target="_blank" rel="noopener" class="research-btn research-btn--ghost">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                Related Engine: Sila-Entropy
+              </a>
+              <button class="research-btn research-btn--cite" data-bibtex="entropy" type="button">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copy BibTeX</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Paper 2: Breaking the Localhost Illusion -->
+          <article class="research-card research-card--amber">
+            <div class="research-card-top">
+              <div class="research-badges">
+                <span class="research-badge research-badge--topic research-badge--topic-amber">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  Offensive Security · Hardware &amp; Web Privacy
+                </span>
+                <span class="research-badge research-badge--venue">
+                  <span class="research-pulse"></span>
+                  ResearchGate · 2026
+                </span>
+              </div>
+              <span class="research-paper-id">PAPER ID: 413879936</span>
+            </div>
+
+            <h4 class="research-title">
+              <a href="https://www.researchgate.net/publication/413879936_Breaking_the_Localhost_Illusion_An_Empirical_Security_and_Privacy_Analysis_of_Hardware-Integrated_WebSocket_Bridges_in_Digital_Identity_Systems" target="_blank" rel="noopener">
+                Breaking the Localhost Illusion: An Empirical Security and Privacy Analysis of Hardware-Integrated WebSocket Bridges in Digital Identity Systems
+              </a>
+            </h4>
+
+            <div class="research-meta-line">
+              <span class="research-author"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Puthcambo Eav (Moriarty)</span>
+              <span class="research-divider">·</span>
+              <span class="research-access">Full Text Available</span>
+            </div>
+
+            <p class="research-abstract">
+              Empirical vulnerability breakdown demonstrating how unauthenticated localhost loopback WebSocket bridges driving physical identity hardware violate the browser boundary via Cross-Site WebSocket Hijacking (CSWSH), enabling stealth citizen ID extraction and camera stream exfiltration.
+            </p>
+
+            <div class="research-tags">
+              <span class="research-tag">#WebSocket-Security</span>
+              <span class="research-tag">#CSWSH</span>
+              <span class="research-tag">#Localhost-Trust-Boundary</span>
+              <span class="research-tag">#Hardware-DLL-Bridge</span>
+              <span class="research-tag">#Digital-Identity-Privacy</span>
+            </div>
+
+            <div class="research-actions">
+              <a href="https://www.researchgate.net/publication/413879936_Breaking_the_Localhost_Illusion_An_Empirical_Security_and_Privacy_Analysis_of_Hardware-Integrated_WebSocket_Bridges_in_Digital_Identity_Systems" target="_blank" rel="noopener" class="research-btn research-btn--primary research-btn--primary-amber">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                Read Paper (ResearchGate) →
+              </a>
+              <a href="https://github.com/MoriartyPuth-Labs/DoccameraDLL-Security-Case-Study" target="_blank" rel="noopener" class="research-btn research-btn--ghost">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                Related Study: DoccameraDLL
+              </a>
+              <button class="research-btn research-btn--cite" data-bibtex="localhost" type="button">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copy BibTeX</span>
+              </button>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
       <!-- Community Open Source -->
       <section class="community-section" aria-label="Community Open Source Projects">
         <div class="live-projects-header">
@@ -704,6 +842,7 @@
               <span class="tools-tag">Python</span>
               <span class="tools-tag">CLI</span>
               <span class="tools-tag">Passwords</span>
+              <a href="#research" class="tools-tag" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.35); text-decoration: none;">📄 Paper Published</a>
             </div>
             <div class="tools-card-actions">
               <a class="tools-card-link" href="https://github.com/MoriartyPuth/Sila-Entropy" target="_blank" rel="noopener">GitHub →</a>
