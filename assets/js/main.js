@@ -945,7 +945,7 @@
     re: 'category-writeup.html', 'reverse-engineering': 'category-writeup.html',
     blue: 'category-blue-team.html', 'blue-team': 'category-blue-team.html',
     ml: 'category-ml-ai.html', ai: 'category-ml-ai.html',
-    nocturne: 'https://nocturne-production-281a.up.railway.app/'
+    nocturne: 'https://nocturne-iota-orpin.vercel.app/'
   };
   const SECTIONS = {
     community: '.community-section', tools: '.pinned-section', bubble: '.pinned-section',

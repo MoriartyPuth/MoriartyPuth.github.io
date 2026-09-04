@@ -2114,6 +2114,12 @@ body::before {
   border: 1px solid rgba(59, 130, 246, 0.35);
 }
 
+.live-badge--vercel {
+  background: rgba(15, 21, 18, 0.75);
+  color: #f3f4f6;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 /* Pulsing live dot */
 .pulse-dot {
   width: 7px;
